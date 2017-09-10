@@ -1,0 +1,78 @@
+body{
+    background-color: rgb(57, 108, 146);
+}
+.topNavbar{
+    padding-bottom:30px;
+    background-color:white;
+}
+.bar1,.bar2,.bar3{
+    z-index: -1;
+    width:30px;
+    height:4px;
+    border-radius:3px;
+    background-color:rgb(57, 108, 146);
+    margin:6px;
+    transition: 0.5s ease;
+  }
+  .change .bar1 {
+      transform: rotate(45deg) translate(5px, 10px) ;
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+      transform: rotate(-45deg) translate(5px, -10px) ;
+  }
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(57, 108, 146);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-right: 1px solid #F0C430;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #F0C430;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.navbar-toggle {
+    display: block;
+    
+}
+.navbar-header{
+    margin-left:5px;
+    width:100%;
+}
+
