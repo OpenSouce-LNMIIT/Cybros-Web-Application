@@ -1,12 +1,20 @@
 body{
-    background-color: rgb(57, 108, 146);
+    background-color: #EDEDED;
 }
 .topNavbar{
     padding-bottom:30px;
     background-color:white;
 }
+a:hover{
+    text-decoration: none;
+    color:black;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
 .bar1,.bar2,.bar3{
-    z-index: -1;
+    z-index: 1;
     width:30px;
     height:4px;
     border-radius:3px;
@@ -15,13 +23,14 @@ body{
     transition: 0.5s ease;
   }
   .change .bar1 {
-      transform: rotate(45deg) translate(5px, 10px) ;
+      transform: rotate(45deg) translate(5px, 9.5px) ;
+      
   }
   
   .change .bar2 {opacity: 0;}
   
   .change .bar3 {
-      transform: rotate(-45deg) translate(5px, -10px) ;
+      transform: rotate(-45deg) translate(5px, -9.5px) ;
   }
   .sidenav {
     height: 100%;
@@ -30,24 +39,25 @@ body{
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(57, 108, 146);
+    background-color: white;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    border-right: 1px solid #F0C430;
+    border-right: 1px solid rgb(57, 108, 146);
 }
 
 .sidenav a {
+    font-family: 'Poiret One', cursive;
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #F0C430;
+    color: rgb(57, 108, 146);
     display: block;
     transition: 0.3s;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: black;
 }
 
 .sidenav .closebtn {
@@ -65,14 +75,68 @@ body{
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav a {font-size: 15px;}
+  .banner1{
+      height:200px;
+  }
+  .banner2{
+    height:200px;
+  }
+}
+.quote{
+    padding-top:20%;
+    font-size:40px;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 .navbar-toggle {
     display: block;
     
 }
 .navbar-header{
-    margin-left:5px;
+    margin-left:10px;
     width:100%;
 }
+.filler{
+    background-color: #EDEDED;
+    font-family: 'Poiret One', cursive;
+    font-size:20px;
+}
+.filler h3{
+    font-family: 'Poiret One', cursive;
+    font-size:40px!important;
+    color:rgb(57, 108, 146);
+}
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+	background-color:white;
+	
+}
 
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 10px 18px 0 rgba(0,0,0,0.3);
+}
+.card img{
+  height:250px;
+}
+.footer{
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    background-color: white;
+    color:black;
+}
+.footer h4{
+    font-family: 'Poiret One', cursive;
+    font-size: 25px;
+    color: rgb(57, 108, 146); 
+}
+.footer a:hover{
+    color: rgb(57, 108, 146);
+    font-size:1.2em;
+}
+.but{
+    color: white;
+    background-color: rgb(57, 108, 146);
+}
