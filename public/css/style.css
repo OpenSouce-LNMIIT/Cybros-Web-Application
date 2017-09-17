@@ -1,9 +1,13 @@
 body{
     background-color: #EDEDED;
+    height: 100%;
+   
+      
 }
 .topNavbar{
     padding-bottom:30px;
     background-color:white;
+
 }
 a:hover{
     text-decoration: none;
@@ -78,9 +82,11 @@ a{
   .sidenav a {font-size: 15px;}
   .banner1{
       height:200px;
+      width:360px;
   }
   .banner2{
     height:200px;
+    width:360px;
   }
 }
 .quote{
@@ -101,7 +107,7 @@ a{
     font-family: 'Poiret One', cursive;
     font-size:20px;
 }
-.filler h3{
+.filler-heading{
     font-family: 'Poiret One', cursive;
     font-size:40px!important;
     color:rgb(57, 108, 146);
@@ -139,4 +145,7 @@ a{
 .but{
     color: white;
     background-color: rgb(57, 108, 146);
+}
+@media screen and (max-width: 400px) {
+    
 }
