@@ -28,8 +28,7 @@ a{
   }
   .change .bar1 {
       transform: rotate(45deg) translate(5px, 9.5px) ;
-      
-  }
+}
   
   .change .bar2 {opacity: 0;}
   
@@ -43,7 +42,7 @@ a{
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: white;
+    background-color:rgb(255,255,255,0.85);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
@@ -80,19 +79,15 @@ a{
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 15px;}
-  .banner1{
-      height:200px;
-      width:360px;
-  }
-  .banner2{
-    height:200px;
-    width:360px;
-  }
 }
 .quote{
-    padding-top:20%;
+    padding-top:15%;
     font-size:40px;
     font-family: 'Gloria Hallelujah', cursive;
+    
+    vertical-align: middle!important;
+    
+  
 }
 .navbar-toggle {
     display: block;
@@ -146,6 +141,11 @@ a{
     color: white;
     background-color: rgb(57, 108, 146);
 }
-@media screen and (max-width: 400px) {
-    
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    .banner1{
+       
+    }
+    .banner2{
+        
+    }
 }
