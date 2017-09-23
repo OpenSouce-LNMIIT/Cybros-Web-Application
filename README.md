@@ -42,5 +42,5 @@ Just open an issue with your suggestion.
 
 ## License
 
-Yet to be added.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
