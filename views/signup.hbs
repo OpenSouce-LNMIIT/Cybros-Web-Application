@@ -42,8 +42,27 @@
                 </div>
         </nav>
         <div style="padding-top:97px;">
-                <h3 class="text-center filler-heading">Sign in / Sign up</h3>
-                
+                <h3 class="text-center filler-heading">Get connected with us.</h3>
+                <div class="login-box row">
+                    <form class="left col-md-6" action="/signup/new_User" method="post">
+                        <h1>Sign up</h1>
+                        
+                        <input type="text" name="username" placeholder="Username" />
+                        <input type="text" name="email" placeholder="E-mail" />
+                        <input type="password" name="password" placeholder="Password" />
+                        <input type="password" name="repassword" placeholder="Retype password" />
+                        <input type="submit" name="signup_submit" value="Sign up"/>
+                    </form>
+                    <div class="or">OR</div>
+                    <div class="right col-md-6">
+                        <h1>Sign in</h1>
+                        
+                        <input type="text" name="username" placeholder="Username" />
+                        <input type="password" name="password" placeholder="Password" />
+                        <input type="submit" name="signup_submit" value="Sign in"/>
+                    </div>
+                    
+                </div>
         </div>
         
         <div class="container-fluid footer">

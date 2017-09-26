@@ -7,7 +7,7 @@
 6 silly lifecycle cybros-web-application@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle cybros-web-application@0.0.0~start: cybros-web-application@0.0.0
 8 verbose lifecycle cybros-web-application@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle cybros-web-application@0.0.0~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/chaitanyagiri/D/Cybros-Web-Application/node_modules/.bin:/home/chaitanyagiri/bin:/home/chaitanyagiri/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+9 verbose lifecycle cybros-web-application@0.0.0~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/chaitanyagiri/D/Cybros-Web-Application/node_modules/.bin:/home/chaitanyagiri/bin:/home/chaitanyagiri/.local/bin:/home/chaitanyagiri/bin:/home/chaitanyagiri/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 10 verbose lifecycle cybros-web-application@0.0.0~start: CWD: /home/chaitanyagiri/D/Cybros-Web-Application
 11 silly lifecycle cybros-web-application@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle cybros-web-application@0.0.0~start: Returned: code: 1  signal: null
