@@ -10,23 +10,38 @@ Official web application of Cybros.
 
 ### Prerequisites
 
-Nodejs, ExpressJS
+Nodejs, mongodb
 
 ### Installing
-
-$ git clone URLFROMREPOSITORY <br>
+```
+$ git clone https://github.com/Cybros/Cybros-Web-Application.git <br>
 $ cd Cybros-Web-Application<br>
 $ npm install<br>
-$ npm start <br>
-
+```
+## Configure Database server
+open in new terminal window
+```
+$ mongod
+```
 ## Deployment
 
-After installing you must get something like this
+After configuring database server type code given below in terminal window(other than the one in which mongod server is running)
+```
+$ npm start
+```
+you must get something like this
 ```
 $ Magic happens in port:3000
 ```
 Then go to http://localhost:3000/ 
 
+## Managing data
+
+Go to mongo terminal by typing
+```
+$ mongo
+```
+Then use database named "Cybros", in this all the user's data is saved in the collection named "users".
 ## Built With
 
 * [Nodejs]
@@ -39,8 +54,7 @@ Then go to http://localhost:3000/
 
 Just open an issue with your suggestion.
 
-
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md] file for details
 
