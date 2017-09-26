@@ -2,6 +2,59 @@
 ![Cybros](https://github.com/phunsukwangdu/image/blob/master/cybros.jpg)
 
 ![DUB](https://img.shields.io/dub/l/vibe-d.svg?style=flat) [![Join the chat](https://img.shields.io/badge/gitter-join%20chat%20%E2%86%92-brightgreen.svg)](https://gitter.im/LNMIIT-Computer-Club/Lobby)
-# Cybros web application
-## see whats done: https://chaitanyagiri.github.io/Cybros-Web-Application/
-### use gitter channel to communicate 
+# Cybros Web Application
+
+Official web application of Cybros.
+
+## Getting Started
+
+### Prerequisites
+
+Nodejs, mongodb
+
+### Installing
+```
+$ git clone https://github.com/Cybros/Cybros-Web-Application.git <br>
+$ cd Cybros-Web-Application<br>
+$ npm install<br>
+```
+## Configure Database server
+open in new terminal window
+```
+$ mongod
+```
+## Deployment
+
+After configuring database server type code given below in terminal window(other than the one in which mongod server is running)
+```
+$ npm start
+```
+you must get something like this
+```
+$ Magic happens in port:3000
+```
+Then go to http://localhost:3000/ 
+
+## Managing data
+
+Go to mongo terminal by typing
+```
+$ mongo
+```
+Then use database named "Cybros", in this all the user's data is saved in the collection named "users".
+## Built With
+
+* [Nodejs]
+* [ExpressJS]
+* [MongoDB]
+* [JQuery]
+* [Bootstrap]
+
+## Contributing
+
+Just open an issue with your suggestion.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md] file for details
+
