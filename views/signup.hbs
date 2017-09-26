@@ -47,11 +47,12 @@
                     <form class="left col-md-6" action="/signup/new_User" method="post">
                         <h1>Sign up</h1>
                         
-                        <input type="text" name="username" placeholder="Username" />
-                        <input type="text" name="email" placeholder="E-mail" />
-                        <input type="password" name="password" placeholder="Password" />
-                        <input type="password" name="repassword" placeholder="Retype password" />
-                        <input type="submit" name="signup_submit" value="Sign up"/>
+                        <input type="text" name="username" placeholder="Username" required >
+                        <input type="text" name="email" placeholder="E-mail" required>
+                        <input type="password" name="password" placeholder="Password" required >
+                        <input type="password" name="repassword" placeholder="Retype password" required >
+                        <p>{{passwordNotMatch}}</p>
+                        <input type="submit" name="signup_submit" value="Sign up">
                     </form>
                     <div class="or">OR</div>
                     <div class="right col-md-6">
