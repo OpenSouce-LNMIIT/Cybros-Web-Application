@@ -28,7 +28,7 @@ router.post('/new_User', function(req, res) {
                 if(user[0].username){
                     console.log("Username already exist username:"+user[0].username);
                     res.render('signup.hbs', {
-                        passwordNotMatch:"Username already exist, try again"
+                        signup:"Username already exist, try again"
                     });                      
                 }                                 
             }
@@ -52,10 +52,38 @@ router.post('/new_User', function(req, res) {
                 } 
                 else {
                     res.render('signup.hbs', {
-                        passwordNotMatch:"Password do not match, try again."
+                        signup:"Password do not match, try again."
                     });
                 }
             }             
+        }
+    });         
+});
+
+// User sign in
+router.post('/login', function(req, res) {
+    // Unique user validation
+    var userlist = [];
+    User.find({username:req.body.username},function(err,user){
+        if(err){
+            res.status(500).send({error:"Could not get to Database"});
+            console.log("Could get to database");
+        }
+        else{
+            if (user.length!=0) {
+                if(user[0].username){
+                    console.log(req.body);
+                    console.log(user);
+                    if(user[0].Password == req.body.password){
+                        res.send(user);
+                    }  
+                    else{
+                        res.render('signup.hbs', {
+                            login:"Username or password wrong, try again."
+                        });
+                    }               
+                }                                 
+            } 
         }
     });         
 });
