@@ -3,6 +3,10 @@ var router = express.Router();
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
+
+/* 1st Note for KARAN sir : I am  using a global variable to store user details for a session*/ 
+profile = {};
+
 // User Schema imported 
 var User = require("./../models/User");
 
@@ -75,7 +79,10 @@ router.post('/login', function(req, res) {
                     console.log(req.body);
                     console.log(user);
                     if(user[0].Password == req.body.password){
+                        //Successful sign in
                         res.send(user);
+                        /*2nd Note for KARAN sir : Here assigning user's details to that global variable*/
+                        profile = user[0];
                     }  
                     else{
                         res.render('signup.hbs', {
@@ -87,4 +94,5 @@ router.post('/login', function(req, res) {
         }
     });         
 });
+
 module.exports = router;
