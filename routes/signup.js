@@ -21,7 +21,12 @@ app.use(cookieParser());
 /* GET Signup page. */
 router.get('/', function(req, res) {
     sess=req.session;
-    res.render('signup.hbs', {});
+    if(sess.user) {
+      res.render('signup.hbs', {user : sess.user.username});
+    }
+    else {
+      res.render('signup.hbs', {user : "New user"});
+    }
 });
 
 // New User Signup 
@@ -79,31 +84,46 @@ router.post('/login', function(req, res) {
     sess=req.session;
     // Unique user validation
     var userlist = [];
-    // Checking username from current database 
-    User.find({username:req.body.username},function(err,user){
-        if(err){
-            res.status(500).send({error:"Could not get to Database"});
-            console.log("Could get to database");
-        }
-        else{
-            if (user.length!=0) {
-                if(user[0].username){
-                    console.log(req.body);
-                    console.log(user);
-                    if(user[0].Password == req.body.password){
-                        //Successful sign in
-                        req.session.user = user[0];
-                        res.render('index.hbs',{user:sess.user.username});                        
-                    }  
-                    else{
-                        res.render('signup.hbs', {
-                            login:"Username or password wrong, try again."
-                        });
-                    }               
-                }                                 
-            } 
-        }
-    });         
+    if(!sess.user){
+        // Checking username from current database 
+        User.find({username:req.body.username},function(err,user){
+            if(err){
+                res.status(500).send({error:"Could not get to Database"});
+                console.log("Could get to database");
+            }
+            else{
+                if (user.length!== 0) {
+                    if(user[0].username){
+                        console.log(req.body);
+                        console.log(user);
+                        if(user[0].Password == req.body.password){
+                            //Successful sign in
+                            req.session.user = user[0];
+                            res.redirect('/');                        
+                        }  
+                        else{
+                            res.render('signup.hbs', {
+                                user :"New user",
+                                login:"Username or password wrong, try again."
+                            });
+                        }               
+                    }                                 
+                }
+                else{
+                    res.render('signup.hbs', {
+                        user :"New user",
+                        login:"Username or password wrong, try again."
+                    });
+                } 
+            }
+        });
+    }
+    else{
+        res.render('signup.hbs', {
+            user : sess.user.username,
+            login : "You have to log out first"
+        }); 
+    }         
 });
 
 module.exports = router;

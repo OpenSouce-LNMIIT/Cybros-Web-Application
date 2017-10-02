@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
     res.render('index.hbs', {user : sess.user.username});
   }
   else {
-    res.render('index.hbs', {});
+    res.render('index.hbs', {user : "New user"});
   }
   
 });
@@ -30,11 +30,11 @@ router.get('/', function(req, res, next) {
 /* GET about page. */
 router.get('/about', function(req, res, next) {
   sess=req.session;
-  if(sess.username) {
+  if(sess.user) {
     res.render('about.hbs', {user : sess.user.username});
   }
   else {
-        res.render('about.hbs');
+        res.render('about.hbs', {user : "New user"});
   }
   
 });
@@ -42,34 +42,54 @@ router.get('/about', function(req, res, next) {
 /* GET classes page. */
 router.get('/classes', function(req, res, next) {
   sess=req.session;
-  if(sess.username) {
+  if(sess.user) {
     res.render('classes.hbs', {user : sess.user.username});
   }
   else {
-        res.render('classes.hbs');
+        res.render('classes.hbs', {user : "New user"});
   }
 });
 
 /* GET competition page. */
 router.get('/competition', function(req, res, next) {
   sess=req.session;
-  if(sess.username) {
+  if(sess.user) {
     res.render('competition.hbs', {user : sess.user.username});
   }
   else {
-        res.render('competition.hbs');
+        res.render('competition.hbs', {user : "New user"});
   }
 });
 
 /* GET workshops page. */
 router.get('/workshops', function(req, res, next) {
   sess=req.session;
-  if(sess.username) {
+  if(sess.user) {
     res.render('workshops.hbs', {user : sess.user.username});
   }
   else {
-        res.render('workshops.hbs');
+        res.render('workshops.hbs', {user : "New user"});
   }
 });
 
+router.get('/profile', function(req, res, next) {
+  sess=req.session;
+  if(sess.user) {
+    res.render('profile.hbs', {user : sess.user.username});
+  }
+  else {
+        res.render('signup.hbs', {user : "New user", login : "! You have to sign in first."});
+  }
+});
+
+router.get('/logout', function(req, res, next) {
+  sess=req.session;
+  if(sess.user) {
+    req.session.destroy();
+    res.render('index.hbs', {user : "New user"});
+  }
+  else {
+        res.render('signup.hbs', {user : "New user", login : "! You have to sign in first."});
+  }
+});
 module.exports = router;
