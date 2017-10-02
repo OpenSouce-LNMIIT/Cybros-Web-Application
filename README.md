@@ -42,6 +42,11 @@ Go to mongo terminal by typing
 $ mongo
 ```
 Then use database named "Cybros", in this all the user's data is saved in the collection named "users".
+
+OR if you want to generate a ".csv" file use:
+```
+$ mongoexport --host localhost --db Cybros --collection users --csv --out text.csv --fields username,Password,Email
+``` 
 ## Built With
 
 * [Nodejs]
