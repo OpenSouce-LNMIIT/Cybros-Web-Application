@@ -1,13 +1,19 @@
 body{
     background-color: #EDEDED;
     height: 100%;
-   
-      
 }
+/*Navbar*/
 .topNavbar{
     padding-bottom:30px;
     background-color:white;
 
+}
+.navbar-toggle {
+    display: block;
+}
+.navbar-header{
+    margin-left:10px;
+    width:100%;
 }
 a:hover{
     text-decoration: none;
@@ -17,6 +23,7 @@ a{
     text-decoration: none;
     color:black;
 }
+/*Toggle menue switch animation bars*/
 .bar1,.bar2,.bar3{
     z-index: 1;
     width:30px;
@@ -35,6 +42,7 @@ a{
   .change .bar3 {
       transform: rotate(-45deg) translate(5px, -9.5px) ;
   }
+  /*Side navbar*/
   .sidenav {
     height: 100%;
     width: 0;
@@ -84,19 +92,9 @@ a{
     padding-top:15%;
     font-size:40px;
     font-family: 'Gloria Hallelujah', cursive;
-    
-    vertical-align: middle!important;
-    
-  
+    vertical-align: middle!important;  
 }
-.navbar-toggle {
-    display: block;
-    
-}
-.navbar-header{
-    margin-left:10px;
-    width:100%;
-}
+/* Filler */
 .filler{
     background-color: #EDEDED;
     font-family: 'Poiret One', cursive;
@@ -151,7 +149,7 @@ a{
 }
 
 
-/*sign up/sign in form */
+/*Sign up/ Sign in form */
 
 
 *:focus {
@@ -167,7 +165,7 @@ a{
   border-radius: 2px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
-
+/* Signup form*/
 .left {
   position: absolute;
   top: 0;
@@ -236,7 +234,7 @@ a{
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   transition: 0.1s ease;
 }
-
+/* OR */
 .or {
   position: absolute;
   top: 180px;
@@ -249,7 +247,7 @@ a{
   line-height: 40px;
   text-align: center;
 }
-
+/* Sign in form */
 .right {
   position: absolute;
   top: 0;

@@ -1,14 +1,14 @@
+/* Gets provoked every alternate time toggle switch is clicked*/
 function openNav() {
     document.getElementById("mySidenav").style.width = "250px";
-   // document.getElementById("main").style.marginLeft = "250px";
 }
-
+/* Gets provoked every alternate time toggle switch is clicked*/
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-  //  document.getElementById("main").style.marginLeft= "0";
 }
 $(document).ready(function(){
-    var click = 0;
+    var click = 0;   //Click flag
+    
     $(".toggle-switch").click(function(){
         this.classList.toggle("change");
         if(click === 0){

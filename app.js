@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 // Setting up mongoose 
 var mongoose = require("mongoose");
@@ -16,20 +17,22 @@ var signup = require('./routes/signup');
 
 var app = express();
 
-
-
 // view engine setup --using handelbars
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-
+// using express-sessions to manage session
+app.use(session({
+  secret: 'cybros',
+  resave: true,
+  saveUninitialized: false
+}));
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// set path ! Needs to be asked to  
 app.use(express.static(path.join(__dirname, '/views')));
 app.use(express.static(path.join(__dirname, '/')));
 

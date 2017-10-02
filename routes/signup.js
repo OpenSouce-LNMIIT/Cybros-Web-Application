@@ -2,23 +2,29 @@ var express = require('express');
 var router = express.Router();
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var app = express();
-
-/* 1st Note for KARAN sir : I am  using a global variable to store user details for a session*/ 
-profile = {};
+var session = require('express-session');
+var app = express(); 
+var sess = {}
 
 // User Schema imported 
 var User = require("./../models/User");
 
+app.use(session({
+    secret: 'cybros',
+    resave: true,
+    saveUninitialized: false
+  }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-/* GET home page. */
+/* GET Signup page. */
 router.get('/', function(req, res) {
+    sess=req.session;
     res.render('signup.hbs', {});
 });
-//
+
+// New User Signup 
 router.post('/new_User', function(req, res) {
     // Unique user validation
     var userlist = [];
@@ -43,6 +49,7 @@ router.post('/new_User', function(req, res) {
                     user.username = req.body.username;
                     user.Email = req.body.email;
                     user.Password = req.body.password;
+                    // Saving new user to database
                     user.save(function(err, registeredUser){
                         if(err){
                             res.status(500).send({error:"Could not save register user"});
@@ -50,6 +57,9 @@ router.post('/new_User', function(req, res) {
                         }
                         else{
                             res.send(registeredUser);
+                            res.render('signup.hbs', {
+                                login:"User registered. Login here to continue."
+                            });
                             console.log('! A user registered: Username:: ' + req.body.username + ', Password: ' + req.body.password+', Email: ' + req.body.email);            
                         }
                     });
@@ -66,8 +76,10 @@ router.post('/new_User', function(req, res) {
 
 // User sign in
 router.post('/login', function(req, res) {
+    sess=req.session;
     // Unique user validation
     var userlist = [];
+    // Checking username from current database 
     User.find({username:req.body.username},function(err,user){
         if(err){
             res.status(500).send({error:"Could not get to Database"});
@@ -80,9 +92,8 @@ router.post('/login', function(req, res) {
                     console.log(user);
                     if(user[0].Password == req.body.password){
                         //Successful sign in
-                        res.send(user);
-                        /*2nd Note for KARAN sir : Here assigning user's details to that global variable*/
-                        profile = user[0];
+                        req.session.user = user[0];
+                        res.render('index.hbs',{user:sess.user.username});                        
                     }  
                     else{
                         res.render('signup.hbs', {
