@@ -1,0 +1,299 @@
+body{
+    background-color: #EDEDED;
+    height: 100%;
+}
+/*Navbar*/
+.topNavbar{
+    padding-bottom:30px;
+    background-color:white;
+
+}
+.navbar-toggle {
+    display: block;
+}
+.navbar-header{
+    margin-left:10px;
+    width:100%;
+}
+a:hover{
+    text-decoration: none;
+    color:black;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+/*Toggle menu switch animation bars*/
+.bar1,.bar2,.bar3{
+    z-index: 1;
+    width:30px;
+    height:4px;
+    border-radius:3px;
+    background-color:rgb(57, 108, 146);
+    margin:6px;
+    transition: 0.5s ease;
+  }
+  .change .bar1 {
+      transform: rotate(45deg) translate(5px, 9.5px) ;
+}
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+      transform: rotate(-45deg) translate(5px, -9.5px) ;
+  }
+  /*Side navbar*/
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color:rgba(255,255,255,0.85);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    border-right: 1px solid rgb(57, 108, 146);
+}
+
+.sidenav a {
+    font-family: 'Poiret One', cursive;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: rgb(57, 108, 146);
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: black;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 15px;}
+}
+.quote{
+    padding-top:15%;
+    font-size:40px;
+    font-family: 'Gloria Hallelujah', cursive;
+    vertical-align: middle!important;  
+}
+/* Filler */
+.filler{
+    background-color: #EDEDED;
+    font-family: 'Poiret One', cursive;
+    font-size:20px;
+}
+.filler-heading{
+    font-family: 'Poiret One', cursive;
+    font-size:40px!important;
+    color:rgb(57, 108, 146);
+}
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+	background-color:white;
+	
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 10px 18px 0 rgba(0,0,0,0.3);
+}
+.card img{
+  height:250px;
+}
+.footer{
+    font-family: 'Rubik', sans-serif;
+    font-size: 15px;
+    background-color: white;
+    color:black;
+}
+.footer h4{
+    font-family: 'Poiret One', cursive;
+    font-size: 25px;
+    color: rgb(57, 108, 146); 
+}
+.footer a:hover{
+    color: rgb(57, 108, 146);
+    font-size:1.2em;
+}
+.but{
+    color: white;
+    background-color: rgb(57, 108, 146);
+}
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    .banner1{
+       
+    }
+    .banner2{
+        
+    }
+}
+
+
+/*Sign up/ Sign in form */
+
+
+*:focus {
+  outline: none;
+}
+
+.login-box {
+  position: relative;
+  margin: 5% auto;
+  width: 600px;
+  height: 400px;
+  background: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+/* Signup form*/
+.left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+}
+
+.login-box h1 {
+  margin: 0 0 20px 0;
+  font-weight: 300;
+  font-size: 28px;
+  color: rgb(57, 108, 146); 
+  font-family: 'Poiret One', cursive;
+  
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid #AAA;
+  font-family: 'Poiret One', cursive;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2s ease;
+}
+
+.login-box input[type="text"]:focus,
+.login-box input[type="password"]:focus {
+  border-bottom: 2px solid rgb(57, 108, 146); ;
+  transition: 0.2s ease;
+}
+
+.login-box input[type="submit"] {
+  margin-top: 28px;
+  width: 120px;
+  height: 32px;
+  background: rgb(57, 108, 146); 
+  border: none;
+  border-radius: 2px;
+  color: #FFF;
+  font-family: 'Poiret One', cursive;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.1s ease;
+  cursor: pointer;
+}
+
+.login-box input[type="submit"]:hover,
+.login-box input[type="submit"]:focus {
+  opacity: 0.8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+
+.login-box input[type="submit"]:active {
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: 0.1s ease;
+}
+/* OR */
+.or {
+  position: absolute;
+  top: 180px;
+  left: 280px;
+  width: 40px;
+  height: 40px;
+  background: #DDD;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  line-height: 40px;
+  text-align: center;
+}
+/* Sign in form */
+.right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 300px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 2px 2px 0;
+}
+
+.right .loginwith {
+  display: block;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: #FFF;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .login-box {
+        width: 100%;
+    }
+    .left {
+        width: 50%;
+        float: left;
+        height: 700px;
+        display: block;
+        overflow: auto;
+        position: absolute;
+    }
+    .or {
+        left: calc(50% - 20px);
+    }
+    .right {
+        width: 50%;
+        height: 700px;
+        display: block;
+        overflow: auto;
+        position: absolute;
+    }
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+        width: 100%;
+        font-size: 0.9em;
+    }
+}
