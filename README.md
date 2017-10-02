@@ -14,9 +14,9 @@ Nodejs, mongodb
 
 ### Installing
 ```
-$ git clone https://github.com/Cybros/Cybros-Web-Application.git <br>
-$ cd Cybros-Web-Application<br>
-$ npm install<br>
+$ git clone https://github.com/Cybros/Cybros-Web-Application.git
+$ cd Cybros-Web-Application
+$ npm install
 ```
 ## Configure Database server
 open in new terminal window
