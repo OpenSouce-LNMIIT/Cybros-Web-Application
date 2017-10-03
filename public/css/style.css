@@ -285,6 +285,8 @@ a{
   text-align: center;
 }
 
+//media query for max-width:1000px
+
 @media only screen and (max-width: 1000px) {
     .login-box {
         width: 100%;
