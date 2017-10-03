@@ -23,7 +23,7 @@ a{
     text-decoration: none;
     color:black;
 }
-/*Toggle menu switch animation bars*/
+/*Toggle menue switch animation bars*/
 .bar1,.bar2,.bar3{
     z-index: 1;
     width:30px;
@@ -54,7 +54,7 @@ a{
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    border-right: 1px solid rgba(57, 108, 146);
+    border-right: 1px solid rgb(57, 108, 146);
 }
 
 .sidenav a {
@@ -141,10 +141,26 @@ a{
 }
 @media only screen and (min-width : 320px) and (max-width : 480px) {
     .banner1{
-       
+        background-position: 91% 106px !important;
     }
     .banner2{
-        
+        background-position: 91% 135px !important;
+    }
+    .banner1 .quote {
+        padding-top: 15%;
+        font-size: 29px;
+        font-family: 'Gloria Hallelujah', cursive;
+        vertical-align: middle!important;
+        margin-right: 0 !important;
+        margin-top: 10px;
+    }
+    .banner2 .quote {
+        padding-top: 15%;
+        font-size: 29px;
+        font-family: 'Gloria Hallelujah', cursive;
+        vertical-align: middle!important;
+        margin-right: 0 !important;
+        margin-top: 10px;
     }
 }
 
@@ -269,32 +285,31 @@ a{
   text-align: center;
 }
 
-
 @media only screen and (max-width: 1000px) {
-        .login-box {
-            width: 100%;
-        }
-        .left {
-            width: 50%;
-            float: left;
-            height: 700px;
-            display: block;
-            overflow: auto;
-            position: absolute;
-        }
-        .or {
-            left: calc(50% - 20px);
-        }
-        .right {
-            width: 50%;
-            height: 700px;
-            display: block;
-            overflow: auto;
-            position: absolute;
-        }
-        .login-box input[type="text"],
-        .login-box input[type="password"] {
-            width: 100%;
-            font-size: 0.9em;
-        }
+    .login-box {
+        width: 100%;
     }
+    .left {
+        width: 50%;
+        float: left;
+        height: 700px;
+        display: block;
+        overflow: auto;
+        position: absolute;
+    }
+    .or {
+        left: calc(50% - 20px);
+    }
+    .right {
+        width: 50%;
+        height: 700px;
+        display: block;
+        overflow: auto;
+        position: absolute;
+    }
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+        width: 100%;
+        font-size: 0.9em;
+    }
+}
