@@ -61,7 +61,6 @@ router.post('/new_User', function(req, res) {
                             console.log("Could not save register user");
                         }
                         else{
-                            res.send(registeredUser);
                             res.render('signup.hbs', {
                                 login:"User registered. Login here to continue."
                             });
