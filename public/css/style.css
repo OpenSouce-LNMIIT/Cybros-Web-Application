@@ -23,7 +23,7 @@ a{
     text-decoration: none;
     color:black;
 }
-/*Toggle menu switch animation bars*/
+/*Toggle menue switch animation bars*/
 .bar1,.bar2,.bar3{
     z-index: 1;
     width:30px;
@@ -54,7 +54,7 @@ a{
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    border-right: 1px solid rgba(57, 108, 146);
+    border-right: 1px solid rgb(57, 108, 146);
 }
 
 .sidenav a {
@@ -141,12 +141,26 @@ a{
 }
 @media only screen and (min-width : 320px) and (max-width : 480px) {
     .banner1{
-        
         background-position: 91% 106px !important;
-   }
-   .banner2{
-        
+    }
+    .banner2{
         background-position: 91% 135px !important;
+    }
+    .banner1 .quote {
+        padding-top: 15%;
+        font-size: 29px;
+        font-family: 'Gloria Hallelujah', cursive;
+        vertical-align: middle!important;
+        margin-right: 0 !important;
+        margin-top: 10px;
+    }
+    .banner2 .quote {
+        padding-top: 15%;
+        font-size: 29px;
+        font-family: 'Gloria Hallelujah', cursive;
+        vertical-align: middle!important;
+        margin-right: 0 !important;
+        margin-top: 10px;
     }
     .banner1 .quote {
         padding-top: 15%;
@@ -168,7 +182,6 @@ a{
 
 
 /*Sign up/ Sign in form */
-
 
 *:focus {
   outline: none;
@@ -235,7 +248,6 @@ a{
   color: #FFF;
   font-family: 'Poiret One', cursive;
   font-weight: 500;
-  text-transform: uppercase;
   transition: 0.1s ease;
   cursor: pointer;
 }
@@ -287,32 +299,233 @@ a{
   text-align: center;
 }
 
-
 @media only screen and (max-width: 1000px) {
     .login-box {
-                width: 100%;
-            }
-            .left {
-                width: 50%;
-                float: left;
-                height: 700px;
-                display: block;
-                overflow: auto;
-                position: absolute;
-            }
-            .or {
-                left: calc(50% - 20px);
-            }
-            .right {
-                width: 50%;
-                height: 700px;
-                display: block;
-                overflow: auto;
-                position: absolute;
-            }
-            .login-box input[type="text"],
-            .login-box input[type="password"] {
-                width: 100%;
-                font-size: 0.9em;
-            }
-        }
+        width: 100%;
+    }
+    .left {
+        width: 50%;
+        float: left;
+        height: 700px;
+        display: block;
+        overflow: auto;
+        position: absolute;
+    }
+    .or {
+        left: calc(50% - 20px);
+    }
+    .right {
+        width: 50%;
+        height: 700px;
+        display: block;
+        overflow: auto;
+        position: absolute;
+    }
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+        width: 100%;
+        font-size: 0.9em;
+    }
+}
+/*Profile starts*/
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+.profile{
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: rgb(57, 108, 146); 
+    font-size: 20px;
+}
+
+.profile button {
+  overflow: visible;
+}
+
+.profile button, .profile select {
+  text-transform: none;
+}
+
+.profile button, .profile input, .profile select, .profile textarea {
+  color: rgb(57, 108, 146);
+  font: inherit;
+  margin: 0;
+}
+
+.profile input {
+  line-height: normal;
+}
+
+.profile textarea {
+  overflow: auto;
+}
+
+.profile #container {
+  font-family: 'Montserrat', Arial, sans-serif;
+  border: solid 3px rgb(57, 108, 146);
+  max-width: 768px;
+  margin: 60px auto;
+  position: relative;
+}
+
+.profile form {
+  padding: 37.5px;
+  margin: 50px 0;
+}
+
+.profile h1 {
+  color: rgb(57, 108, 146);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 7px;
+  text-align: center;
+}
+
+.profile .underline {
+  border-bottom: solid 2px rgb(57, 108, 146);
+  margin: -0.512em auto;
+  width: 80px;
+}
+
+.profile .icon_wrapper {
+  margin: 50px auto 0;
+  width: 100%;
+}
+
+.profile .icon {
+  display: block;
+  fill: rgb(57, 108, 146);
+  height: 50px;
+  margin: 0 auto;
+  width: 50px;
+}
+
+.profile .pright {
+	float: right;
+	width: 45%;
+}
+
+.profile input[type='text'], .profile input[type='email'], .profile [type='password'], .profile textarea {
+	background: none;
+  border: none;
+	border-bottom: solid 2px rgb(57, 108, 146);
+	color: rgb(57, 108, 146);
+	font-size: 0.725m;
+  font-weight: 300;
+  letter-spacing: 1px;
+	margin: 0em 0 1.875em 0;
+	padding: 0 0 0.875em 0;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.profile input[type='text']:focus, [type='email']:focus, [type='password']:focus, .profile textarea:focus {
+	outline: none;
+	padding: 0 0 0.875em 0;
+}
+
+.profile .pleft {
+	float: left;
+	width: 45%;
+}
+
+.profile .fin {
+  width: 100%;
+}
+
+.profile textarea {
+	line-height: 150%;
+	height: 150px;
+	resize: none;
+  width: 100%;
+}
+
+::-webkit-input-placeholder {
+	color: rgb(57, 108, 146);
+}
+
+:-moz-placeholder { 
+	color: rgb(57, 108, 146);
+	opacity: 1;
+}
+
+::-moz-placeholder {
+	color: rgb(57, 108, 146);
+	opacity: 1;
+}
+
+:-ms-input-placeholder {
+	color: rgb(57, 108, 146);
+}
+
+.profile #form_button {
+  background: none;
+  border: solid 2px rgb(57, 108, 146);
+  color: rgb(57, 108, 146);
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.5em;
+  font-weight: bold;
+  outline: none;
+  padding: 20px 35px;
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.profile #form_button:hover {
+  background: rgb(57, 108, 146);
+  color: #F2F3EB;
+}
+
+@media screen and (max-width: 768px) {
+    .profile #container {
+    margin: 20px auto;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+    .profile h1 {
+    font-size: 20px;
+  }
+  
+  .profile .underline {
+    width: 68px;
+  }
+  
+  .profile #form_button {
+    padding: 15px 25px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+    .profile h1 {
+    font-size: 18px;
+  }
+  
+  .profile .icon {
+    height: 35px;
+    width: 35px;
+  }
+  
+  .profile .underline {
+    width: 53px;
+  }
+  
+  .profile input[type='text'], [type='email'], [type='password'], select, textarea {
+    font-size: 0.5em;
+  }
+}
+/*Profile ends*/

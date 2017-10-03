@@ -35,7 +35,7 @@
                                 <!--{{user}} will be used by template-->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="/profile" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{user}}
+                                        {{user.username}}
                                         <i class="fa fa-sort-desc" aria-hidden="true"></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -54,11 +54,68 @@
                         </div>
                 </div>
         </nav>
-        <div style="padding-top:97px;">
-            <h3 class="text-center filler-heading">{{user}}</h3>
-            <p>
-                
-            </p>
+        <div class="container-fluid" style="padding-top:100px;">
+            <div class="profile row">
+                <h3 class="filler-heading text-center">My Profile</h3>
+                <div class="col-md-3 text-center">
+                    <br><br>
+                    <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+                    <p class="pvalue">{{user.username}}</p>
+                </div>
+                <div class="col-md-6">
+                    <div id="container">
+                        <div class="text-center">
+                            {{pmessage}}
+                            <p class="pmessage"></p>
+                        </div>
+                        <form action="/update" method="post" id="contact_form">
+                            <div class="pleft">
+                                Name: 
+                                <input class="decryptForEdit" type="text" value="{{user.Name}}" name="Name" id="name_input" readonly>
+                            </div>
+                            <div class="pright">
+                                Phone:
+                                <input class="decryptForEdit" type="text" value="{{user.Phone}}" name="Phone" id="phone_input" readonly>
+                            </div>
+                            <div class="fin">
+                                Email:
+                                <input class="decryptForEdit" type="email" value="{{user.Email}}" name="Email" id="Email_input" readonly>
+                            </div>
+                            <div class="fin">
+                                Password:
+                                <input class="decryptForEdit" type="password" value="{{user.Password}}" name="Password" id="password_input" readonly>
+                                <input type="checkbox" class="showhide"> Show/Hide </input>
+                                <br><br>
+                            </div>
+                            <div class="pleft">
+                                Age:
+                                <input class="decryptForEdit" type="text" value="{{user.Age}}" name="Age" id="Age_input" readonly>
+                            </div>
+                            <div class="pright">
+                                Gender:
+                                <input class="decryptForEdit" type="text" value="{{user.Gender}}" name="Gender" id="Gender_input" readonly>
+                            </div>
+                            <div class="fin">
+                                Address:    
+                                <input class="decryptForEdit" type="text" value="{{user.Address}}" name="Address" id="Address_input" readonly>
+                            </div>
+                            <div class="fin">
+                                Institute/Company:    
+                                <input class="decryptForEdit" type="text" value="{{user.Institute_or_Company}}" name="Institute_or_Company" id="Institute/Company_input" readonly>
+                            </div>
+                            <div class="submit updatebtn" style="display:none;">
+                                <input type="submit" value="Update" id="form_button" />
+                            </div>
+                        </form><!-- // End form -->
+                    </div><!-- // End #container -->
+                </div>
+                <div class="col-md-3 text-center submit " id="form-button">
+                    <br><br>
+                        <button class="editUser" id="form_button">        
+                            Add/Edit details <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </button>
+                </div>
+            </div>
         </div>
         
         <div class="container-fluid footer">
