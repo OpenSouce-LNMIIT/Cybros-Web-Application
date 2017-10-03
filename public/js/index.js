@@ -7,17 +7,33 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 $(document).ready(function(){
-    var click = 0;   //Click flag
-    
+    var tsclick = 0;   //Click flag
+    $(".pmessage").html('');
     $(".toggle-switch").click(function(){
         this.classList.toggle("change");
-        if(click === 0){
-            click = 1;
+        if(tsclick === 0){
+            tsclick = 1;
             openNav();
         }
-        else if(click == 1){
-            click = 0;
+        else if(tsclick == 1){
+            tsclick = 0;
             closeNav();
         }
     });
+//Show password feature
+    $(".showhide").click(function(e){
+        if($(".showhide").prop('checked') == true){
+            $("#password_input").attr('type', 'text');
+        }else 
+        if($(".showhide").prop('checked') == false){
+            $("#password_input").attr('type', 'password');
+        }
+    });
+//Make Form available for editing
+$(".editUser").click(function(e){
+    $(".pmessage").html('Details are now available for editing.');
+    $(".updatebtn").css('display', 'block');
+    $(".decryptForEdit").prop('readonly',false);
+});
+
 });
