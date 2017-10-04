@@ -1,8 +1,8 @@
-/*var mongoose = require("mongoose");
+var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var registration = new Schema({
-    Registration_ID: {type:Int32Array,default:null},
+    Registration_ID: {type:Number,default:null},
     Event_ID: [
         {type: Schema.Types.Event_ID, ref: 'Events',default:null}
       ],
@@ -12,4 +12,3 @@ var registration = new Schema({
 });
 
 module.exports = mongoose.model("Registrations",registration);
-*/

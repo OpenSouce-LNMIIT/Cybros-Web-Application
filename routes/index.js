@@ -86,16 +86,6 @@ router.get('/profile', function(req, res, next) {
   }
 });
 
-router.get('/logout', function(req, res, next) {
-  sess=req.session;
-  if(sess.user) {
-    req.session.destroy();
-    res.render('index.hbs', {user : "New user"});
-  }
-  else {
-        res.render('signup.hbs', {user : "New user", login : "! You have to sign in first."});
-  }
-});
 
 router.post('/update', function(req, res, next) {
   sess=req.session;
