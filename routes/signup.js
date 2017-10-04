@@ -9,6 +9,8 @@ var sess = {}
 // User Schema imported 
 var User = require("./../models/User");
 
+
+//Make this secret key more complex to have better encryption
 app.use(session({
     secret: 'cybros',
     resave: true,
