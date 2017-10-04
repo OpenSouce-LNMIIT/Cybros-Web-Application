@@ -9,6 +9,8 @@ var sess = {}
 // User Schema imported 
 var User = require("./../models/User");
 
+
+//Make this secret key more complex to have better encryption
 app.use(session({
     secret: 'cybros',
     resave: true,
@@ -124,5 +126,16 @@ router.post('/login', function(req, res) {
         }); 
     }         
 });
+
+router.get('/logout', function(req, res, next) {
+    sess=req.session;
+    if(sess.user) {
+      req.session.destroy();
+      res.render('index.hbs', {user : "New user"});
+    }
+    else {
+          res.render('signup.hbs', {user : "New user", login : "You have to sign in first. !"});
+    }
+  });
 
 module.exports = router;
