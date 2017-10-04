@@ -2,10 +2,11 @@
 - [ ] bug report
 - [ ] feature request
 
-**Current behavior:**
+**Current behaviour:**
 <!-- How the bug manifests. -->
 
-**Expected behavior:**
+**Expected behaviour:**
 <!-- Behavior would be without the bug. -->
 
+put a 'x' inside [ ] to check.
 **Steps to reproduce:**
