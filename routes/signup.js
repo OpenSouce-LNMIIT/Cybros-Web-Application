@@ -59,7 +59,7 @@ router.post('/new_User', function(req, res) {
                     // Saving new user to database
                     user.save(function(err, registeredUser){
                         if(err){
-                            res.status(500).send({error:"Could not save register user"});
+                            res.status(500).send({error:err});
                             console.log("Could not save register user");
                         }
                         else{

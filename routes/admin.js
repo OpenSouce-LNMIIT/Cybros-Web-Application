@@ -11,8 +11,10 @@ var session = require('express-session');
 var app = express(); 
 var sess = {};
 
-//Admin schema imported
+// Admin schema imported
 var Admin = require("./../models/Admin");
+// Event schema imported
+var Event = require("./../models/Event");
 
 //Make this secret key more complex to have better encryption
 app.use(session({
@@ -52,7 +54,9 @@ router.post('/login', function(req, res) {
                         if(admin[0].Password == req.body.password){
                             //Successful sign in
                             req.session.admin = admin[0];
-                            res.send(admin[0]);                        
+                            res.render('adminpanel.hbs', {
+                                user :admin[0]
+                            });                       
                         }  
                         else{
                             res.render('adminlogin.hbs', {
@@ -77,6 +81,65 @@ router.post('/login', function(req, res) {
             login : "You have to log out first"
         }); 
     }   
+});
+
+router.get('/addevent', function(req, res) {
+    sess = req.session;
+    if(sess.admin) {
+        res.render('addevent.hbs', {user : sess.admin});
+      }
+      else {
+        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+      }  
+});
+
+router.post('/addevent_submit', function(req, res) {
+    sess = req.session;
+    if(sess.admin) {
+        Event.find({Event_ID:req.body.ID},function(err,event){
+            if(err){
+                res.status(500).send({error:err});
+                console.log(err);
+            }
+            else{
+                if (event.length!=0) {
+                    if(event[0].Event_ID){
+                        console.log("Event ID already exist username:"+event[0].Event_ID);
+                        res.render('addevent.hbs', {
+                            user : sess.admin,
+                            emessage:"Event ID already exist, try again"
+                        });                      
+                    }                                 
+                }
+                else{
+
+                    var event = new Event();
+                    event.Event_ID = req.body.ID;
+                    event.Event_Name = req.body.Name;
+                    event.Event_Description = req.body.Description;
+                    event.Venue= req.body.Venue;
+                    event.Date = req.body.Date;
+                    event.Time = req.body.Time;
+                    event.Fee = req.body.Fee;
+                    event.Additional_Link = req.body.Additional;
+                    // Saving new event to database
+                    event.save(function(err, newEvent){
+                        if(err){
+                            res.status(500).send({error:err});
+                            console.log("Could not add event.");
+                        }
+                        else{
+                            res.render('adminpanel.hbs', {user : sess.admin, eventMessage : "Event created!"});
+                            console.log('! An event created: \n' + newEvent);            
+                        }
+                    });
+                }
+            }
+        });    
+    }
+    else {
+        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+      }  
 });
 
 router.get('/logout', function(req, res, next) {
