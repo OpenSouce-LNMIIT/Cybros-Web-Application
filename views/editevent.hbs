@@ -11,8 +11,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <link href="https://fonts.googleapis.com/css?family=Poiret+One|Gloria+Hallelujah|Rubik" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
-<link rel="shortcut icon" type="image/png" href="favicon.png"/> 
-<link rel="stylesheet" href="../public/css/style.css">
+<link rel="shortcut icon" type="image/png" href="//favicon.png"/> 
+<link rel="stylesheet" href="../../public/css/style.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                         <a href="/">
                             <img class="img-responsive" style="display: block ;
                             margin-left: auto;
-                            margin-right: auto;" src="../favicon.png" alt="logo" width="100" height="60">
+                            margin-right: auto;" src="../../favicon.png" alt="logo" width="100" height="60">
                         </a>
                     </div>
                   </div>
@@ -57,23 +57,29 @@
                 </div>
         </nav>
         <div class="profile" style="padding-top:97px;">
-                <h3 class="text-center filler-heading">Adding an event</h3>
+                <h3 class="text-center filler-heading">Editing an event</h3>
+                <form action="/admin/editevent/search" method="post" id="eventeditsearch_form">
+                    <div class="fin">
+                        Search Event ID you want to edit:
+                        <input  type="text" placeholder="" name="srcheventID" id="name_input" required>
+                    </div>
+                </form>
                 <div id="container">
                         <div class="text-center">
                             {{emessage}}
                         </div>
-                        <form action="/admin/addevent_submit" method="post" id="event_form">
+                        <form action="/admin/editevent_submit" method="post" id="event_form">
                             <div class="fin">
-                                
-                                <input  type="text" placeholder="Event name" name="Name" id="name_input" required>
+                                Name:
+                                <input  type="text" placeholder="" value='{{event.Event_Name}}' name="Name" id="name_input" required>
                             </div>
                             <div class="fin">
-                                
-                                <input type="text" placeholder="Event Id (Unique)" name="ID" id="ID_input" required>
+                                Event ID:
+                                <input type="text" placeholder="" value='{{event.Event_ID}}' name="ID" id="ID_input" required>
                             </div>
                             <div class="subject">
                                 <label for="subject"></label>
-                                <select placeholder="Event type" name="eventType" id="subject_input" required>
+                                <select placeholder="" name="eventType" value='{{event.Event_Type}}' id="subject_input" required>
                                     <option disabled hidden selected>Event type</option>
                                     <option>Class</option>
                                     <option>Workshop</option>
@@ -83,23 +89,29 @@
                                 <br><br>
                             </div>
                             <div class="fin">
-                                <textarea name="Description" placeholder="Event Description" id="description_input" cols="30" rows="5" required></textarea>                            </div>
+                                Event Description:
+                                <textarea name="Description" placeholder="" value='{{event.Event_Description}}' id="description_input" cols="30" rows="5" required></textarea>                            </div>
                             <div class="pleft">   
-                                <input  type="text" placeholder="Venue" name="Venue" id="venue_input" required>
+                                Venue:
+                                <input  type="text" placeholder="" value='{{event.Venue}}' name="Venue" id="venue_input" required>
                             </div>
-                            <div class="pright">                          
-                                <input type="text" placeholder="Date" name="Date" id="date_input" required>
+                            <div class="pright"> 
+                                Date:                         
+                                <input type="text" placeholder="" value='{{event.Date}}' name="Date" id="date_input" required>
                             </div>
-                            <div class="pleft">   
-                                <input type="text" placeholder="Time" name="Time" id="time_input" required>
+                            <div class="pleft">
+                                Time:   
+                                <input type="text" placeholder="" value='{{event.Time}}'  name="Time" id="time_input" required>
                             </div>
-                            <div class="pright">                           
-                                <input type="text" placeholder="Fee" name="Fee" id="fee_input" required>
+                            <div class="pright">   
+                                Fee:                        
+                                <input type="text" placeholder="" value='{{event.Fee}}' name="Fee" id="fee_input" required>
                             </div>
-                            <div class="fin">    
-                                <input type="text" placeholder="Additional links" name="Additional" id="Additional_input" >
+                            <div class="fin"> 
+                                Additional links:   
+                                <input type="text" placeholder="" value='{{event.Additional_Links}}' name="Additional" id="Additional_input" >
                             </div>
-                            <div style="">
+                            <div class="editaccess" style="display:none;">
                                 <input type="submit" value="Add event" id="form_button" />
                             </div>
                         </form><!-- // End form -->
@@ -154,7 +166,7 @@
         <!--/.footer-bottom--> 
         </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../public/js/index.js"></script>
+    <script src="../../public/js/index.js"></script>
 
 </body>
 </html>

@@ -112,10 +112,10 @@ router.post('/addevent_submit', function(req, res) {
                     }                                 
                 }
                 else{
-
                     var event = new Event();
                     event.Event_ID = req.body.ID;
                     event.Event_Name = req.body.Name;
+                    event.Event_Type = req.body.eventType;
                     event.Event_Description = req.body.Description;
                     event.Venue= req.body.Venue;
                     event.Date = req.body.Date;
@@ -138,6 +138,51 @@ router.post('/addevent_submit', function(req, res) {
         });    
     }
     else {
+        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+      }  
+});
+
+router.get('/editevent', function(req, res) {
+    sess = req.session;
+    if(sess.admin) {
+        res.render('editevent.hbs', {user : sess.admin.username});
+      }
+      else {
+        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+      }  
+});
+
+router.post('/editevent/search', function(req, res) {
+    sess = req.session;
+    if(sess.admin) {
+        Event.find({Event_ID:req.body.srcheventID},function(err,event){
+            if(err){
+                res.status(500).send({error:err});
+                console.log(err);
+            }
+            else{
+                if (event.length!=0) {
+                    if(event[0].Event_ID){
+                        console.log("Event found :"+event[0]);
+                        res.render('editevent.hbs', {
+                            user : sess.admin,
+                            event: event[0],
+                            emessage:"Event found. You can edit now.",
+                            displaysubmit : true
+                        });                      
+                    }                                 
+                }
+                else{
+                    res.render('editevent.hbs', {
+                        user : sess.admin,
+                        emessage:"Event not found. Try again.",
+                        displaysubmit : false
+                    });  
+                }
+            }
+        });
+      }
+      else {
         res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
       }  
 });

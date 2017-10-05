@@ -406,7 +406,7 @@ a{
 	width: 45%;
 }
 
-.profile input[type='text'], .profile input[type='email'], .profile [type='password'], .profile textarea {
+.profile input[type='text'], .profile input[type='email'], .profile [type='password'],select,.profile textarea {
 	background: none;
   border: none;
 	border-bottom: solid 2px rgb(57, 108, 146);
@@ -466,6 +466,13 @@ a{
 
 :-ms-input-placeholder {
 	color: rgb(56, 107, 146);
+}
+
+select {
+  background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 .profile #form_button {
