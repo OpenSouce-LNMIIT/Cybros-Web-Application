@@ -406,7 +406,7 @@ a{
 	width: 45%;
 }
 
-.profile input[type='text'], .profile input[type='email'], .profile [type='password'], .profile textarea {
+.profile input[type='text'], .profile input[type='email'], .profile [type='password'],select,.profile textarea {
 	background: none;
   border: none;
 	border-bottom: solid 2px rgb(57, 108, 146);
@@ -465,7 +465,14 @@ a{
 }
 
 :-ms-input-placeholder {
-	color: rgb(57, 108, 146);
+	color: rgb(56, 107, 146);
+}
+
+select {
+  background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
 }
 
 .profile #form_button {
@@ -475,7 +482,7 @@ a{
   cursor: pointer;
   display: inline-block;
   font-family: 'Helvetica', Arial, sans-serif;
-  font-size: 0.5em;
+  font-size: 0.8em;
   font-weight: bold;
   outline: none;
   padding: 20px 35px;
@@ -485,7 +492,6 @@ a{
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
 }
-
 .profile #form_button:hover {
   background: rgb(57, 108, 146);
   color: #F2F3EB;
@@ -531,3 +537,5 @@ a{
   }
 }
 /*Profile ends*/
+
+

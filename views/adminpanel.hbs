@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css?family=Poiret+One|Gloria+Hallelujah|Rubik" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
 <link rel="shortcut icon" type="image/png" href="favicon.png"/> 
-<link rel="stylesheet" href="../public/css/style.css">
+<link rel="stylesheet" href="../../public/css/style.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                         <a href="/">
                             <img class="img-responsive" style="display: block ;
                             margin-left: auto;
-                            margin-right: auto;" src="../favicon.png" alt="logo" width="100" height="60">
+                            margin-right: auto;" src="../../favicon.png" alt="logo" width="100" height="60">
                         </a>
                     </div>
                   </div>
@@ -37,13 +37,13 @@
                                 <!--{{user}} will be used by template-->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="/profile" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{user}}
+                                        {{user.username}}
                                         <i class="fa fa-sort-desc" aria-hidden="true"></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <a class="dropdown-item" style="font-size: 18px;" href="/profile"><i class="fa fa-user" aria-hidden="true"></i> Profile 
                                         </a>
-                                        <a class="dropdown-item" style="font-size: 18px;" href="/signup/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out 
+                                        <a class="dropdown-item" style="font-size: 18px;" href="/admin/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out 
                                         </a>
                                     </div>
                                 </li>
@@ -57,30 +57,30 @@
                 </div>
         </nav>
         <div style="padding-top:97px;">
-            <h3 class="text-center filler-heading">About us</h3>
-            <p>
-                The Cybros Computer Club at The LNMIIT exists to help you be a better programmer. C3 encourages students to "keep coding, keep contributing, and keep developing" by providing workshops, classes, and competitions. We're all in this together to solve problems and code all the things. Join our club to take coding a step further and meet people who love the same things you do.
-            </p>
-            <p>
-                Cybros is the coding club of LNMIIT, Jaipur. Its basic aim is to improve the coding culture in the college which is at its peak. Cybros organizes various inter and intra college coding events such as IUPC (Inter University programming contest), hackathons and codages
-            </p>
-            <p>
-
-
-The club is also engaged in organizing classes and workshops on the current trends in coding industry and hence is a platform for enthusiasts in coding field.
-
-The club today is an active platform for students to display and develop their practical knowledge in all spheres of coding. The club mentors work hard to imbibe a coding culture in the college and organise many workshops/classes for all students to start learning different areas of computers from basics.
-
-            </p>
+                <h3 class="text-center filler-heading">Administrator's dashboard</h3>
+                <div class="row profile text-center" style="padding-top:10%;padding-bottom:30px; height:350px;">
+                    
+                    <div class="col-md-3 submit">
+                        <a href="/admin/addevent" id="form_button">Add event <i class="fa fa-plus" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4 submit">
+                        <a href="/admin/editevent"id="form_button">Update event <i class="fa fa-wrench" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3 submit">
+                        <a href="/admin/deleteevent" id="form_button">Remove event <i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </div>
+                    <div>{{eventMessage}}</div>
+                </div>
         </div>
         
         <div class="container-fluid footer">
                 <div class="row">
                     <div class="col-sm-6">
                         <h4>About Us</h4>
-                        <p>The Cybros Computer Club at The LNMIIT exists to help you be a better programmer. C3 encourages students to "keep coding, keep contributing, and keep developing" by providing workshops, classes, and competitions. We're all in this together to solve problems and code all the things. Join our club to take coding a step further and meet people who love the same things you do.
-                        </p>
-                    </div>
+                        <p>Cybros Computer Club, The LNMIIT, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+                    </p></div>
                      
                      <div class="col-sm-2 col-md-offset-1">
                         <h4>Shortcut</h4>
@@ -123,7 +123,7 @@ The club today is an active platform for students to display and develop their p
         <!--/.footer-bottom--> 
         </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../public/js/index.js"></script>
+    <script src="../../public/js/index.js"></script>
 
 </body>
 </html>

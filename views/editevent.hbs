@@ -11,8 +11,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <link href="https://fonts.googleapis.com/css?family=Poiret+One|Gloria+Hallelujah|Rubik" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
-<link rel="shortcut icon" type="image/png" href="favicon.png"/> 
-<link rel="stylesheet" href="../public/css/style.css">
+<link rel="shortcut icon" type="image/png" href="//favicon.png"/> 
+<link rel="stylesheet" href="../../public/css/style.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
                         <a href="/">
                             <img class="img-responsive" style="display: block ;
                             margin-left: auto;
-                            margin-right: auto;" src="../favicon.png" alt="logo" width="100" height="60">
+                            margin-right: auto;" src="../../favicon.png" alt="logo" width="100" height="60">
                         </a>
                     </div>
                   </div>
@@ -37,13 +37,13 @@
                                 <!--{{user}} will be used by template-->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="/profile" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{user}}
+                                        {{user.username}}
                                         <i class="fa fa-sort-desc" aria-hidden="true"></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <a class="dropdown-item" style="font-size: 18px;" href="/profile"><i class="fa fa-user" aria-hidden="true"></i> Profile 
                                         </a>
-                                        <a class="dropdown-item" style="font-size: 18px;" href="/signup/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out 
+                                        <a class="dropdown-item" style="font-size: 18px;" href="/admin/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out 
                                         </a>
                                     </div>
                                 </li>
@@ -56,31 +56,74 @@
                         </div>
                 </div>
         </nav>
-        <div style="padding-top:97px;">
-            <h3 class="text-center filler-heading">About us</h3>
-            <p>
-                The Cybros Computer Club at The LNMIIT exists to help you be a better programmer. C3 encourages students to "keep coding, keep contributing, and keep developing" by providing workshops, classes, and competitions. We're all in this together to solve problems and code all the things. Join our club to take coding a step further and meet people who love the same things you do.
-            </p>
-            <p>
-                Cybros is the coding club of LNMIIT, Jaipur. Its basic aim is to improve the coding culture in the college which is at its peak. Cybros organizes various inter and intra college coding events such as IUPC (Inter University programming contest), hackathons and codages
-            </p>
-            <p>
-
-
-The club is also engaged in organizing classes and workshops on the current trends in coding industry and hence is a platform for enthusiasts in coding field.
-
-The club today is an active platform for students to display and develop their practical knowledge in all spheres of coding. The club mentors work hard to imbibe a coding culture in the college and organise many workshops/classes for all students to start learning different areas of computers from basics.
-
-            </p>
+        <div class="profile" style="padding-top:97px;">
+                <h3 class="text-center filler-heading">Editing an event</h3>
+                <form action="/admin/editevent/search" method="post" id="eventeditsearch_form">
+                    <div class="fin">
+                        Search Event ID you want to edit:
+                        <input  type="text" placeholder="" name="srcheventID" id="name_input" required>
+                    </div>
+                </form>
+                <div id="container">
+                        <div class="text-center">
+                            {{emessage}}
+                        </div>
+                        <form action="/admin/editevent_submit" method="post" id="event_form">
+                            <div class="fin">
+                                Name:
+                                <input  type="text" placeholder="" value='{{event.Event_Name}}' name="Name" id="name_input" required>
+                            </div>
+                            <div class="fin">
+                                Event ID:
+                                <input type="text" placeholder="" value='{{event.Event_ID}}' name="ID" id="ID_input" required>
+                            </div>
+                            <div class="subject">
+                                <label for="subject"></label>
+                                <select placeholder="" name="eventType" value='{{event.Event_Type}}' id="subject_input" required>
+                                    <option disabled hidden selected>Event type</option>
+                                    <option>Class</option>
+                                    <option>Workshop</option>
+                                    <option>Competition</option>
+                                    <option>Other</option>
+                                </select>
+                                <br><br>
+                            </div>
+                            <div class="fin">
+                                Event Description:
+                                <textarea name="Description" placeholder="" value='{{event.Event_Description}}' id="description_input" cols="30" rows="5" required>{{event.Event_Description}}</textarea>                           </div>
+                            <div class="pleft">   
+                                Venue:
+                                <input  type="text" placeholder="" value='{{event.Venue}}' name="Venue" id="venue_input" required>
+                            </div>
+                            <div class="pright"> 
+                                Date:                         
+                                <input type="text" placeholder="" value='{{event.Date}}' name="Date" id="date_input" required>
+                            </div>
+                            <div class="pleft">
+                                Time:   
+                                <input type="text" placeholder="" value='{{event.Time}}'  name="Time" id="time_input" required>
+                            </div>
+                            <div class="pright">   
+                                Fee:                        
+                                <input type="text" placeholder="" value='{{event.Fee}}' name="Fee" id="fee_input" required>
+                            </div>
+                            <div class="fin"> 
+                                Additional links:   
+                                <input type="text" placeholder="" value='{{event.Additional_Links}}' name="Additional" id="Additional_input" >
+                            </div>
+                            <div class="editaccess" style="">
+                                <input type="submit" value="Update event" id="form_button" />
+                            </div>
+                        </form><!-- // End form -->
+                    </div><!-- // End #container -->
         </div>
         
         <div class="container-fluid footer">
                 <div class="row">
                     <div class="col-sm-6">
                         <h4>About Us</h4>
-                        <p>The Cybros Computer Club at The LNMIIT exists to help you be a better programmer. C3 encourages students to "keep coding, keep contributing, and keep developing" by providing workshops, classes, and competitions. We're all in this together to solve problems and code all the things. Join our club to take coding a step further and meet people who love the same things you do.
-                        </p>
-                    </div>
+                        <p>Cybros Computer Club, The LNMIIT, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+                    </p></div>
                      
                      <div class="col-sm-2 col-md-offset-1">
                         <h4>Shortcut</h4>
@@ -123,7 +166,7 @@ The club today is an active platform for students to display and develop their p
         <!--/.footer-bottom--> 
         </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../public/js/index.js"></script>
+    <script src="../../public/js/index.js"></script>
 
 </body>
 </html>
