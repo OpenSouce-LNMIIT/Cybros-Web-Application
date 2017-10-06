@@ -121,7 +121,7 @@ router.post('/addevent_submit', function(req, res) {
                     event.Date = req.body.Date;
                     event.Time = req.body.Time;
                     event.Fee = req.body.Fee;
-                    event.Additional_Link = req.body.Additional;
+                    event.Additional_Links = req.body.Additional;
                     // Saving new event to database
                     event.save(function(err, newEvent){
                         if(err){
@@ -174,6 +174,79 @@ router.post('/editevent/search', function(req, res) {
                 }
                 else{
                     res.render('editevent.hbs', {
+                        user : sess.admin,
+                        emessage:"Event not found. Try again.",
+                        displaysubmit : false
+                    });  
+                }
+            }
+        });
+      }
+      else {
+        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+      }  
+});
+
+router.post('/editevent_submit', function(req, res, next) {
+    sess=req.session;
+    if(sess.user) {
+      Event.findOneAndUpdate({Event_ID: req.body.ID}, {$set:{
+        Event_Name:req.body.Name,
+        Event_ID:req.body.ID,
+        Event_Type:req.body.eventType,
+        Event_Description:req.body.Description,
+        Venue:req.body.Venue,
+        Date:req.body.Date,
+        Time:req.body.Time,
+        Fee:req.body.Fee,
+        Additional_Links:req.body.Additional
+      }}, {new: true}, function(err, upevent){
+        if(!err){
+          res.render('adminpanel.hbs', {user : sess.user, eventMessage : "Event details updated. !"});
+        }
+        else{
+          res.status(500).send({error:"Error, can't access Database!"});
+        }
+      });
+    }
+    else {
+      res.render('adminpanel.hbs', {user : "New admin", login : "You have to log in first. !"});
+    }
+    
+  });
+
+  router.get('/deleteevent', function(req, res) {
+    sess = req.session;
+    if(sess.admin) {
+        res.render('deleteEvent.hbs', {user : sess.admin.username});
+      }
+      else {
+        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+      }  
+});
+
+  router.post('/deleteevent/delete', function(req, res) {
+    sess = req.session;
+    if(sess.admin) {
+        Event.find({Event_ID:req.body.srcheventID},function(err,event){
+            if(err){
+                res.status(500).send({error:err});
+                console.log(err);
+            }
+            else{
+                if (event.length!=0) {
+                    if(event[0].Event_ID){
+                        Event.findOneAndRemove({Event_ID:req.body.srcheventID},function (err,event){
+                            console.log("Event deleted ID:"+req.body.srcheventID);
+                            res.render('adminpanel.hbs', {
+                                user : sess.admin,
+                                eventMessage:"Event Deleted, ID:"+req.body.srcheventID,
+                            });
+                        });                        
+                    }                                 
+                }
+                else{
+                    res.render('deleteEvent.hbs', {
                         user : sess.admin,
                         emessage:"Event not found. Try again.",
                         displaysubmit : false
