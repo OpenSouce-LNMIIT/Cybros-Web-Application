@@ -191,7 +191,7 @@ router.post('/editevent_submit', function(req, res, next) {
     if(sess.admin) {
         Event.findOneAndUpdate({_id: holdID}, {$set:{
             Event_Name:req.body.Name,
-            //Event_type:req.body.eventType,
+            Event_type:req.body.eventType,
             Event_Description:req.body.Description,
             Venue:req.body.Venue,
             Date:req.body.Date,
@@ -200,8 +200,7 @@ router.post('/editevent_submit', function(req, res, next) {
             Additional_Links:req.body.Additional,
           }}, {new: true}, function(err, event){
             if(!err){
-              
-              res.render('adminpanel.hbs', {user : sess.user, eventMessage : "Event details updated. !"});
+                 res.render('adminpanel.hbs', {user : sess.user, eventMessage : "Event details updated. !"});
             }
             else{
               res.status(500).send({error:"Error, can't access Database!"});
