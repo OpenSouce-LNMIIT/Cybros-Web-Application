@@ -151,7 +151,7 @@ router.get('/editevent', function(req, res) {
         res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
       }  
 });
-
+var holdID;
 router.post('/editevent/search', function(req, res) {
     sess = req.session;
     if(sess.admin) {
@@ -164,11 +164,11 @@ router.post('/editevent/search', function(req, res) {
                 if (event.length!=0) {
                     if(event[0].Event_ID){
                         console.log("Event found :"+event[0]);
+                        holdID = event[0]._id;
                         res.render('editevent.hbs', {
                             user : sess.admin,
                             event: event[0],
                             emessage:"Event found. You can edit now.",
-                            displaysubmit : true
                         });                      
                     }                                 
                 }
@@ -176,7 +176,6 @@ router.post('/editevent/search', function(req, res) {
                     res.render('editevent.hbs', {
                         user : sess.admin,
                         emessage:"Event not found. Try again.",
-                        displaysubmit : false
                     });  
                 }
             }
@@ -189,25 +188,25 @@ router.post('/editevent/search', function(req, res) {
 
 router.post('/editevent_submit', function(req, res, next) {
     sess=req.session;
-    if(sess.user) {
-      Event.findOneAndUpdate({Event_ID: req.body.ID}, {$set:{
-        Event_Name:req.body.Name,
-        Event_ID:req.body.ID,
-        Event_Type:req.body.eventType,
-        Event_Description:req.body.Description,
-        Venue:req.body.Venue,
-        Date:req.body.Date,
-        Time:req.body.Time,
-        Fee:req.body.Fee,
-        Additional_Links:req.body.Additional
-      }}, {new: true}, function(err, upevent){
-        if(!err){
-          res.render('adminpanel.hbs', {user : sess.user, eventMessage : "Event details updated. !"});
-        }
-        else{
-          res.status(500).send({error:"Error, can't access Database!"});
-        }
-      });
+    if(sess.admin) {
+        Event.findOneAndUpdate({_id: holdID}, {$set:{
+            Event_Name:req.body.Name,
+            //Event_type:req.body.eventType,
+            Event_Description:req.body.Description,
+            Venue:req.body.Venue,
+            Date:req.body.Date,
+            Time:req.body.Time,
+            Fee:req.body.Fee,
+            Additional_Links:req.body.Additional,
+          }}, {new: true}, function(err, event){
+            if(!err){
+              
+              res.render('adminpanel.hbs', {user : sess.user, eventMessage : "Event details updated. !"});
+            }
+            else{
+              res.status(500).send({error:"Error, can't access Database!"});
+            }
+        });    
     }
     else {
       res.render('adminpanel.hbs', {user : "New admin", login : "You have to log in first. !"});
