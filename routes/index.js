@@ -121,7 +121,7 @@ router.post('/update', function(req, res, next) {
 router.get('/event', function(req, res, next) {
   sess=req.session;
   if(sess.user) {
-    res.render('event.hbs', {user : sess.user,event:});
+    res.render('event.hbs', {user : sess.user,event});
   }
   else {
         res.render('signup.hbs', {user : "New user", login : "You have to sign in first. !"});
