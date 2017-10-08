@@ -36,9 +36,9 @@ a{
   .change .bar1 {
       transform: rotate(45deg) translate(5px, 9.5px) ;
 }
-  
+
   .change .bar2 {opacity: 0;}
-  
+
   .change .bar3 {
       transform: rotate(-45deg) translate(5px, -9.5px) ;
   }
@@ -79,6 +79,11 @@ a{
     font-size: 36px;
     margin-left: 50px;
 }
+.text {
+  width: 80%;
+  padding-top: 7%;
+  margin-left: 10%;
+}
 
 #main {
     transition: margin-left .5s;
@@ -93,7 +98,7 @@ a{
     padding-top:15%;
     font-size:40px;
     font-family: 'Gloria Hallelujah', cursive;
-    vertical-align: middle!important;  
+    vertical-align: middle!important;
 }
 /* Filler */
 .filler{
@@ -111,7 +116,7 @@ a{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
 	background-color:white;
-	
+
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -126,15 +131,29 @@ a{
     font-size: 15px;
     background-color: white;
     color:black;
+    bottom: 0;
+    position: fixed;
 }
 .footer h4{
     font-family: 'Poiret One', cursive;
     font-size: 25px;
-    color: rgb(57, 108, 146); 
+    color: rgb(57, 108, 146);
 }
 .footer a:hover{
     color: rgb(57, 108, 146);
     font-size:1.2em;
+}
+.col-sm-6 {
+  display: none;
+}
+.col-sm-2, .col-sm-3{
+  float: right;
+}
+.span {
+  height: auto;
+  display: block;
+  overflow: auto;
+  float: right;
 }
 .but{
     color: white;
@@ -212,9 +231,9 @@ a{
   margin: 0 0 20px 0;
   font-weight: bold;
   font-size: 28px;
-  color: rgb(57, 108, 146); 
+  color: rgb(57, 108, 146);
   font-family: 'Poiret One', cursive;
-  
+
 }
 
 .login-box input[type="text"],
@@ -243,7 +262,7 @@ a{
   margin-top: 28px;
   width: 120px;
   height: 32px;
-  background: rgb(57, 108, 146); 
+  background: rgb(57, 108, 146);
   border: none;
   border-radius: 2px;
   color: #FFF;
@@ -335,7 +354,7 @@ a{
 
 .profile{
     font-family: 'Montserrat', Arial, sans-serif;
-    color: rgb(57, 108, 146); 
+    color: rgb(57, 108, 146);
     font-size: 20px;
 }
 
@@ -454,7 +473,7 @@ a{
 	color: rgb(57, 108, 146);
 }
 
-:-moz-placeholder { 
+:-moz-placeholder {
 	color: rgb(57, 108, 146);
 	opacity: 1;
 }
@@ -508,11 +527,11 @@ select {
     .profile h1 {
     font-size: 20px;
   }
-  
+
   .profile .underline {
     width: 68px;
   }
-  
+
   .profile #form_button {
     padding: 15px 25px;
   }
@@ -522,20 +541,18 @@ select {
     .profile h1 {
     font-size: 18px;
   }
-  
+
   .profile .icon {
     height: 35px;
     width: 35px;
   }
-  
+
   .profile .underline {
     width: 53px;
   }
-  
+
   .profile input[type='text'], [type='email'], [type='password'], select, textarea {
     font-size: 0.5em;
   }
 }
 /*Profile ends*/
-
-
