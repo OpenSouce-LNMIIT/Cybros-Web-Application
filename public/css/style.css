@@ -143,10 +143,10 @@ a{
     color: rgb(57, 108, 146);
     font-size:1.2em;
 }
-.col-sm-6 {
+.aboutustext {
   display: none;
 }
-.col-sm-2, .col-sm-3{
+.sub, .shortcut{
   float: right;
 }
 .span {
