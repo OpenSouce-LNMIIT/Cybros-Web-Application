@@ -47,6 +47,19 @@ OR if you want to generate a ".csv" file use:
 ```
 $ mongoexport --host localhost --db Cybros --collection users --csv --out text.csv --fields username,Password,Email
 ``` 
+## Create administrator
+
+Go to mongo terminal by typing
+```
+$ mongo
+```
+Now you have to insert an admin data mannually in mongoDB
+and make sure you make "HasAccess" set to "true" as it is "false" by default
+```
+db.admin.insert({username:YOURUSERNAME, Password:YOURPASSWORD, Hasaccess:true});
+```
+Admin panel can be accessed from: http://localhost:3000/admin/
+
 ## Built With
 
 * [Nodejs]

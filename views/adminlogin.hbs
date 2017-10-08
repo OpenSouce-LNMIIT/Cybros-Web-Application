@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Cybros|LNMIIT</title>
+  <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Chaitanya Giri">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
@@ -10,7 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
 <link href="https://fonts.googleapis.com/css?family=Poiret+One|Gloria+Hallelujah|Rubik" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
-<link rel="shortcut icon" type="image/png" href="../favicon.png"/> 
+<link rel="shortcut icon" type="image/png" href="favicon.png"/> 
 <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
@@ -25,9 +26,11 @@
                             <div class="bar3"></div>
                     </div>
                     <div class="navbar-brand hfont" href="#">
-                        <img class="img-responsive" style="display: block;
-                        margin-left: auto;
-                        margin-right: auto;" src="../favicon.png" alt="logo" width="100" height="60">
+                        <a href="/">
+                            <img class="img-responsive" style="display: block ;
+                            margin-left: auto;
+                            margin-right: auto;" src="../favicon.png" alt="logo" width="100" height="60">
+                        </a>
                     </div>
                   </div>
                         <div id="mySidenav" class="sidenav">
@@ -40,7 +43,7 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <a class="dropdown-item" style="font-size: 18px;" href="/profile"><i class="fa fa-user" aria-hidden="true"></i> Profile 
                                         </a>
-                                        <a class="dropdown-item" style="font-size: 18px;" href="/signup/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out 
+                                        <a class="dropdown-item" style="font-size: 18px;" href="/admin/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out 
                                         </a>
                                     </div>
                                 </li>
@@ -53,58 +56,21 @@
                         </div>
                 </div>
         </nav>
-        <!--Parallax scrolling-->
-        <div class="rest" style="">            
-        <div id="banner1" class="banner1 quote text-center" style="display: block; background: transparent url(&quot;../images/parallax_1.jpg&quot;) no-repeat fixed center 0px / cover;height:650px;"><noscript><img class="img-responsive banner1" src="../images/parallax_1.jpg" alt="banner 1 of 2" title="banner 1 of 2"></noscript>
-            <p class="quote" style="margin-right:40%">"First solve the problem then write the code."</p>
-        </div>
-        <div id="banner2" class="banner2 quote text-center" style="display: block; background: transparent url(&quot;../images/parallax_2.jpg&quot;) no-repeat fixed center 0px / cover ;height:650px;"><noscript><img class="img-responsive banner2" src="../images/parallax_2.jpg" alt="banner 2 of 2" title="banner 2 of 2"></noscript>
-            <p class="quote" style="margin-right:40%">"Code = 21st Century's oxygen"</p>
-        </div>
-        <!--Parallax scroling ends-->
-        <div class="filler text-center"style="height:auto;">
-                <h3 class="filler-heading">Featured feeds</h3>
-                <div class="row" style="margin-left:20px;margin-right:20px;padding-bottom:5%">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="img-responsive" src="../images/competitive.png" alt="Competitive" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">Competitive classes</p> 
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="img-responsive" src="../images/development.jpg" alt="development" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">Development classes</p> 
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="img-responsive" src="../images/LNMHacks.jpg" alt="LNMhacks" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">LNM Hacks</p> 
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="margin-left:20px;margin-right:20px;padding-bottom:5%">                    
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="img-responsive" src="../images/papersLnmiit.jpg" alt="papers.lnm" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">Papers.Lnmiit</p> 
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="img-responsive" src="../images/ACMICPC.jpg" alt="ACMICPC" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">ACMICPC style contest</p> 
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="img-responsive" src="../images/coding.svg" alt="coding" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">September long challange</p> 
-                        </div>
-                    </div>
+        <div style="padding-top:110px;">
+                <h3 class="text-center filler-heading">Administrator's portal</h3>
+                <div class="login-box text-center row">
+                    <form class="text-center"  action="/admin/login" method="post">
+                    <!-- Sign in form  -->    
+                        <h1 style="padding-top:60px;">Log in</h1>
+                        <input style="margin:auto;" type="text" name="username" placeholder="Username" required/>
+                        <input style="margin:auto;" type="password" name="password" placeholder="Password" required/>
+                        <p>{{login}}</p>
+                        <input  type="submit" name="signup_submit" value="Sign in"/>
+                    </form>
+                    
                 </div>
         </div>
+        
         <div class="container-fluid footer">
                 <div class="row">
                     <div class="col-sm-6">
