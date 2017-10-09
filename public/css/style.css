@@ -2,6 +2,14 @@ body{
     background-color: #EDEDED;
     height: 100%;
 }
+
+.inner {
+    max-width:1170px;
+    position: relative;
+    padding: 0 40px;
+    margin: 0 auto
+}
+
 /*Navbar*/
 .topNavbar{
     padding-bottom:30px;
