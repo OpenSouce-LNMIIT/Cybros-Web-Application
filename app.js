@@ -10,7 +10,7 @@ var session = require('express-session');
 var hbs = require('hbs');
 var fs = require('fs');
 
-var partialsDir = __dirname + '/../views/partials';
+var partialsDir = __dirname + '/views/partials';
 
 var filenames = fs.readdirSync(partialsDir);
 

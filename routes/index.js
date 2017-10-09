@@ -5,8 +5,6 @@ var session = require('express-session');
 var app = express();
 var sess = {};
 
-
-
 //User Schema imported
 var User = require("./../models/User");
 
