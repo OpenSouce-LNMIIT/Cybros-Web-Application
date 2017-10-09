@@ -6,7 +6,35 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
-// Setting up mongoose 
+//hbs stuff start
+var hbs = require('hbs');
+var fs = require('fs');
+
+var partialsDir = __dirname + '/../views/partials';
+
+var filenames = fs.readdirSync(partialsDir);
+
+filenames.forEach(function (filename) {
+    var matches = /^([^.]+).hbs$/.exec(filename);
+    if (!matches) {
+        return;
+    }
+    var name = matches[1];
+    var template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
+    hbs.registerPartial(name, template);
+});
+//hbs stuff end
+
+//https only
+function requireHTTPS(req, res, next) {
+    // The 'x-forwarded-proto' check is for Heroku
+    if (!req.secure && req.get('x-forwarded-proto') !== 'https' && process.env.NODE_ENV !== "development") {
+        return res.redirect('https://' + req.get('host') + req.url);
+    }
+    next();
+}
+
+// Setting up mongoose
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 var db = mongoose.connect("mongodb://localhost/Cybros",{useMongoClient: true});
@@ -22,12 +50,16 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+//random secrets on every start of app
+var crypto = require('crypto');
+var secret = crypto.randomBytes(24).toString('hex');
 // using express-sessions to manage session
 app.use(session({
-  secret: 'cybros',
+  secret: secret,
   resave: true,
   saveUninitialized: false
 }));
+
 app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());

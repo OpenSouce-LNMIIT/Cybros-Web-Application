@@ -5,22 +5,7 @@ var session = require('express-session');
 var app = express();
 var sess = {};
 
-var hbs = require('hbs');
-var fs = require('fs');
 
-var partialsDir = __dirname + '/../views/partials';
-
-var filenames = fs.readdirSync(partialsDir);
-
-filenames.forEach(function (filename) {
-    var matches = /^([^.]+).hbs$/.exec(filename);
-    if (!matches) {
-        return;
-    }
-    var name = matches[1];
-    var template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
-    hbs.registerPartial(name, template);
-});
 
 //User Schema imported
 var User = require("./../models/User");
