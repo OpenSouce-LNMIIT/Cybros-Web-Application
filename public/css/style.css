@@ -32,18 +32,18 @@ a{
     background-color:rgb(57, 108, 146);
     margin:6px;
     transition: 0.5s ease;
-  }
-  .change .bar1 {
-      transform: rotate(45deg) translate(5px, 9.5px) ;
+}
+.change .bar1 {
+    transform: rotate(45deg) translate(5px, 9.5px) ;
 }
 
-  .change .bar2 {opacity: 0;}
+.change .bar2 {opacity: 0;}
 
-  .change .bar3 {
-      transform: rotate(-45deg) translate(5px, -9.5px) ;
-  }
-  /*Side navbar*/
-  .sidenav {
+.change .bar3 {
+    transform: rotate(-45deg) translate(5px, -9.5px) ;
+}
+/*Side navbar*/
+.sidenav {
     height: 100%;
     width: 0;
     position: fixed;
@@ -79,11 +79,6 @@ a{
     font-size: 36px;
     margin-left: 50px;
 }
-.text {
-  width: 80%;
-  padding-top: 7%;
-  margin-left: 10%;
-}
 
 #main {
     transition: margin-left .5s;
@@ -91,8 +86,8 @@ a{
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 15px;}
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 15px;}
 }
 .quote{
     padding-top:15%;
@@ -115,7 +110,7 @@ a{
     /* Add shadows to create the "card" effect */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-	background-color:white;
+    background-color:white;
 
 }
 
@@ -124,15 +119,13 @@ a{
     box-shadow: 0 10px 18px 0 rgba(0,0,0,0.3);
 }
 .card img{
-  height:250px;
+    height:250px;
 }
 .footer{
     font-family: 'Rubik', sans-serif;
     font-size: 15px;
     background-color: white;
     color:black;
-    bottom: 0;
-    position: fixed;
 }
 .footer h4{
     font-family: 'Poiret One', cursive;
@@ -142,18 +135,6 @@ a{
 .footer a:hover{
     color: rgb(57, 108, 146);
     font-size:1.2em;
-}
-.aboutustext {
-  display: none;
-}
-.sub, .shortcut{
-  float: right;
-}
-.span {
-  height: auto;
-  display: block;
-  overflow: auto;
-  float: right;
 }
 .but{
     color: white;
@@ -192,132 +173,132 @@ a{
     }
     .banner2 .quote {
         padding-top: 15%;
-       font-size: 29px;
+        font-size: 29px;
         font-family: 'Gloria Hallelujah', cursive;
         vertical-align: middle!important;
         margin-right: 0 !important;
         margin-top: 10px;
-   }
+    }
 }
 
 
 /*Sign up/ Sign in form */
 
 *:focus {
-  outline: none;
+    outline: none;
 }
 
 .login-box {
-  position: relative;
-  margin: 5% auto;
-  width: 600px;
-  height: 400px;
-  background: #FFF;
-  border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    position: relative;
+    margin: 5% auto;
+    width: 600px;
+    height: 400px;
+    background: #FFF;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 /* Signup form*/
 .left {
-  position: absolute;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  padding: 40px;
-  width: 300px;
-  height: 400px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 400px;
 }
 
 .login-box h1 {
-  margin: 0 0 20px 0;
-  font-weight: bold;
-  font-size: 28px;
-  color: rgb(57, 108, 146);
-  font-family: 'Poiret One', cursive;
+    margin: 0 0 20px 0;
+    font-weight: bold;
+    font-size: 28px;
+    color: rgb(57, 108, 146);
+    font-family: 'Poiret One', cursive;
 
 }
 
 .login-box input[type="text"],
 .login-box input[type="password"] {
-  display: block;
-  box-sizing: border-box;
-  margin-bottom: 20px;
-  padding: 4px;
-  width: 220px;
-  height: 32px;
-  border: none;
-  border-bottom: 1px solid #AAA;
-  font-family: 'Poiret One', cursive;
-  font-weight: bold;
-  font-size: 15px;
-  transition: 0.2s ease;
+    display: block;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding: 4px;
+    width: 220px;
+    height: 32px;
+    border: none;
+    border-bottom: 1px solid #AAA;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.2s ease;
 }
 
 .login-box input[type="text"]:focus,
 .login-box input[type="password"]:focus {
-  border-bottom: 2px solid rgb(57, 108, 146); ;
-  transition: 0.2s ease;
+    border-bottom: 2px solid rgb(57, 108, 146); ;
+    transition: 0.2s ease;
 }
 
 .login-box input[type="submit"] {
-  margin-top: 28px;
-  width: 120px;
-  height: 32px;
-  background: rgb(57, 108, 146);
-  border: none;
-  border-radius: 2px;
-  color: #FFF;
-  font-family: 'Poiret One', cursive;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: 0.1s ease;
-  cursor: pointer;
+    margin-top: 28px;
+    width: 120px;
+    height: 32px;
+    background: rgb(57, 108, 146);
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.1s ease;
+    cursor: pointer;
 }
 
 .login-box input[type="submit"]:hover,
 .login-box input[type="submit"]:focus {
-  opacity: 0.8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  transition: 0.1s ease;
+    opacity: 0.8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
 }
 
 .login-box input[type="submit"]:active {
-  opacity: 1;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  transition: 0.1s ease;
+    opacity: 1;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    transition: 0.1s ease;
 }
 /* OR */
 .or {
-  position: absolute;
-  top: 180px;
-  left: 280px;
-  width: 40px;
-  height: 40px;
-  background: #DDD;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  line-height: 40px;
-  text-align: center;
+    position: absolute;
+    top: 180px;
+    left: 280px;
+    width: 40px;
+    height: 40px;
+    background: #DDD;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    line-height: 40px;
+    text-align: center;
 }
 /* Sign in form */
 .right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  box-sizing: border-box;
-  padding: 40px;
-  width: 300px;
-  height: 400px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 0 2px 2px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 2px 2px 0;
 }
 
 .right .loginwith {
-  display: block;
-  margin-bottom: 40px;
-  font-size: 28px;
-  color: #FFF;
-  text-align: center;
+    display: block;
+    margin-bottom: 40px;
+    font-size: 28px;
+    color: #FFF;
+    text-align: center;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -359,200 +340,200 @@ a{
 }
 
 .profile button {
-  overflow: visible;
+    overflow: visible;
 }
 
 .profile button, .profile select {
-  text-transform: none;
+    text-transform: none;
 }
 
 .profile button, .profile input, .profile select, .profile textarea {
-  color: rgb(57, 108, 146);
-  font: inherit;
-  margin: 0;
+    color: rgb(57, 108, 146);
+    font: inherit;
+    margin: 0;
 }
 
 .profile input {
-  line-height: normal;
+    line-height: normal;
 }
 
 .profile textarea {
-  overflow: auto;
+    overflow: auto;
 }
 
 .profile #container {
-  font-family: 'Montserrat', Arial, sans-serif;
-  border: solid 3px rgb(57, 108, 146);
-  max-width: 768px;
-  margin: 60px auto;
-  position: relative;
+    font-family: 'Montserrat', Arial, sans-serif;
+    border: solid 3px rgb(57, 108, 146);
+    max-width: 768px;
+    margin: 60px auto;
+    position: relative;
 }
 
 .profile form {
-  padding: 37.5px;
-  margin: 50px 0;
+    padding: 37.5px;
+    margin: 50px 0;
 }
 
 .profile h1 {
-  color: rgb(57, 108, 146);
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 7px;
-  text-align: center;
+    color: rgb(57, 108, 146);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 7px;
+    text-align: center;
 }
 
 .profile .underline {
-  border-bottom: solid 2px rgb(57, 108, 146);
-  margin: -0.512em auto;
-  width: 80px;
+    border-bottom: solid 2px rgb(57, 108, 146);
+    margin: -0.512em auto;
+    width: 80px;
 }
 
 .profile .icon_wrapper {
-  margin: 50px auto 0;
-  width: 100%;
+    margin: 50px auto 0;
+    width: 100%;
 }
 
 .profile .icon {
-  display: block;
-  fill: rgb(57, 108, 146);
-  height: 50px;
-  margin: 0 auto;
-  width: 50px;
+    display: block;
+    fill: rgb(57, 108, 146);
+    height: 50px;
+    margin: 0 auto;
+    width: 50px;
 }
 
 .profile .pright {
-	float: right;
-	width: 45%;
+    float: right;
+    width: 45%;
 }
 
 .profile input[type='text'], .profile input[type='email'], .profile [type='password'],select,.profile textarea {
-	background: none;
-  border: none;
-	border-bottom: solid 2px rgb(57, 108, 146);
-	color: rgb(57, 108, 146);
-	font-size: 0.725m;
-  font-weight: 300;
-  letter-spacing: 1px;
-	margin: 0em 0 1.875em 0;
-	padding: 0 0 0.875em 0;
-	width: 100%;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	-ms-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
+    background: none;
+    border: none;
+    border-bottom: solid 2px rgb(57, 108, 146);
+    color: rgb(57, 108, 146);
+    font-size: 0.725m;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin: 0em 0 1.875em 0;
+    padding: 0 0 0.875em 0;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .profile input[type='text']:focus, [type='email']:focus, [type='password']:focus, .profile textarea:focus {
-	outline: none;
-	padding: 0 0 0.875em 0;
+    outline: none;
+    padding: 0 0 0.875em 0;
 }
 
 .profile .pleft {
-	float: left;
-	width: 45%;
+    float: left;
+    width: 45%;
 }
 
 .profile .fin {
-  width: 100%;
+    width: 100%;
 }
 
 .profile textarea {
-	line-height: 150%;
-	height: 150px;
-	resize: none;
-  width: 100%;
+    line-height: 150%;
+    height: 150px;
+    resize: none;
+    width: 100%;
 }
 
 ::-webkit-input-placeholder {
-	color: rgb(57, 108, 146);
+    color: rgb(57, 108, 146);
 }
 
 :-moz-placeholder {
-	color: rgb(57, 108, 146);
-	opacity: 1;
+    color: rgb(57, 108, 146);
+    opacity: 1;
 }
 
 ::-moz-placeholder {
-	color: rgb(57, 108, 146);
-	opacity: 1;
+    color: rgb(57, 108, 146);
+    opacity: 1;
 }
 
 :-ms-input-placeholder {
-	color: rgb(56, 107, 146);
+    color: rgb(56, 107, 146);
 }
 
 select {
-  background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
-  outline: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
+    background: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-down-32.png') no-repeat right;
+    outline: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 }
 
 .profile #form_button {
-  background: none;
-  border: solid 2px rgb(57, 108, 146);
-  color: rgb(57, 108, 146);
-  cursor: pointer;
-  display: inline-block;
-  font-family: 'Helvetica', Arial, sans-serif;
-  font-size: 0.8em;
-  font-weight: bold;
-  outline: none;
-  padding: 20px 35px;
-  -webkit-transition: all 0.3s;
-	-moz-transition: all 0.3s;
-	-ms-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
+    background: none;
+    border: solid 2px rgb(57, 108, 146);
+    color: rgb(57, 108, 146);
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 0.8em;
+    font-weight: bold;
+    outline: none;
+    padding: 20px 35px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
 .profile #form_button:hover {
-  background: rgb(57, 108, 146);
-  color: #F2F3EB;
+    background: rgb(57, 108, 146);
+    color: #F2F3EB;
 }
 
 @media screen and (max-width: 768px) {
     .profile #container {
-    margin: 20px auto;
-    width: 95%;
-  }
+        margin: 20px auto;
+        width: 95%;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .profile h1 {
-    font-size: 20px;
-  }
+        font-size: 20px;
+    }
 
-  .profile .underline {
-    width: 68px;
-  }
+    .profile .underline {
+        width: 68px;
+    }
 
-  .profile #form_button {
-    padding: 15px 25px;
-  }
+    .profile #form_button {
+        padding: 15px 25px;
+    }
 }
 
 @media screen and (max-width: 420px) {
     .profile h1 {
-    font-size: 18px;
-  }
+        font-size: 18px;
+    }
 
-  .profile .icon {
-    height: 35px;
-    width: 35px;
-  }
+    .profile .icon {
+        height: 35px;
+        width: 35px;
+    }
 
-  .profile .underline {
-    width: 53px;
-  }
+    .profile .underline {
+        width: 53px;
+    }
 
-  .profile input[type='text'], [type='email'], [type='password'], select, textarea {
-    font-size: 0.5em;
-  }
+    .profile input[type='text'], [type='email'], [type='password'], select, textarea {
+        font-size: 0.5em;
+    }
 }
 /*Profile ends*/
