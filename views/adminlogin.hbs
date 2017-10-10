@@ -1,0 +1,18 @@
+{{> header}}
+        <div style="padding-top:110px;">
+                <h3 class="text-center filler-heading">Administrator's portal</h3>
+                <div class="login-box text-center row">
+                    <form class="text-center"  action="/admin/login" method="post">
+                    <!-- Sign in form  -->    
+                        <h1 style="padding-top:60px;">Log in</h1>
+                        <input style="margin:auto;" type="text" name="username" placeholder="Username" required/>
+                        <input style="margin:auto;" type="password" name="password" placeholder="Password" required/>
+                        <p>{{login}}</p>
+                        <input  type="submit" name="signup_submit" value="Sign in"/>
+                    </form>
+                    
+                </div>
+        </div>
+        
+
+{{> footer}}
