@@ -1,9 +1,12 @@
             <div class="container-fluid footer">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h4>About Us</h4>
-                        <p>Cybros Computer Club, The LNMIIT, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-                        </p></div>
+                        {{#if hideAboutInFooter}}
+                        {{else}}
+                            <h4>About Us</h4>
+                            <p>Cybros Computer Club, The LNMIIT, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</p>
+                        {{/if}}
+                    </div>
 
                     <div class="col-sm-2 col-md-offset-1">
                         <h4>Shortcut</h4>
