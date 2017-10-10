@@ -2,9 +2,9 @@
 
 ## 1. Purpose
 
-A primary goal of Cybros Web Application is to be inclusive to the largest number of contributors, with the most varied and diverse backgrounds possible. As such, we are committed to providing a friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
+The primary goal of Cybros Web Application is to be inclusive to the largest number of contributors, with the most varied and diverse backgrounds possible. As such, we are committed to providing a friendly, safe and welcoming environment for all, regardless of gender, sexual orientation, ability, ethnicity, socioeconomic status, and religion (or lack thereof).
 
-This code of conduct outlines our expectations for all those who participate in our community, as well as the consequences for unacceptable behavior.
+This code of conduct outlines our expectations for all those who participate in our community, as well as the consequences for unacceptable behaviour.
 
 We invite all those who participate in Cybros Web Application to help us create safe and positive experiences for everyone.
 
@@ -16,20 +16,20 @@ Communities mirror the societies in which they exist and positive action is esse
 
 If you see someone who is making an extra effort to ensure our community is welcoming, friendly, and encourages all participants to contribute to the fullest extent, we want to know.
 
-## 3. Expected Behavior
+## 3. Expected Behaviour
 
-The following behaviors are expected and requested of all community members:
+The following behaviour is expected and requested from all community members:
 
-*   Participate in an authentic and active way. In doing so, you contribute to the health and longevity of this community.
+*   Participate in an authentic and active way. In doing so, you can contribute to the health and longevity of this community.
 *   Exercise consideration and respect in your speech and actions.
 *   Attempt collaboration before conflict.
-*   Refrain from demeaning, discriminatory, or harassing behavior and speech.
+*   Refrain from demeaning, discriminatory, or harassing behaviour and speech.
 *   Be mindful of your surroundings and of your fellow participants. Alert community leaders if you notice a dangerous situation, someone in distress, or violations of this Code of Conduct, even if they seem inconsequential.
 *   Remember that community event venues may be shared with members of the public; please be respectful to all patrons of these locations.
 
-## 4. Unacceptable Behavior
+## 4. Unacceptable Behaviour
 
-The following behaviors are considered harassment and are unacceptable within our community:
+The following behaviour is considered harassment and is unacceptable within our community:
 
 *   Violence, threats of violence or violent language directed against another person.
 *   Sexist, racist, homophobic, transphobic, ableist or otherwise discriminatory jokes and language.
