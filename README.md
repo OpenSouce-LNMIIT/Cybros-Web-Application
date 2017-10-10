@@ -56,17 +56,17 @@ $ mongo
 Now you have to insert an admin data mannually in mongoDB
 and make sure you make "HasAccess" set to "true" as it is "false" by default
 ```
-db.admin.insert({username:YOURUSERNAME, Password:YOURPASSWORD, Hasaccess:true});
+db.admins.insert({username:YOURUSERNAME, Password:YOURPASSWORD, Hasaccess:true});
 ```
 Admin panel can be accessed from: http://localhost:3000/admin/
 
 ## Built With
 
-* [Nodejs]
-* [ExpressJS]
-* [MongoDB]
-* [JQuery]
-* [Bootstrap]
+* [Nodejs](https://nodejs.org/en/)
+* [ExpressJS](https://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/)
+* [JQuery](https://jquery.com/)
+* [Bootstrap](http://getbootstrap.com/)
 
 ## Contributing
 
@@ -74,5 +74,5 @@ Just open an issue with your suggestion.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md] file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
