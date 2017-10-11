@@ -1,0 +1,39 @@
+{{> header}}
+<div style="padding-top:97px;">
+    <h3 class="text-center filler-heading">{{event.Event_Name}}</h3>
+    <form id="event_form">
+        <div class="fin">
+            Event ID:
+            <input type="text" placeholder="" value='{{event.Event_ID}}' name="ID" id="ID_input" readonly>
+        </div>
+        <div class="fin">
+            Event type:
+            <input type="text" placeholder="" value='{{event.Event_Type}}' name="ID" id="ID_input" readonly>
+        </div>
+        <div class="fin">
+            Event Description:
+            <textarea name="Description" value="{{event.Event_Description}}" id="description_input" cols="30" rows="5" readonly >{{event.Event_Description}}</textarea>                           </div>
+        <div class="pleft">
+            Venue:
+            <input  type="text" value="{{event.Venue}}" name="Venue" id="venue_input" readonly>
+        </div>
+        <div class="pright">
+            Date:
+            <input type="text" value="{{event.Date}}" name="Date" id="date_input" readonly>
+        </div>
+        <div class="pleft">
+            Time:
+            <input type="text" value="{{event.Time}}"  name="Time" id="time_input" readonly>
+        </div>
+        <div class="pright">
+            Fee:
+            <input type="text" value="{{event.Fee}}" name="Fee" id="fee_input" readonly>
+        </div>
+        <div class="fin">
+            Additional links:
+            <input type="text"  value="{{event.Additional_Links}}" name="Additional" id="Additional_input" readonly>
+        </div>
+    </form><!-- // End form -->
+</div>
+
+{{> footer}}
