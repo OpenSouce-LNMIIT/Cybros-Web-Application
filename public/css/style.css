@@ -419,7 +419,7 @@ a{
     width: 45%;
 }
 
-.profile input[type='text'], .profile input[type='email'], .profile [type='password'],select,.profile textarea {
+.profile textarea, .profile input[type='text'], .profile input[type='email'], .profile [type='password'],select,.profile textarea {
     background: none;
     border: none;
     border-bottom: solid 2px rgb(57, 108, 146);
@@ -445,6 +445,7 @@ a{
 .profile input[type='text']:focus, [type='email']:focus, [type='password']:focus, .profile textarea:focus {
     outline: none;
     padding: 0 0 0.875em 0;
+    border: 1px dotted rgb(57, 108, 146);
 }
 
 .profile .pleft {

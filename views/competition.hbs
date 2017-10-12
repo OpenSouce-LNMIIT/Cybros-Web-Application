@@ -5,10 +5,12 @@
                 {{#if event.length}}
                 {{#each event}}
                     <div class="col-md-4" style="padding:15px;">
+                        <a href = "/event/{{this.Event_ID}}">
                         <div class="card">
                             <img class="img-responsive" src="../images/DefaultEvent.png" alt="Competitive" width="100%">
                             <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">{{@index}} {{{this.Event_Name}}}</p>
                         </div>
+                        </a>
                     </div>
                 {{/each}}
                 <div class="col"></div>
