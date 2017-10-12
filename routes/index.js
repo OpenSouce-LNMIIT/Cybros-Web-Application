@@ -5,8 +5,11 @@ var session = require('express-session');
 var app = express();
 var sess = {};
 
-//User Schema imported
+
+//User schema imported
 var User = require("./../models/User");
+//Event schema imported
+var Event = require("./../models/Event");
 
 //Make this secret key more complex to have better encryption
 app.use(session({
@@ -22,13 +25,29 @@ app.use(bodyParser.urlencoded({
 /* GET index page. */
 router.get('/', function(req, res, next) {
   sess=req.session;
-  if(sess.user) {
-    res.render('index.hbs', {user : sess.user.username});
-  }
-  else {
-    res.render('index.hbs', {user : "New user"});
-  }
-  
+  Event.find({},function(err,event){
+    if(err){
+        res.status(500).send({error:err});
+        console.log("Could get to database");
+    }
+    else{
+        if (event.length!== 0) {
+                console.log(event);
+                if(sess.user) {
+                  res.render('index.hbs', {
+                    user : sess.user.username,
+                    event : event
+                  });
+                }
+                else {
+                  res.render('index.hbs', {user : "New user", event : event});
+                }                                    
+        }
+        else{
+          console.log("No events featured");
+        }
+    }
+});
 });
 
 /* GET about page. */
@@ -46,34 +65,87 @@ router.get('/about', function(req, res, next) {
 /* GET classes page. */
 router.get('/classes', function(req, res, next) {
   sess=req.session;
-  if(sess.user) {
-    res.render('classes.hbs', {user : sess.user.username});
-  }
-  else {
-        res.render('classes.hbs', {user : "New user"});
-  }
+  Event.find({Event_Type:"Class"},function(err,event){
+    if(err){
+        res.status(500).send({error:err});
+        console.log("Could get to database");
+    }
+    else{
+        if (event.length!== 0) {
+                console.log(event);
+                if(sess.user) {
+                  res.render('classes.hbs', {
+                    user : sess.user.username,
+                    event : event
+                  });
+                }
+                else {
+                  res.render('classes.hbs', {user : "New user", event : event});
+                }
+        }
+        else{
+          console.log("No Classes featured");
+        }
+    }
+});
+
+  
 });
 
 /* GET competition page. */
 router.get('/competition', function(req, res, next) {
   sess=req.session;
-  if(sess.user) {
-    res.render('competition.hbs', {user : sess.user.username});
-  }
-  else {
-        res.render('competition.hbs', {user : "New user"});
-  }
+  Event.find({Event_Type:"Competition"},function(err,event){
+    if(err){
+        res.status(500).send({error:err});
+        console.log("Could get to database");
+    }
+    else{
+        if (event.length!== 0) {
+                console.log(event);
+                if(sess.user) {
+                  res.render('competition.hbs', {
+                    user : sess.user.username,
+                    event : event
+                  });
+                }
+                else {
+                  res.render('competition.hbs', {user : "New user", event : event});
+                }
+        }
+        else{
+          console.log("No competitions featured");
+        }
+    }
+});
 });
 
 /* GET workshops page. */
 router.get('/workshops', function(req, res, next) {
   sess=req.session;
-  if(sess.user) {
-    res.render('workshops.hbs', {user : sess.user.username});
-  }
-  else {
-        res.render('workshops.hbs', {user : "New user"});
-  }
+  Event.find({Event_Type:"Workshop"},function(err,event){
+    if(err){
+        res.status(500).send({error:err});
+        console.log("Could get to database");
+    }
+    else{
+        if (event.length!== 0) {
+                console.log(event);
+                if(sess.user) {
+                  res.render('workshops.hbs', {
+                    user : sess.user.username,
+                    event : event,
+                  });
+              }
+                else {
+                  res.render('workshops.hbs', {user : "New user", event : event,});
+                }
+        }
+        else{
+          console.log("No workshops featured");
+        }
+    }
+  });
 });
 
 router.get('/profile', function(req, res, next) {
