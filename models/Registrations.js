@@ -1,13 +1,17 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
+//User schema imported
+var User = require("./User");
+//Event schema imported
+var Event = require("./Event");
+
 var registration = new Schema({
-    Registration_ID: {type:Number,default:null},
-    Event_ID: [
-        {type: Schema.Types.Event_ID, ref: 'Event',default:null}
+    event: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'Event',default:null}
       ],
-    username: [
-        {type: Schema.Types.username, ref: 'User',default:null}
+    user: [
+        {type: mongoose.Schema.Types.ObjectId, ref: 'User',default:null}
       ]
 });
 
