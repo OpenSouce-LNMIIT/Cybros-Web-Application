@@ -39,7 +39,7 @@ router.get('/', function(req, res) {
 
 router.post('/login', function(req, res) {
     sess = req.session;
-    if(!sess.user){
+    if(!sess.admin){
         // Checking username from current database 
         Admin.find({username:req.body.username},function(err,admin){
             if(err){
@@ -47,7 +47,7 @@ router.post('/login', function(req, res) {
                 console.log("Could get to database");
             }
             else{
-                if (admin.length!== 0) {
+                if (admin[0].length!== 0) {
                     if(admin[0].username){
                         console.log(req.body);
                         console.log(admin);
@@ -166,7 +166,7 @@ router.post('/editevent/search', function(req, res) {
                         console.log("Event found :"+event[0]);
                         holdID = event[0]._id;
                         res.render('editevent.hbs', {
-                            user : sess.admin,
+                            user : sess.admin.username,
                             event: event[0],
                             emessage:"Event found. You can edit now.",
                         });                      
@@ -191,7 +191,7 @@ router.post('/editevent_submit', function(req, res, next) {
     if(sess.admin) {
         Event.findOneAndUpdate({_id: holdID}, {$set:{
             Event_Name:req.body.Name,
-            Event_type:req.body.eventType,
+            Event_Type:req.body.eventType,
             Event_Description:req.body.Description,
             Venue:req.body.Venue,
             Date:req.body.Date,
@@ -200,7 +200,7 @@ router.post('/editevent_submit', function(req, res, next) {
             Additional_Links:req.body.Additional,
           }}, {new: true}, function(err, event){
             if(!err){
-                 res.render('adminpanel.hbs', {user : sess.user, eventMessage : "Event details updated. !"});
+                 res.render('adminpanel.hbs', {user : sess.admin.username, eventMessage : "Event details updated. !"});
             }
             else{
               res.status(500).send({error:"Error, can't access Database!"});
@@ -245,7 +245,7 @@ router.post('/editevent_submit', function(req, res, next) {
                 }
                 else{
                     res.render('deleteEvent.hbs', {
-                        user : sess.admin,
+                        user : sess.admin.username,
                         emessage:"Event not found. Try again.",
                         displaysubmit : false
                     });  

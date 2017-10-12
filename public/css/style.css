@@ -1,6 +1,7 @@
 body{
     background-color: #EDEDED;
     height: 100%;
+    overflow-x: hidden;
 }
 
 .inner {
@@ -130,6 +131,10 @@ a{
     height:250px;
 }
 .footer{
+    width:100%;
+    left:0;
+    bottom:0;
+    right:0;
     font-family: 'Rubik', sans-serif;
     font-size: 15px;
     background-color: white;
