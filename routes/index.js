@@ -34,15 +34,15 @@ router.get('/', function(req, res, next) {
     }
     else{
         if (event.length!== 0) {
-                console.log(event);
+                console.log(sess.user);
                 if(sess.user) {
                   res.render('index.hbs', {
-                    user : sess.user.username,
+                    user : sess.user,
                     event : event
                   });
                 }
                 else {
-                  res.render('index.hbs', {user : "New user", event : event});
+                  res.render('index.hbs', {user :{username:"New user"}, event : event});
                 }                                    
         }
         else{
@@ -66,12 +66,12 @@ router.get('/event/:id', function(req, res, next) {
                 console.log(event[0]);
                 if(sess.user) {
                   res.render('event.hbs', {
-                    user : sess.user.username,
+                    user : sess.user,
                     event : event[0]
                   });
                 }
                 else {
-                  res.render('event.hbs', {user : "New user", event : event[0]});
+                  res.render('event.hbs', {user :{username:"New user"}, event : event[0]});
                 }                                    
         }
         else{
@@ -85,10 +85,10 @@ router.get('/event/:id', function(req, res, next) {
 router.get('/about', function(req, res, next) {
   sess=req.session;
   if(sess.user) {
-    res.render('about.hbs', {user : sess.user.username});
+    res.render('about.hbs', {user : sess.user});
   }
   else {
-        res.render('about.hbs', {user : "New user"});
+        res.render('about.hbs', {user :{username:"New user"}});
   }
   
 });
@@ -106,12 +106,12 @@ router.get('/classes', function(req, res, next) {
                 console.log(event);
                 if(sess.user) {
                   res.render('classes.hbs', {
-                    user : sess.user.username,
+                    user : sess.user,
                     event : event
                   });
                 }
                 else {
-                  res.render('classes.hbs', {user : "New user", event : event});
+                  res.render('classes.hbs', {user :{username:"New user"}, event : event});
                 }
         }
         else{
@@ -136,12 +136,12 @@ router.get('/competition', function(req, res, next) {
                 console.log(event);
                 if(sess.user) {
                   res.render('competition.hbs', {
-                    user : sess.user.username,
+                    user : sess.user,
                     event : event
                   });
                 }
                 else {
-                  res.render('competition.hbs', {user : "New user", event : event});
+                  res.render('competition.hbs', {user :{username:"New user"}, event : event});
                 }
         }
         else{
@@ -164,12 +164,12 @@ router.get('/workshops', function(req, res, next) {
                 console.log(event);
                 if(sess.user) {
                   res.render('workshops.hbs', {
-                    user : sess.user.username,
+                    user : sess.user,
                     event : event,
                   });
               }
                 else {
-                  res.render('workshops.hbs', {user : "New user", event : event,});
+                  res.render('workshops.hbs', {user :{username:"New user"}, event : event,});
                 }
         }
         else{
@@ -185,7 +185,7 @@ router.get('/profile', function(req, res, next) {
     res.render('profile.hbs', {user : sess.user});
   }
   else {
-        res.render('signup.hbs', {user : "New user", login : "You have to sign in first. !"});
+        res.render('signup.hbs', {user :{username:"New user"}, login : "You have to sign in first. !"});
   }
 });
 
@@ -214,7 +214,7 @@ router.post('/update', function(req, res, next) {
     });
   }
   else {
-    res.render('signup.hbs', {user : "New user", login : "You have to sign in first. !"});
+    res.render('signup.hbs', {user :{username:"New user"}, login : "You have to sign in first. !"});
   }
   
 });
@@ -264,7 +264,7 @@ router.post('/register', function(req, res) {
   });
 }
 else {
-      res.render('signup.hbs', {user : "New user", login : "You have to sign in first. !"});
+      res.render('signup.hbs', {user :{username:"New user"}, login : "You have to sign in first. !"});
 }         
 });
 
