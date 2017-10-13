@@ -262,7 +262,7 @@ router.get('/logout', function(req, res, next) {
     sess=req.session;
     if(sess.admin) {
       req.session.destroy();
-      res.render('adminlogin.hbs', {user : {username:"New admin"}});
+      res.render('adminlogin.hbs', {user : {username:"New admin"}, login : "Successfully logged out."});
     }
     else {
           res.render('adminlogin.hbs', {user : {username:"New admin"}, login : "You have to sign in first. !"});
