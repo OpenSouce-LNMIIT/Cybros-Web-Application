@@ -231,6 +231,7 @@ a{
 }
 
 .login-box input[type="text"],
+.login-box input[type="email"],
 .login-box input[type="password"] {
     display: block;
     box-sizing: border-box;
@@ -247,6 +248,7 @@ a{
 }
 
 .login-box input[type="text"]:focus,
+.login-box input[type="email"]:focus,
 .login-box input[type="password"]:focus {
     border-bottom: 2px solid rgb(57, 108, 146); ;
     transition: 0.2s ease;
@@ -360,7 +362,7 @@ a{
     text-transform: none;
 }
 
-.profile input, .profile select, .profile textarea {
+.profile input, .profile select, .profile textarea, .profile input[type='email']{
     color: rgb(57, 108, 146);
     font: inherit;
     margin: 0;
@@ -419,7 +421,7 @@ a{
     width: 45%;
 }
 
-.profile textarea, .profile input[type='text'], .profile input[type='email'], .profile [type='password'],select,.profile textarea {
+.profile textarea, .profile input[type='text'],.profile input[type='email'],.profile input[type='password'],select {
     background: none;
     border: none;
     border-bottom: solid 2px rgb(57, 108, 146);
@@ -442,7 +444,7 @@ a{
     transition: all 0.3s;
 }
 
-.profile input[type='text']:focus, [type='email']:focus, [type='password']:focus, .profile textarea:focus {
+.profile input[type='text']:focus, .profile input[type='email']:focus, .profile input[type='password']:focus, .profile textarea:focus {
     outline: none;
     padding: 0 0 calc(0.875em + 1px) 0;
     border: 1px dotted rgb(57, 108, 146);
@@ -542,8 +544,8 @@ select {
         width: 53px;
     }
 
-    .profile input[type='text'], [type='email'], [type='password'], select, textarea {
-        font-size: 0.5em;
+    .profile input[type='text'], .profile input[type='email'], .profile input[type='password'], select, textarea {
+        font-size: 0.75em;
     }
 }
 /*Profile ends*/
