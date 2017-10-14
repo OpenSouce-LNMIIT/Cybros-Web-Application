@@ -30,25 +30,13 @@ router.get('/', function(req, res, next) {
   Event.find({},function(err,event){
     if(err){
         res.status(500).send({error:err});
-        console.log("Could get to database");
+        console.log("Could not get to database");
     }
     else{
-        if (event.length!== 0) {
-                console.log(sess.user);
-                if(sess.user) {
-                  res.render('index.hbs', {
-                    user : sess.user,
-                    event : event
-                  });
-                }
-                else {
-                  res.render('index.hbs', {user :{username:"New user"}, event : event});
-                }                                    
-        }
-        else{
-          res.render('index.hbs', {user :{username:"New user"}, event : null});
-          console.log("No events featured");
-        }
+      res.render('index.hbs', {
+        user : sess.user ? sess.user : {username:"New user"},
+        event : (event && event.length) ? event : null
+      });                                   
     }
 });
 });
@@ -60,25 +48,13 @@ router.get('/event/:id', function(req, res, next) {
   Event.find({Event_ID : req.params.id},function(err,event){
     if(err){
         res.status(500).send({error:err});
-        console.log("Could get to database");
+        console.log("Could not get to database");
     }
     else{
-        if (event.length!== 0) {
-                console.log(event[0]);
-                if(sess.user) {
-                  res.render('event.hbs', {
-                    user : sess.user,
-                    event : event[0]
-                  });
-                }
-                else {
-                  res.render('event.hbs', {user :{username:"New user"}, event : event[0]});
-                }                                    
-        }
-        else{
-          res.render('index.hbs', {user :{username:"New user"}, event : null});
-          console.log("No events featured");
-        }
+      res.render('event.hbs', {
+        user : sess.user ? sess.user : {username:"New user"},
+        event : (event && event.length) ? event[0] : null
+      });
     }
 });
 });
@@ -86,13 +62,7 @@ router.get('/event/:id', function(req, res, next) {
 /* GET about page. */
 router.get('/about', function(req, res, next) {
   sess=req.session;
-  if(sess.user) {
-    res.render('about.hbs', {user : sess.user});
-  }
-  else {
-        res.render('about.hbs', {user :{username:"New user"}});
-  }
-  
+    res.render('about.hbs', {user : sess.user ? sess.user : {username:"New user"} });  
 });
 
 /* GET classes page. */
@@ -104,25 +74,12 @@ router.get('/classes', function(req, res, next) {
         console.log("Could get to database");
     }
     else{
-        if (event.length!== 0) {
-                console.log(event);
-                if(sess.user) {
-                  res.render('classes.hbs', {
-                    user : sess.user,
-                    event : event
-                  });
-                }
-                else {
-                  res.render('classes.hbs', {user :{username:"New user"}, event : event});
-                }
-        }
-        else{
-          console.log("No Classes featured");
-        }
+      res.render('classes.hbs', {
+        user : sess.user ? sess.user : {username:"New user"},
+        event : (event && event.length) ? event : null
+      });
     }
-});
-
-  
+  });
 });
 
 /* GET competition page. */
@@ -134,23 +91,12 @@ router.get('/competition', function(req, res, next) {
         console.log("Could get to database");
     }
     else{
-        if (event.length!== 0) {
-                console.log(event);
-                if(sess.user) {
-                  res.render('competition.hbs', {
-                    user : sess.user,
-                    event : event
-                  });
-                }
-                else {
-                  res.render('competition.hbs', {user :{username:"New user"}, event : event});
-                }
-        }
-        else{
-          console.log("No competitions featured");
-        }
+      res.render('competition.hbs', {
+        user : sess.user ? sess.user : {username:"New user"},
+        event : (event && event.length) ? event : null
+      });
     }
-});
+  });
 });
 
 /* GET workshops page. */
@@ -160,23 +106,11 @@ router.get('/workshops', function(req, res, next) {
     if(err){
         res.status(500).send({error:err});
         console.log("Could get to database");
-    }
-    else{
-        if (event.length!== 0) {
-                console.log(event);
-                if(sess.user) {
-                  res.render('workshops.hbs', {
-                    user : sess.user,
-                    event : event,
-                  });
-              }
-                else {
-                  res.render('workshops.hbs', {user :{username:"New user"}, event : event,});
-                }
-        }
-        else{
-          console.log("No workshops featured");
-        }
+    } else {
+      res.render('workshops.hbs', {
+        user : sess.user ? sess.user : {username:"New user"},
+        event : (event && event.length) ? event : null
+      });
     }
   });
 });
