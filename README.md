@@ -53,10 +53,14 @@ Go to mongo terminal by typing
 ```
 $ mongo
 ```
-Now you have to insert an admin data mannually in mongoDB
+Use the correct database by typing
+```
+$ use Cybros
+```
+Now you have to insert an admin data manually in mongoDB
 and make sure you make "HasAccess" set to "true" as it is "false" by default
 ```
-db.admins.insert({username:YOURUSERNAME, Password:YOURPASSWORD, Hasaccess:true});
+db.admins.insert({username:YOURUSERNAME, Password:YOURPASSWORD, HasAccess:true});
 ```
 Admin panel can be accessed from: http://localhost:3000/admin/
 
