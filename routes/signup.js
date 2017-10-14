@@ -24,10 +24,10 @@ app.use(cookieParser());
 router.get('/', function(req, res) {
     sess=req.session;
     if(sess.user) {
-      res.render('signup.hbs', {user : sess.user.username});
+      res.render('signup.hbs', {user : sess.user});
     }
     else {
-      res.render('signup.hbs', {user : "New user"});
+      res.render('signup.hbs', {user:{username:"New user"}});
     }
 });
 
@@ -104,7 +104,7 @@ router.post('/login', function(req, res) {
                         }  
                         else{
                             res.render('signup.hbs', {
-                                user :"New user",
+                                user:{username:"New user"},
                                 login:"Username or password wrong, try again."
                             });
                         }               
@@ -112,7 +112,7 @@ router.post('/login', function(req, res) {
                 }
                 else{
                     res.render('signup.hbs', {
-                        user :"New user",
+                        user:{username:"New user"},
                         login:"Username or password wrong, try again."
                     });
                 } 
@@ -121,7 +121,7 @@ router.post('/login', function(req, res) {
     }
     else{
         res.render('signup.hbs', {
-            user : sess.user.username,
+            user : sess.user,
             login : "You have to log out first"
         }); 
     }         
@@ -131,10 +131,10 @@ router.get('/logout', function(req, res, next) {
     sess=req.session;
     if(sess.user) {
       req.session.destroy();
-      res.render('index.hbs', {user : "New user"});
+      res.redirect("/");
     }
     else {
-          res.render('signup.hbs', {user : "New user", login : "You have to sign in first. !"});
+          res.render('signup.hbs', {user:{username:"New user"}, login : "You have to sign in first. !"});
     }
   });
 

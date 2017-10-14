@@ -30,16 +30,16 @@ app.use(cookieParser());
 router.get('/', function(req, res) {
     sess = req.session;
     if(sess.admin) {
-        res.render('adminlogin.hbs', {user : sess.admin.username});
+        res.render('adminlogin.hbs', {user : sess.admin});
       }
       else {
-        res.render('adminlogin.hbs', {user : "New admin"});
+        res.render('adminlogin.hbs', {user : {username:"New admin"}});
       }  
 });
 
 router.post('/login', function(req, res) {
     sess = req.session;
-    if(!sess.user){
+    if(!sess.admin){
         // Checking username from current database 
         Admin.find({username:req.body.username},function(err,admin){
             if(err){
@@ -47,7 +47,7 @@ router.post('/login', function(req, res) {
                 console.log("Could get to database");
             }
             else{
-                if (admin.length!== 0) {
+                if (admin[0].length!== 0) {
                     if(admin[0].username){
                         console.log(req.body);
                         console.log(admin);
@@ -77,7 +77,7 @@ router.post('/login', function(req, res) {
     }
     else{
         res.render('adminlogin.hbs', {
-            user : sess.admin.username,
+            user : sess.admin,
             login : "You have to log out first"
         }); 
     }   
@@ -89,7 +89,7 @@ router.get('/addevent', function(req, res) {
         res.render('addevent.hbs', {user : sess.admin});
       }
       else {
-        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+        res.render('adminlogin.hbs', {user : {username:"New admin"},login:"You need to log in first. !"});
       }  
 });
 
@@ -138,17 +138,17 @@ router.post('/addevent_submit', function(req, res) {
         });    
     }
     else {
-        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+        res.render('adminlogin.hbs', {user : {username:"New admin"},login:"You need to log in first. !"});
       }  
 });
 
 router.get('/editevent', function(req, res) {
     sess = req.session;
     if(sess.admin) {
-        res.render('editevent.hbs', {user : sess.admin.username});
+        res.render('editevent.hbs', {user : sess.admin});
       }
       else {
-        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+        res.render('adminlogin.hbs', {user : {username:"New admin"},login:"You need to log in first. !"});
       }  
 });
 var holdID;
@@ -182,7 +182,7 @@ router.post('/editevent/search', function(req, res) {
         });
       }
       else {
-        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+        res.render('adminlogin.hbs', {user : {username:"New admin"},login:"You need to log in first. !"});
       }  
 });
 
@@ -191,7 +191,7 @@ router.post('/editevent_submit', function(req, res, next) {
     if(sess.admin) {
         Event.findOneAndUpdate({_id: holdID}, {$set:{
             Event_Name:req.body.Name,
-            Event_type:req.body.eventType,
+            Event_Type:req.body.eventType,
             Event_Description:req.body.Description,
             Venue:req.body.Venue,
             Date:req.body.Date,
@@ -200,7 +200,7 @@ router.post('/editevent_submit', function(req, res, next) {
             Additional_Links:req.body.Additional,
           }}, {new: true}, function(err, event){
             if(!err){
-                 res.render('adminpanel.hbs', {user : sess.user, eventMessage : "Event details updated. !"});
+                 res.render('adminpanel.hbs', {user : sess.admin, eventMessage : "Event details updated. !"});
             }
             else{
               res.status(500).send({error:"Error, can't access Database!"});
@@ -208,7 +208,7 @@ router.post('/editevent_submit', function(req, res, next) {
         });    
     }
     else {
-      res.render('adminpanel.hbs', {user : "New admin", login : "You have to log in first. !"});
+      res.render('adminpanel.hbs', {user : {username:"New admin"}, login : "You have to log in first. !"});
     }
     
   });
@@ -216,10 +216,10 @@ router.post('/editevent_submit', function(req, res, next) {
   router.get('/deleteevent', function(req, res) {
     sess = req.session;
     if(sess.admin) {
-        res.render('deleteEvent.hbs', {user : sess.admin.username});
+        res.render('deleteEvent.hbs', {user : sess.admin});
       }
       else {
-        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+        res.render('adminlogin.hbs', {user : {username:"New admin"},login:"You need to log in first. !"});
       }  
 });
 
@@ -254,7 +254,7 @@ router.post('/editevent_submit', function(req, res, next) {
         });
       }
       else {
-        res.render('adminlogin.hbs', {user : "New admin",login:"You need to log in first. !"});
+        res.render('adminlogin.hbs', {user : {username:"New admin"},login:"You need to log in first. !"});
       }  
 });
 
@@ -262,10 +262,10 @@ router.get('/logout', function(req, res, next) {
     sess=req.session;
     if(sess.admin) {
       req.session.destroy();
-      res.render('adminlogin.hbs', {user : "New admin"});
+      res.render('adminlogin.hbs', {user : {username:"New admin"}, login : "Successfully logged out."});
     }
     else {
-          res.render('adminlogin.hbs', {user : "New admin", login : "You have to sign in first. !"});
+          res.render('adminlogin.hbs', {user : {username:"New admin"}, login : "You have to sign in first. !"});
     }
 });
 module.exports = router;

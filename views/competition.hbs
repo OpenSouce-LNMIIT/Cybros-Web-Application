@@ -1,47 +1,21 @@
 {{> header}}
 
-        <div class="filler text-center"style="height:auto;padding-top:87px;">
+        <div class="row filler text-center"style="height:auto;padding-top:87px;">
                 <h3 class="filler-heading">Competitions</h3>
-                <div class="row" style="margin-left:20px;margin-right:20px;padding-bottom:5%">
-                    <div class="col-md-4">
+                {{#if event.length}}
+                {{#each event}}
+                    <div class="col-md-4" style="padding:15px;">
+                        <a href = "/event/{{this.Event_ID}}">
                         <div class="card">
-                            <img class="img-responsive" src="../images/competitive.png" alt="Competitive" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">Competitive classes</p> 
+                            <img class="img-responsive" src="../images/DefaultEvent.png" alt="Competitive" width="100%">
+                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">{{@index}} {{{this.Event_Name}}}</p>
                         </div>
+                        </a>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="img-responsive" src="../images/development.jpg" alt="development" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">Development classes</p> 
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="img-responsive" src="../images/LNMHacks.jpg" alt="LNMhacks" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">LNM Hacks</p> 
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="margin-left:20px;margin-right:20px;padding-bottom:5%">                    
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="img-responsive" src="../images/papersLnmiit.jpg" alt="papers.lnm" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">Papers.Lnmiit</p> 
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="img-responsive" src="../images/ACMICPC.jpg" alt="ACMICPC" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">ACMICPC style contest</p> 
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="img-responsive" src="../images/coding.svg" alt="coding" width="100%">
-                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">September long challange</p> 
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
+                <div class="col"></div>
+                <div class="w-100"></div>
+                {{/if}}
         </div>
 
 {{> footer}}
