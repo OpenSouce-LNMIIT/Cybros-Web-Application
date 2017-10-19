@@ -10,6 +10,8 @@ var session = require('express-session');
 var hbs = require('hbs');
 var fs = require('fs');
 
+
+
 hbs.registerPartials(__dirname + '/views/partials');
 
 //https only
@@ -32,6 +34,8 @@ var signup = require('./routes/signup');
 var admin = require('./routes/admin');
 
 var app = express();
+
+//app.listen(8000);
 
 // view engine setup --using handelbars
 app.set('views', path.join(__dirname, 'views'));
@@ -77,5 +81,16 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+//RegisterHelper for checking equality
+//Use this to check equality..
+//instead of {{#if}} use {{#ifCond}}
+hbs.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
 
 module.exports = app;

@@ -35,14 +35,19 @@
             <!--{{user}} will be used by template-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/profile" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{user.username}}
+                    {{{user.username}}}
                     <i class="fa fa-sort-desc" aria-hidden="true"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" style="font-size: 18px;" href="/profile"><i class="fa fa-user" aria-hidden="true"></i> Profile
+                    {{#ifCond user.username 'New user'}}
+                    <a class="dropdown-item" style="font-size: 18px;" href="/signup"><i class="fa fa-sign-out" aria-hidden="true"></i> Login
                     </a>
-                    <a class="dropdown-item" style="font-size: 18px;" href="/signup/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out
+                    {{else}}
+                    <a class="dropdown-item" style="font-size: 18px;" href="/profile"><i class="fa fa-sign-out" aria-hidden="true"></i> Profile
                     </a>
+                    <a class="dropdown-item" style="font-size: 18px;" href="/signup/logout"><i class="fa fa-user" aria-hidden="true"></i> Log out
+                    </a>
+                    {{/ifCond}}
                 </div>
             </li>
             <a href="/">Home</a>
