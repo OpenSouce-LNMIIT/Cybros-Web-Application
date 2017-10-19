@@ -43,7 +43,7 @@ router.get('/', function(req, res, next) {
                   });
                 }
                 else {
-                  res.render('index.hbs', {user :{username:"New User"}, event : null});
+                  res.render('index.hbs', {user :{username:"New User"}, event : event});
 
                 }                                    
         }
