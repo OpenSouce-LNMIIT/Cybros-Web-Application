@@ -117,6 +117,7 @@ router.get('/classes', function(req, res, next) {
                 }
         }
         else{
+          res.render('classes.hbs', {user :{username:"New user"}, event : null});
           console.log("No Classes featured");
         }
     }
@@ -147,6 +148,7 @@ router.get('/competition', function(req, res, next) {
                 }
         }
         else{
+          res.render('competition.hbs', {user :{username:"New user"}, event : null});
           console.log("No competitions featured");
         }
     }
@@ -175,6 +177,7 @@ router.get('/workshops', function(req, res, next) {
                 }
         }
         else{
+          res.render('workshops.hbs', {user :{username:"New user"}, event : event,});
           console.log("No workshops featured");
         }
     }
