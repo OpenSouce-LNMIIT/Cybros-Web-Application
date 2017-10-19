@@ -153,11 +153,9 @@ router.get('/competition', function(req, res, next) {
                 }
         }
         else{
-<<<<<<< HEAD
+
         	res.render('competition.hbs', {user :{username:"New user"}, event : null});
-=======
-          res.render('competition.hbs', {user :{username:"New user"}, event : null});
->>>>>>> 4107f9df1f8bb8f6d5dfb3eb335e633e3b8a2cf9
+
           console.log("No competitions featured");
         }
     }
