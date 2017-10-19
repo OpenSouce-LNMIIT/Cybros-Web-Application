@@ -122,6 +122,7 @@ router.get('/classes', function(req, res, next) {
                 }
         }
         else{
+          res.render('classes.hbs', {user :{username:"New user"}, event : null});
           console.log("No Classes featured");
         }
     }
@@ -152,7 +153,11 @@ router.get('/competition', function(req, res, next) {
                 }
         }
         else{
+<<<<<<< HEAD
         	res.render('competition.hbs', {user :{username:"New user"}, event : null});
+=======
+          res.render('competition.hbs', {user :{username:"New user"}, event : null});
+>>>>>>> 4107f9df1f8bb8f6d5dfb3eb335e633e3b8a2cf9
           console.log("No competitions featured");
         }
     }
@@ -181,6 +186,7 @@ router.get('/workshops', function(req, res, next) {
                 }
         }
         else{
+          res.render('workshops.hbs', {user :{username:"New user"}, event : event,});
           console.log("No workshops featured");
         }
     }
