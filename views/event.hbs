@@ -101,8 +101,10 @@
         <input type="text"  value="{{event.Additional_Links}}" name="Additional" id="Additional_input" readonly>
     </div>
     {{#if event}}
-        <div class="editaccess" style="">
-            <input type="submit" value="Register for this Event" id="form_button" />
+        <div class="col-md-3 text-center submit " id="form-button">
+                        <button class="editUser btn btn-lg" id="form_button">        
+                            Register for this event<i class="fa fa-pencil" aria-hidden="true"></i>
+                        </button>
         </div>
     {{/if}}
     </form><!-- // End form -->
