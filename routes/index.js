@@ -34,7 +34,8 @@ router.get('/', function(req, res, next) {
     }
     else{
         if (event.length!== 0) {
-                console.log(sess.user);
+
+                //console.log(sess.user);
                 if(sess.user) {
                   res.render('index.hbs', {
                     user : sess.user,
@@ -42,12 +43,16 @@ router.get('/', function(req, res, next) {
                   });
                 }
                 else {
-                  res.render('index.hbs', {user :{username:"New user"}, event : event});
+                  res.render('index.hbs', {user :{username:"New User"}, event : event});
+
                 }                                    
         }
-        else{
-          res.render('index.hbs', {user :{username:"New user"}, event : null});
-          console.log("No events featured");
+        else if(sess.user){
+          res.render('index.hbs', {user :sess.user, event : null});
+          //console.log("No events featured");
+        }else{
+          
+          res.render('index.hbs', {user :{username :"New user"}, event : null});
         }
     }
 });
@@ -148,7 +153,9 @@ router.get('/competition', function(req, res, next) {
                 }
         }
         else{
-          res.render('competition.hbs', {user :{username:"New user"}, event : null});
+
+        	res.render('competition.hbs', {user :{username:"New user"}, event : null});
+
           console.log("No competitions featured");
         }
     }

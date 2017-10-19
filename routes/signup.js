@@ -4,7 +4,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var app = express(); 
-var sess = {}
+var sess = {};
 
 // User Schema imported 
 var User = require("./../models/User");
@@ -16,6 +16,7 @@ app.use(session({
     resave: true,
     saveUninitialized: false
   }));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -23,6 +24,7 @@ app.use(cookieParser());
 /* GET Signup page. */
 router.get('/', function(req, res) {
     sess=req.session;
+    //console.log(sess.user);
     if(sess.user) {
       res.render('signup.hbs', {user : sess.user});
     }
