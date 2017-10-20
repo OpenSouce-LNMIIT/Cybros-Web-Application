@@ -121,9 +121,11 @@ router.get('/classes', function(req, res, next) {
                   res.render('classes.hbs', {user :{username:"New user"}, event : event});
                 }
         }
-        else{
-          res.render('classes.hbs', {user :{username:"New user"}, event : null});
+        else if(sess.user){
+          res.render('classes.hbs', {user :sess.user, event : null});
           console.log("No Classes featured");
+        }else{
+        	res.render('classes.hbs', {user :{username:"New user"}, event : null});
         }
     }
 });
@@ -152,9 +154,14 @@ router.get('/competition', function(req, res, next) {
                   res.render('competition.hbs', {user :{username:"New user"}, event : event});
                 }
         }
-        else{
+        else if(sess.user){
 
-        	res.render('competition.hbs', {user :{username:"New user"}, event : null});
+        	res.render('competition.hbs', {user : sess.user, event : null});
+
+          
+        }else{
+
+        	res.render('competition.hbs', {user : {username : "New user"}, event : null});
 
           console.log("No competitions featured");
         }
@@ -180,11 +187,14 @@ router.get('/workshops', function(req, res, next) {
                   });
               }
                 else {
-                  res.render('workshops.hbs', {user :{username:"New user"}, event : event,});
+                  res.render('workshops.hbs', {user :{username:"New user"}, event : event});
                 }
         }
-        else{
-          res.render('workshops.hbs', {user :{username:"New user"}, event : event,});
+        else if(sess.user){
+          res.render('workshops.hbs', {user : sess.user, event : null});
+          console.log("No workshops featured");
+        }else{
+        	res.render('workshops.hbs', {user :{username:"New user"}, event : null});
           console.log("No workshops featured");
         }
     }

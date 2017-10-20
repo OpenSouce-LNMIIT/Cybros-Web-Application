@@ -9,6 +9,9 @@ function closeNav() {
 $(document).ready(function(){
     var tsclick = 0;   //Click flag
     $(".pmessage").html('');
+
+     
+
     $(".toggle-switch").click(function(){
         this.classList.toggle("change");
         if(tsclick === 0){
@@ -20,7 +23,12 @@ $(document).ready(function(){
             closeNav();
         }
     });
-//Show password feature
+
+
+
+   
+
+    //Show password feature
     $(".showhide").click(function(e){
         if($(".showhide").prop('checked') == true){
             $("#password_input").attr('type', 'text');
@@ -35,5 +43,7 @@ $(".editUser").click(function(e){
     $(".updatebtn").css('display', 'block');
     $(".decryptForEdit").prop('readonly',false);
 });
+
+
 
 });
