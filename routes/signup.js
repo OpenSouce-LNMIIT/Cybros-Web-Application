@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
       res.render('signup.hbs', {user : sess.user});
     }
     else {
-      res.render('signup.hbs', {user:{username:"New user"}});
+      res.render('signup.hbs', {user:{username:"New User"}});
     }
 });
 
@@ -106,7 +106,7 @@ router.post('/login', function(req, res) {
                         }  
                         else{
                             res.render('signup.hbs', {
-                                user:{username:"New user"},
+                                user:{username:"New User"},
                                 login:"Username or password wrong, try again."
                             });
                         }               
@@ -114,7 +114,7 @@ router.post('/login', function(req, res) {
                 }
                 else{
                     res.render('signup.hbs', {
-                        user:{username:"New user"},
+                        user:{username:"New User"},
                         login:"Username or password wrong, try again."
                     });
                 } 
@@ -136,7 +136,7 @@ router.get('/logout', function(req, res, next) {
       res.redirect("/");
     }
     else {
-          res.render('signup.hbs', {user:{username:"New user"}, login : "You have to sign in first. !"});
+          res.render('signup.hbs', {user:{username:"New User"}, login : "You have to sign in first. !"});
     }
   });
 

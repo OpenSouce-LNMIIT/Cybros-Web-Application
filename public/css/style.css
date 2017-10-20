@@ -104,6 +104,15 @@ a{
     font-family: 'Gloria Hallelujah', cursive;
     vertical-align: middle!important;
 }
+/* About content */
+
+.aboutContent{
+    font-family: 'Poiret One', sans-serif;
+    font-size:20px!important;
+    font-weight: bold;
+    color:rgb(0, 0, 0);
+}
+
 /* Filler */
 .filler{
     background-color: #EDEDED;
@@ -155,13 +164,14 @@ a{
 }
 @media only screen and (min-width : 320px) and (max-width : 480px) {
     .banner1{
-        background-position: 91% 106px !important;
+        background-position: 91% 50px !important;
+        display:none;
     }
     .banner2{
-        background-position: 91% 135px !important;
+        background-position: 91%  !important;
     }
     .banner1 .quote {
-        padding-top: 15%;
+        padding-top: 12%;
         font-size: 29px;
         font-family: 'Gloria Hallelujah', cursive;
         vertical-align: middle!important;
@@ -169,23 +179,7 @@ a{
         margin-top: 10px;
     }
     .banner2 .quote {
-        padding-top: 15%;
-        font-size: 29px;
-        font-family: 'Gloria Hallelujah', cursive;
-        vertical-align: middle!important;
-        margin-right: 0 !important;
-        margin-top: 10px;
-    }
-    .banner1 .quote {
-        padding-top: 15%;
-        font-size: 29px;
-        font-family: 'Gloria Hallelujah', cursive;
-        vertical-align: middle!important;
-        margin-right: 0 !important;
-        margin-top: 10px;
-    }
-    .banner2 .quote {
-        padding-top: 15%;
+        padding-top: 10%;
         font-size: 29px;
         font-family: 'Gloria Hallelujah', cursive;
         vertical-align: middle!important;
