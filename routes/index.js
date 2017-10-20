@@ -52,7 +52,7 @@ router.get('/', function(req, res, next) {
           console.log("No events featured");
         }else{
           
-          res.render('index.hbs', {user :{username :"New user"}, event : null});
+          res.render('index.hbs', {user :{username :"New User"}, event : null});
         }
     }
 });
@@ -77,7 +77,7 @@ router.get('/event/:id', function(req, res, next) {
                   });
                 }
                 else {
-                  res.render('event.hbs', {user :{username:"New user"}, event : event[0]});
+                  res.render('event.hbs', {user :{username:"New User"}, event : event[0]});
                 }                                    
         }
         else if(sess.user){
@@ -85,7 +85,7 @@ router.get('/event/:id', function(req, res, next) {
           console.log("No events featured");
         }else{
           
-          res.render('index.hbs', {user :{username :"New user"}, event : null});
+          res.render('index.hbs', {user :{username :"New User"}, event : null});
         }
     }
 });
@@ -98,7 +98,7 @@ router.get('/about', function(req, res, next) {
     res.render('about.hbs', {user : sess.user});
   }
   else {
-        res.render('about.hbs', {user :{username:"New user"}});
+        res.render('about.hbs', {user :{username:"New User"}});
   }
   
 });
@@ -121,7 +121,7 @@ router.get('/classes', function(req, res, next) {
                   });
                 }
                 else {
-                  res.render('classes.hbs', {user :{username:"New user"}, event : event});
+                  res.render('classes.hbs', {user :{username:"New User"}, event : event});
                 }
         }
         else if(sess.user){
@@ -129,7 +129,7 @@ router.get('/classes', function(req, res, next) {
           console.log("No classes featured");
         }else{
           
-          res.render('classes.hbs', {user :{username :"New user"}, event : null});
+          res.render('classes.hbs', {user :{username :"New User"}, event : null});
         }
     }
 });
@@ -155,7 +155,7 @@ router.get('/competition', function(req, res, next) {
                   });
                 }
                 else {
-                  res.render('competition.hbs', {user :{username:"New user"}, event : event});
+                  res.render('competition.hbs', {user :{username:"New User"}, event : event});
                 }
         }
         else if(sess.user){
@@ -163,7 +163,7 @@ router.get('/competition', function(req, res, next) {
           console.log("No competitions featured");
         }else{
           
-          res.render('competition.hbs', {user :{username :"New user"}, event : null});
+          res.render('competition.hbs', {user :{username :"New User"}, event : null});
         }
     }
 });
@@ -187,7 +187,7 @@ router.get('/workshops', function(req, res, next) {
                   });
               }
                 else {
-                  res.render('workshops.hbs', {user :{username:"New user"}, event : event,});
+                  res.render('workshops.hbs', {user :{username:"New User"}, event : event,});
                 }
         }
         else if(sess.user){
@@ -195,7 +195,7 @@ router.get('/workshops', function(req, res, next) {
           console.log("No events featured");
         }else{
           
-          res.render('workshops.hbs', {user :{username :"New user"}, event : null});
+          res.render('workshops.hbs', {user :{username :"New User"}, event : null});
         }
     }
   });
@@ -207,7 +207,7 @@ router.get('/profile', function(req, res, next) {
     res.render('profile.hbs', {user : sess.user});
   }
   else {
-        res.render('signup.hbs', {user :{username:"New user"}, login : "You have to sign in first. !"});
+        res.render('signup.hbs', {user :{username:"New User"}, login : "You have to sign in first. !"});
   }
 });
 
@@ -236,7 +236,7 @@ router.post('/update', function(req, res, next) {
     });
   }
   else {
-    res.render('signup.hbs', {user :{username:"New user"}, login : "You have to sign in first. !"});
+    res.render('signup.hbs', {user :{username:"New User"}, login : "You have to sign in first. !"});
   }
   
 });
@@ -286,7 +286,7 @@ router.post('/register', function(req, res) {
   });
 }
 else {
-      res.render('signup.hbs', {user :{username:"New user"}, login : "You have to sign in first. !"});
+      res.render('signup.hbs', {user :{username:"New User"}, login : "You have to sign in first. !"});
 }         
 });
 
