@@ -266,19 +266,20 @@ router.post('/register', function(req, res) {
           }
           else{
               //Saving data in Registrations
-                  var reg = new Registrations({event:req.body.objid, user:sess.user._id });
-                  reg.save(function(err, registeredUser){
+                  var registered = new Registrations({event:req.body.objid, user:sess.user._id });
+                  registered.save(function(err, registeredUser){
                       if(err){
                           res.status(500).send({error:err});
                           console.log("Could not register user");
                       }
                       else{
+			  res.redirect('/');
                           res.render('index.hbs', {
                               user: sess.user,
-                              rmessage:"Registered for "+req.body.Event_Name+  "See you at the event"
+                              rmessage:"Registered for "+req.body.Event_Name+  ".See you at the event"
                           });
-                          res.redirect('/');
-                          console.log(reg.username+" registred for "+req.body.Event_Name);            
+                          
+                          console.log(registered.username+" registred for "+req.body.Event_Name);            
                       }
                   });
           }             
