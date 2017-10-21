@@ -5,6 +5,8 @@
 # Cybros Web Application
 
 Official web application of Cybros.
+Website is live now:
+https://cybroslnmiit.herokuapp.com/
 
 ## Getting Started
 
