@@ -274,11 +274,6 @@ router.post('/register', function(req, res) {
                       }
                       else{
 			  res.redirect('/');
-                          res.render('index.hbs', {
-                              user: sess.user,
-                              rmessage:"Registered for "+req.body.Event_Name+  ".See you at the event"
-                          });
-                          
                           console.log(registered.username+" registred for "+req.body.Event_Name);            
                       }
                   });
