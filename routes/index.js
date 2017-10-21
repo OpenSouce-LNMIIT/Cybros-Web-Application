@@ -258,7 +258,7 @@ router.post('/register', function(req, res) {
           if (reg.length!=0) {
                   console.log("User already registered:"+reg[0].user[0]);
                   res.redirect("/");                      
-              }                                 
+                                               
           }
           else{
               //Saving data in Registrations
