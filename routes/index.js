@@ -256,12 +256,8 @@ router.post('/register', function(req, res) {
       }
       else{
           if (reg.length!=0) {
-              if(reg[0].user[0].username){
-                  console.log("User already registered:"+reg[0].user[0].username);
-                  res.render('index.hbs', {
-                      user: sess.user,
-                      rmessage:"You already registered for "+req.body.Event_Name
-                  });                      
+                  console.log("User already registered:"+reg[0].user[0]);
+                  res.redirect("/");                      
               }                                 
           }
           else{
