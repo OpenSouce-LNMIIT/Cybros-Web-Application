@@ -19,7 +19,7 @@ body{
 }
 .navbar-toggle {
     display: block;
-    z-index: 2;
+    z-index:2;
 }
 .navbar-header{
     margin-left:10px;
@@ -60,7 +60,7 @@ a{
     z-index: 1;
     top: 0;
     right: 0;
-    background-color:rgba(255,255,255,0.85);
+    background-color:rgba(255,255,255,1);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
