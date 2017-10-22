@@ -19,6 +19,7 @@ body{
 }
 .navbar-toggle {
     display: block;
+    z-index:2;
 }
 .navbar-header{
     margin-left:10px;
