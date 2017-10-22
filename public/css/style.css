@@ -58,12 +58,12 @@ a{
     position: fixed;
     z-index: 1;
     top: 0;
-    left: 0;
+    right: 0;
     background-color:rgba(255,255,255,1);
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    border-right: 1px solid rgb(57, 108, 146);
+    border-left: 1px solid rgb(57, 108, 146);
 }
 
 .sidenav a {
