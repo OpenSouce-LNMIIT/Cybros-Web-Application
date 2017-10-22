@@ -27,8 +27,8 @@ app.use(cookieParser());
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'girichaitanya11@gmail.com',
-      pass: '9424108852'
+      user: 'YOUREMAILID',
+      pass: 'YOURPASSWORD'
     }
   });
   
@@ -67,7 +67,7 @@ router.post('/new_User', function(req, res) {
                 //Password validation
                 if(req.body.password == req.body.repassword){
                     var mailOptions = {
-                        from: 'girichaitanya11@gmail.com',
+                        from: 'YOUREMAILID',
                         to: req.body.email,
                         subject: 'Cybros-Web-App user credentials',
                         text: "Click on this link to signup:"+ authurl
