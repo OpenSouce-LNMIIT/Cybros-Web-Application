@@ -64,7 +64,7 @@ a{
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    border-right: 1px solid rgb(57, 108, 146);
+    border-left: 1px solid rgb(57, 108, 146);
 }
 
 .sidenav a {
