@@ -19,6 +19,7 @@ body{
 }
 .navbar-toggle {
     display: block;
+    z-index: 2;
 }
 .navbar-header{
     margin-left:10px;
@@ -58,7 +59,7 @@ a{
     position: fixed;
     z-index: 1;
     top: 0;
-    left: 0;
+    right: 0;
     background-color:rgba(255,255,255,0.85);
     overflow-x: hidden;
     transition: 0.5s;
