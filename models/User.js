@@ -10,7 +10,8 @@ var user = new Schema({
     Age: {type:Number,default:null},
     Gender: {type:String,default:null},
     Address: {type:String,default:null},
-    Institute_or_Company: {type:String,default:null}
+    Institute_or_Company: {type:String,default:null},
+    confirmed:{type:Boolean,default:false}
 });
 
 module.exports = mongoose.model("User",user);

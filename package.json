@@ -12,6 +12,7 @@
     "express": "~4.15.2",
     "express-session": "^1.15.6",
     "hbs": "~4.0.1",
+    "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.11.13",
     "morgan": "~1.8.1",
     "nodemailer": "^4.2.0",

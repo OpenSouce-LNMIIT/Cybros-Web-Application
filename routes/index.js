@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var app = express();
 var sess = {};
+var jwt = require('jsonwebtoken');
 
 
 //User schema imported
@@ -282,6 +283,25 @@ else {
 }         
 });
 
+router.get('/confirmuser/:id', function(req, res, next) {
+  sess=req.session;
+  var decoded = jwt.verify(req.params.id, 'CybrosIsHere');
+  if(!sess.user){
+    User.findOneAndUpdate({username: decoded.username}, {$set:{
+      confirmed:true
+    }}, {new: true}, function(err, user){
+      if(!err){
+          res.render('signup.hbs', {user : sess.user, login : "Account succesfully activated.Login to continue.."});
+      }
+      else{
+        res.status(500).send({error:"Error, can't access Database!"});
+      }
+    }); 
+  }
+  else{
+      res.redirect("/");    
+  }   
+});
 
 
 module.exports = router;

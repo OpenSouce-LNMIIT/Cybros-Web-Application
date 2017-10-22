@@ -60,11 +60,7 @@ a{
     z-index: 1;
     top: 0;
     right: 0;
-<<<<<<< HEAD
-    background-color:rgba(255,255,255,0.85);
-=======
     background-color:rgba(255,255,255,1);
->>>>>>> 82f1761219e30fa971290c162cd01c8bc30550bb
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
