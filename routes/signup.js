@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
+// var cookieParser = require('cookie-parser');
+// var bodyParser = require('body-parser');
+// var session = require('express-session');
+var nodemailer = require('nodemailer');
 var app = express(); 
 var sess = {};
 
@@ -20,6 +21,17 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+//Setting up node mailer
+
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'girichaitanya11@gmail.com',
+      pass: '9424108852'
+    }
+  });
+  
 
 /* GET Signup page. */
 router.get('/', function(req, res) {
@@ -54,6 +66,19 @@ router.post('/new_User', function(req, res) {
             else{
                 //Password validation
                 if(req.body.password == req.body.repassword){
+                    var mailOptions = {
+                        from: 'girichaitanya11@gmail.com',
+                        to: req.body.email,
+                        subject: 'Cybros-Web-App user credentials',
+                        text: "Click on this link to signup:"+ authurl
+                      };
+                      transporter.sendMail(mailOptions, function(error, info){
+                        if (error) {
+                          console.log(error);
+                        } else {
+                          console.log('Email sent: ' + info.response);
+                        }
+                      });
                     var user = new User();
                     user.username = req.body.username;
                     user.Email = req.body.email;
@@ -65,10 +90,11 @@ router.post('/new_User', function(req, res) {
                             console.log("Could not save register user");
                         }
                         else{
+                            
                             res.render('signup.hbs', {
-                                login:"User registered. Login here to continue."
+                                login:"User registered. Login here to continue.Details have been emailed to you"
                             });
-                            console.log('! A user registered: Username:: ' + req.body.username + ', Password: ' + req.body.password+', Email: ' + req.body.email);            
+                            console.log('! A user registered: Username:: ' + registeredUser);            
                         }
                     });
                 } 
