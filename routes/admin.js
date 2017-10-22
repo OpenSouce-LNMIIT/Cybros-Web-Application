@@ -18,7 +18,7 @@ var Event = require("./../models/Event");
 
 //Make this secret key more complex to have better encryption
 app.use(session({
-    secret: 'cybros',
+    secret: 'CybrosIsHere',
     resave: true,
     saveUninitialized: false
   }));

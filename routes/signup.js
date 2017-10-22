@@ -12,7 +12,7 @@ var User = require("./../models/User");
 
 //Make this secret key more complex to have better encryption
 app.use(session({
-    secret: 'cybros',
+    secret: 'CybrosIsHere',
     resave: true,
     saveUninitialized: false
   }));
