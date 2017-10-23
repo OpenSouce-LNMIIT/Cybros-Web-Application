@@ -1,8 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var app = express();
 var sess = {};
 
 
@@ -13,16 +10,6 @@ var Event = require("./../models/Event");
 //Registrations schema imported
 var Registrations = require("./../models/Registrations");
 
-//Make this secret key more complex to have better encryption
-app.use(session({
-  secret: 'CybrosIsHere',
-  resave: false,
-  saveUninitialized: true
-}));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
 
 /* GET index page. */
 router.get('/', function(req, res, next) {
