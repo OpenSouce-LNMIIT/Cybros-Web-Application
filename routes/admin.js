@@ -5,10 +5,6 @@ and make sure you make "HasAccess" set to "true" as it is "false" by default
 
 var express = require('express');
 var router = express.Router();
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var app = express(); 
 var sess = {};
 
 // Admin schema imported
@@ -16,15 +12,6 @@ var Admin = require("./../models/Admin");
 // Event schema imported
 var Event = require("./../models/Event");
 
-//Make this secret key more complex to have better encryption
-app.use(session({
-    secret: 'CybrosIsHere',
-    resave: true,
-    saveUninitialized: false
-  }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 /* GET Signup page. */
 router.get('/', function(req, res) {

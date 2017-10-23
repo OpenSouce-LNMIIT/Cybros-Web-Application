@@ -1,27 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var nodemailer = require('nodemailer');
-var jwt = require('jsonwebtoken');
-var app = express(); 
 var sess = {};
 
 // User Schema imported 
 var User = require("./../models/User");
 
 
-//Make this secret key more complex to have better encryption
-app.use(session({
-    secret: 'CybrosIsHere',
-    resave: true,
-    saveUninitialized: false
-  }));
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
 
 //Setting up node mailer
 
@@ -32,7 +16,6 @@ var transporter = nodemailer.createTransport({
       pass: 'YOUR-PASSWORD'
     }
   });
-  
 
 /* GET Signup page. */
 router.get('/', function(req, res) {
