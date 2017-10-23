@@ -14,8 +14,8 @@ var User = require("./../models/User");
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'YOUR-EMAIL-ID@gmail.com',
-      pass: 'YOUR-PASSWORD'
+      user: 'girichaitanya11@gmail.com',
+      pass: '9424108852'
     }
   });
 
@@ -56,7 +56,7 @@ router.post('/new_User', function(req, res) {
                         username: req.body.username
                       }, 'CybrosIsHere', { expiresIn: '1h' },function(err,token){
                         var mailOptions = {
-                            from: '"no-reply "YOUR-EMAIL-ID@gmail.com',
+                            from: '"no-reply "girichaitanya11@gmail.com',
                             to: req.body.email,
                             subject: 'Cybros-Web-App activate account.',
                             html:
