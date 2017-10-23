@@ -8,10 +8,6 @@ var session = require('express-session');
 
 //hbs stuff start
 var hbs = require('hbs');
-var fs = require('fs');
-
-
-
 hbs.registerPartials(__dirname + '/views/partials');
 
 //https only
@@ -41,12 +37,9 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-//random secrets on every start of app
-var crypto = require('crypto');
-var secret = crypto.randomBytes(24).toString('hex');
 // using express-sessions to manage session
 app.use(session({
-  secret: secret,
+  secret: "CybrosIsHere",
   resave: true,
   saveUninitialized: false
 }));

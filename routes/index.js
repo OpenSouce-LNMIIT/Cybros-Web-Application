@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var app = express();
 var sess = {};
+var jwt = require('jsonwebtoken');
 
 
 //User schema imported
@@ -13,6 +11,7 @@ var Event = require("./../models/Event");
 //Registrations schema imported
 var Registrations = require("./../models/Registrations");
 
+<<<<<<< HEAD
 //Make this secret key more complex to have better encryption
 app.use(session({
   secret: 'cybros@LNMIIT_ComputerClub_101',
@@ -23,6 +22,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+=======
+>>>>>>> f6dc7fd4a0770f88beeb7871f29da9a05d54f8a7
 
 /* GET index page. */
 router.get('/', function(req, res, next) {
@@ -256,7 +257,11 @@ router.post('/register', function(req, res) {
       }
       else{
           if (reg.length!=0) {
+<<<<<<< HEAD
                   console.log("User already registered:"+reg[0].user[0]);
+=======
+                  console.log("User already registered:"+reg[0].user[0].ObjectId);
+>>>>>>> f6dc7fd4a0770f88beeb7871f29da9a05d54f8a7
                   res.redirect("/");                      
                                                
           }
@@ -269,7 +274,11 @@ router.post('/register', function(req, res) {
                           console.log("Could not register user");
                       }
                       else{
+<<<<<<< HEAD
 			  res.redirect('/');
+=======
+                          res.redirect('/');
+>>>>>>> f6dc7fd4a0770f88beeb7871f29da9a05d54f8a7
                           console.log(registered.username+" registred for "+req.body.Event_Name);            
                       }
                   });
@@ -282,6 +291,25 @@ else {
 }         
 });
 
+router.get('/confirmuser/:id', function(req, res, next) {
+  sess=req.session;
+  var decoded = jwt.verify(req.params.id, 'CybrosIsHere');
+  if(!sess.user){
+    User.findOneAndUpdate({username: decoded.username}, {$set:{
+      confirmed:true
+    }}, {new: true}, function(err, user){
+      if(!err){
+          res.render('signup.hbs', {user : sess.user, login : "Account succesfully activated.Login to continue.."});
+      }
+      else{
+        res.status(500).send({error:"Error, can't access Database!"});
+      }
+    }); 
+  }
+  else{
+      res.redirect("/");    
+  }   
+});
 
 
 module.exports = router;

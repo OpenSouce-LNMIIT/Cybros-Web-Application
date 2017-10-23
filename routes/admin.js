@@ -5,10 +5,6 @@ and make sure you make "HasAccess" set to "true" as it is "false" by default
 
 var express = require('express');
 var router = express.Router();
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var app = express(); 
 var sess = {};
 
 // Admin schema imported
@@ -16,6 +12,7 @@ var Admin = require("./../models/Admin");
 // Event schema imported
 var Event = require("./../models/Event");
 
+<<<<<<< HEAD
 //Make this secret key more complex to have better encryption
 app.use(session({
     secret: 'cybros@LNMIIT_ComputerClub_101',
@@ -25,6 +22,8 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+=======
+>>>>>>> f6dc7fd4a0770f88beeb7871f29da9a05d54f8a7
 
 /* GET Signup page. */
 router.get('/', function(req, res) {
