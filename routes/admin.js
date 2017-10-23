@@ -12,18 +12,6 @@ var Admin = require("./../models/Admin");
 // Event schema imported
 var Event = require("./../models/Event");
 
-<<<<<<< HEAD
-//Make this secret key more complex to have better encryption
-app.use(session({
-    secret: 'cybros@LNMIIT_ComputerClub_101',
-    resave: true,
-    saveUninitialized: false
-  }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-=======
->>>>>>> f6dc7fd4a0770f88beeb7871f29da9a05d54f8a7
 
 /* GET Signup page. */
 router.get('/', function(req, res) {

@@ -6,15 +6,6 @@ var sess = {};
 var User = require("./../models/User");
 
 
-<<<<<<< HEAD
-//Make this secret key more complex to have better encryption
-app.use(session({
-    secret: 'cybros@LNMIIT_ComputerClub_101',
-    resave: true,
-    saveUninitialized: false
-  }));
-=======
->>>>>>> f6dc7fd4a0770f88beeb7871f29da9a05d54f8a7
 
 //Setting up node mailer
 
