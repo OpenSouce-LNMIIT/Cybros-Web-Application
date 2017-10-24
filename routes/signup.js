@@ -61,7 +61,7 @@ router.post('/new_User', function(req, res) {
                             subject: 'Cybros-Web-App activate account.',
                             html:
                             '<img src="https://github.com/Cybros/Cybros-Web-Application/blob/master/favicon.png"/><p><b>Hello</b>'+req.body.username+',</p>' +
-                '<p>Click on the link to activate your account:<br/><a href="http://localhost:3000/confirmuser/'+token+'">ACTIVATE</a></p>'
+                '<p>Click on the link to activate your account:<br/><a href="http://cybroslnmiit.herokuapp.com/confirmuser/'+token+'">ACTIVATE</a></p>'
                           };
                           transporter.sendMail(mailOptions, function(error, info){
                             if (error) {
