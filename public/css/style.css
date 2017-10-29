@@ -416,7 +416,7 @@ a{
     width: 45%;
 }
 
-.profile textarea, .profile input[type='text'],.profile input[type='email'],.profile input[type='password'],select {
+.profile textarea, .profile input[type='text'],.profile input[type='email'],.profile input[type='password'],select,.profile input[type='image'] {
     background: none;
     border: none;
     border-bottom: solid 2px rgb(57, 108, 146);
@@ -439,7 +439,7 @@ a{
     transition: all 0.3s;
 }
 
-.profile input[type='text']:focus, .profile input[type='email']:focus, .profile input[type='password']:focus, .profile textarea:focus {
+.profile input[type='text']:focus, .profile input[type='email']:focus, .profile input[type='password']:focus, .profile input[type='image']:focus, .profile textarea:focus {
     outline: none;
     padding: 0 0 calc(0.875em + 1px) 0;
     border: 1px dotted rgb(57, 108, 146);
@@ -539,7 +539,7 @@ select {
         width: 53px;
     }
 
-    .profile input[type='text'], .profile input[type='email'], .profile input[type='password'], select, textarea {
+    .profile input[type='image'], .profile input[type='text'], .profile input[type='email'], .profile input[type='password'], select, textarea {
         font-size: 0.75em;
     }
 }
