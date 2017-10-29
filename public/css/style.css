@@ -341,6 +341,7 @@ a{
         overflow: auto;
         position: absolute;
     }
+    .login-box input[type="email"],
     .login-box input[type="text"],
     .login-box input[type="password"] {
         width: 100%;
