@@ -159,6 +159,14 @@ a{
     color: rgb(57, 108, 146);
     font-size:1.2em;
 }
+.footer .list-unstyled a:hover {
+    display: block;
+    margin: -2px 0;
+}
+.footer .social a:hover {
+    display: inline-block;
+    margin: -3px -1.7px 0 -1.7px;
+}
 .but{
     color: white;
     background-color: rgb(57, 108, 146);
