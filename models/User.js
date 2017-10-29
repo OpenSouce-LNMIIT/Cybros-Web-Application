@@ -11,7 +11,8 @@ var user = new Schema({
     Gender: {type:String,default:null},
     Address: {type:String,default:null},
     Institute_or_Company: {type:String,default:null},
-    confirmed:{type:Boolean,default:false}
+    confirmed:{type:Boolean,default:false},
+    ProfileImage:{type:String,default:null}
 });
 
 module.exports = mongoose.model("User",user);
