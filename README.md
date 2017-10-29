@@ -48,7 +48,10 @@ Then use database named "Cybros", in this all the user's data is saved in the co
 OR if you want to generate a ".csv" file use:
 ```
 $ mongoexport --host localhost --db Cybros --collection users --csv --out text.csv --fields username,Password,Email
-``` 
+```
+## Email Config
+To configure signup authentication from email part you need to replace "YOUR-EMAIL-ID" with your email ID and "PASSWORD" with your password in routes/signup.js. and possibly configure your EMAIL account's security options.
+
 ## Create administrator
 
 Go to mongo terminal by typing
