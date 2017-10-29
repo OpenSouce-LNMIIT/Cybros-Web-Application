@@ -108,7 +108,7 @@ a{
 /* About content */
 
 .aboutContent{
-    font-family: 'Poiret One', sans-serif;
+    font-family: 'Rubik', sans-serif;
     font-size:20px!important;
     font-weight: bold;
     color:rgb(0, 0, 0);
@@ -117,11 +117,11 @@ a{
 /* Filler */
 .filler{
     background-color: #EDEDED;
-    font-family: 'Poiret One', cursive;
+    font-family: 'Rubik', sans-serif;
     font-size:20px;
 }
 .filler-heading{
-    font-family: 'Poiret One', cursive;
+    font-family: 'Rubik', sans-serif;
     font-size:40px!important;
     color:rgb(57, 108, 146);
 }
@@ -151,7 +151,7 @@ a{
     color:black;
 }
 .footer h4{
-    font-family: 'Poiret One', cursive;
+    font-family: 'Rubik', sans-serif;
     font-size: 25px;
     color: rgb(57, 108, 146);
 }
@@ -352,7 +352,7 @@ a{
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 .profile{
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: rgb(57, 108, 146);
     font-size: 20px;
 }
@@ -380,7 +380,7 @@ a{
 }
 
 .profile #container {
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Rubik', sans-serif;
     border: solid 3px rgb(57, 108, 146);
     max-width: 768px;
     margin: 60px auto;
