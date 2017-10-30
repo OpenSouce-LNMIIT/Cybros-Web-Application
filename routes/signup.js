@@ -9,6 +9,8 @@ var sess = {}
 // User Schema imported 
 var User = require("./../models/User");
 
+
+//Make this secret key more complex to have better encryption
 app.use(session({
     secret: 'cybros',
     resave: true,
@@ -57,11 +59,10 @@ router.post('/new_User', function(req, res) {
                     // Saving new user to database
                     user.save(function(err, registeredUser){
                         if(err){
-                            res.status(500).send({error:"Could not save register user"});
+                            res.status(500).send({error:err});
                             console.log("Could not save register user");
                         }
                         else{
-                            res.send(registeredUser);
                             res.render('signup.hbs', {
                                 login:"User registered. Login here to continue."
                             });
@@ -125,5 +126,16 @@ router.post('/login', function(req, res) {
         }); 
     }         
 });
+
+router.get('/logout', function(req, res, next) {
+    sess=req.session;
+    if(sess.user) {
+      req.session.destroy();
+      res.render('index.hbs', {user : "New user"});
+    }
+    else {
+          res.render('signup.hbs', {user : "New user", login : "You have to sign in first. !"});
+    }
+  });
 
 module.exports = router;

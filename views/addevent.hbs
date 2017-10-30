@@ -1,0 +1,53 @@
+{{> header}}
+
+        <div class="profile" style="padding-top:97px;">
+                <h3 class="text-center filler-heading">Adding an event</h3>
+                <div id="container">
+                        <div class="text-center">
+                            {{emessage}}
+                        </div>
+                        <form action="/admin/addevent_submit" method="post" id="event_form">
+                            <div class="fin">
+                                
+                                <input  type="text" placeholder="Event name" name="Name" id="name_input" required>
+                            </div>
+                            <div class="fin">
+                                
+                                <input type="text" placeholder="Event Id (Unique)" name="ID" id="ID_input" required>
+                            </div>
+                            <div class="subject">
+                                <label for="subject"></label>
+                                <select placeholder="Event type" name="eventType" id="subject_input" required>
+                                    <option disabled hidden selected>Event type</option>
+                                    <option>Class</option>
+                                    <option>Workshop</option>
+                                    <option>Competition</option>
+                                    <option>Other</option>
+                                </select>
+                                <br><br>
+                            </div>
+                            <div class="fin">
+                                <textarea name="Description" placeholder="Event Description" id="description_input" cols="30" rows="5" required></textarea>                            </div>
+                            <div class="pleft">   
+                                <input  type="text" placeholder="Venue" name="Venue" id="venue_input" required>
+                            </div>
+                            <div class="pright">                          
+                                <input type="text" placeholder="Date" name="Date" id="date_input" required>
+                            </div>
+                            <div class="pleft">   
+                                <input type="text" placeholder="Time" name="Time" id="time_input" required>
+                            </div>
+                            <div class="pright">                           
+                                <input type="text" placeholder="Fee" name="Fee" id="fee_input" required>
+                            </div>
+                            <div class="fin">    
+                                <input type="text" placeholder="Additional links" name="Additional" id="Additional_input" >
+                            </div>
+                            <div style="">
+                                <input type="submit" value="Add event" id="form_button" />
+                            </div>
+                        </form><!-- // End form -->
+                    </div><!-- // End #container -->
+        </div>
+
+{{> footer}}

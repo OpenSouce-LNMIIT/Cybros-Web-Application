@@ -1,0 +1,15 @@
+{{> header}}
+        <div class="profile" style="padding-top:97px;">
+                <h3 class="text-center filler-heading">Editing an event</h3>
+                <form action="/admin/deleteevent/delete" method="post" id="eventeditsearch_form">
+                    <div class="fin">
+                        Event ID of event you want to delete:
+                        <input  type="text" placeholder="" name="srcheventID" id="name_input" required>
+                        {{emessage}}
+                        <input type="submit" value="Delete" id="form_button" />
+                    </div>
+                    
+                </form>
+        </div>
+
+{{> footer}}
