@@ -102,13 +102,13 @@ a{
 .quote{
     padding-top:15%;
     font-size:40px;
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Poiret One', cursive;
     vertical-align: middle!important;
 }
 /* About content */
 
 .aboutContent{
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Poiret One', cursive;
     font-size:20px!important;
     font-weight: bold;
     color:rgb(0, 0, 0);
@@ -117,11 +117,11 @@ a{
 /* Filler */
 .filler{
     background-color: #EDEDED;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Poiret One', cursive;
     font-size:20px;
 }
 .filler-heading{
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Poiret One', cursive;
     font-size:40px!important;
     color:rgb(57, 108, 146);
 }
@@ -145,13 +145,14 @@ a{
     left:0;
     bottom:0;
     right:0;
-    font-family: 'Rubik', sans-serif;
-    font-size: 15px;
+    font-family: 'Poiret One', cursive;
+    font-weight:bold;
+    font-size: 18px;
     background-color: white;
     color:black;
 }
 .footer h4{
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Poiret One', cursive;
     font-size: 25px;
     color: rgb(57, 108, 146);
 }
