@@ -102,13 +102,13 @@ a{
 .quote{
     padding-top:15%;
     font-size:40px;
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Poiret One', cursive;
     vertical-align: middle!important;
 }
 /* About content */
 
 .aboutContent{
-    font-family: 'Poiret One', sans-serif;
+    font-family: 'Poiret One', cursive;
     font-size:20px!important;
     font-weight: bold;
     color:rgb(0, 0, 0);
@@ -145,8 +145,9 @@ a{
     left:0;
     bottom:0;
     right:0;
-    font-family: 'Rubik', sans-serif;
-    font-size: 15px;
+    font-family: 'Poiret One', cursive;
+    font-weight:bold;
+    font-size: 18px;
     background-color: white;
     color:black;
 }
@@ -158,6 +159,14 @@ a{
 .footer a:hover{
     color: rgb(57, 108, 146);
     font-size:1.2em;
+}
+.footer .list-unstyled a:hover {
+    display: block;
+    margin: -2px 0;
+}
+.footer .social a:hover {
+    display: inline-block;
+    margin: -3px -1.7px 0 -1.7px;
 }
 .but{
     color: white;
@@ -333,6 +342,7 @@ a{
         overflow: auto;
         position: absolute;
     }
+    .login-box input[type="email"],
     .login-box input[type="text"],
     .login-box input[type="password"] {
         width: 100%;
@@ -344,7 +354,7 @@ a{
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 .profile{
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: rgb(57, 108, 146);
     font-size: 20px;
 }
@@ -372,7 +382,7 @@ a{
 }
 
 .profile #container {
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family: 'Rubik', sans-serif;
     border: solid 3px rgb(57, 108, 146);
     max-width: 768px;
     margin: 60px auto;
@@ -544,3 +554,7 @@ select {
     }
 }
 /*Profile ends*/
+
+.padding-50 {
+	padding: 50px
+}
