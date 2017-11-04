@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var sess = {};
+var nodemailer = require('nodemailer');
 
 // User Schema imported 
 var User = require("./../models/User");
