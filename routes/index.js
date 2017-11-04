@@ -33,13 +33,13 @@ router.get('/', function(req, res, next) {
                 else {
                   res.render('index.hbs', {user :{username:"New User"}, event : event});
 
-                }                                    
+                }
         }
         else if(sess.user){
           res.render('index.hbs', {user :sess.user, event : null});
           console.log("No events featured");
         }else{
-          
+
           res.render('index.hbs', {user :{username :"New User"}, event : null});
         }
     }
@@ -66,13 +66,13 @@ router.get('/event/:id', function(req, res, next) {
                 }
                 else {
                   res.render('event.hbs', {user :{username:"New User"}, event : event[0]});
-                }                                    
+                }
         }
         else if(sess.user){
           res.render('index.hbs', {user :sess.user, event : null});
           console.log("No events featured");
         }else{
-          
+
           res.render('index.hbs', {user :{username :"New User"}, event : null});
         }
     }
@@ -88,7 +88,7 @@ router.get('/about', function(req, res, next) {
   else {
         res.render('about.hbs', {user :{username:"New User"}});
   }
-  
+
 });
 
 /* GET classes page. */
@@ -116,13 +116,13 @@ router.get('/classes', function(req, res, next) {
           res.render('classes.hbs', {user :sess.user, event : null});
           console.log("No classes featured");
         }else{
-          
+
           res.render('classes.hbs', {user :{username :"New User"}, event : null});
         }
     }
 });
 
-  
+
 });
 
 /* GET competition page. */
@@ -150,7 +150,7 @@ router.get('/competition', function(req, res, next) {
           res.render('competition.hbs', {user :sess.user, event : null});
           console.log("No competitions featured");
         }else{
-          
+
           res.render('competition.hbs', {user :{username :"New User"}, event : null});
         }
     }
@@ -182,7 +182,7 @@ router.get('/workshops', function(req, res, next) {
           res.render('workshops.hbs', {user :sess.user, event : null});
           console.log("No events featured");
         }else{
-          
+
           res.render('workshops.hbs', {user :{username :"New User"}, event : null});
         }
     }
@@ -226,7 +226,7 @@ router.post('/update', function(req, res, next) {
   else {
     res.render('signup.hbs', {user :{username:"New User"}, login : "You have to sign in first. !"});
   }
-  
+
 });
 
 
@@ -245,8 +245,8 @@ router.post('/register', function(req, res) {
       else{
           if (reg.length!=0) {
                   console.log("User already registered:"+reg[0].user[0].ObjectId);
-                  res.redirect("/");                      
-                                               
+                  res.redirect("/");
+
           }
           else{
               //Saving data in Registrations
@@ -258,16 +258,16 @@ router.post('/register', function(req, res) {
                       }
                       else{
                           res.redirect('/');
-                          console.log(registered.username+" registred for "+req.body.Event_Name);            
+                          console.log(registered.username+" registred for "+req.body.Event_Name);
                       }
                   });
-          }             
+          }
       }
   });
 }
 else {
       res.render('signup.hbs', {user :{username:"New User"}, login : "You have to sign in first. !"});
-}         
+}
 });
 
 router.get('/confirmuser/:id', function(req, res, next) {
@@ -283,11 +283,11 @@ router.get('/confirmuser/:id', function(req, res, next) {
       else{
         res.status(500).send({error:"Error, can't access Database!"});
       }
-    }); 
+    });
   }
   else{
-      res.redirect("/");    
-  }   
+      res.redirect("/");
+  }
 });
 
 
