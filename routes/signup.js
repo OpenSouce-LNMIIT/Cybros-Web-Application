@@ -1,10 +1,12 @@
 var express = require('express');
+var nodemailer = require('nodemailer');
 var router = express.Router();
 var nodemailer = require('nodemailer');
 var jwt = require('jsonwebtoken');
 var sess = {};
+var nodemailer = require('nodemailer');
 
-// User Schema imported 
+// User Schema imported
 var User = require("./../models/User");
 
 
@@ -31,7 +33,7 @@ router.get('/', function(req, res) {
     }
 });
 
-// New User Signup 
+// New User Signup
 router.post('/new_User', function(req, res) {
     // Unique user validation
     var userlist = [];
@@ -46,8 +48,8 @@ router.post('/new_User', function(req, res) {
                     console.log("Username already exist username:"+user[0].username);
                     res.render('signup.hbs', {
                         signup:"Username already exist, try again"
-                    });                      
-                }                                 
+                    });
+                }
             }
             else{
                 //Password validation
@@ -70,7 +72,7 @@ router.post('/new_User', function(req, res) {
                               console.log('Email sent: ' + info.response);
                               console.log(token);
                             }
-                          }); 
+                          });
                       });
                     var user = new User();
                     user.username = req.body.username;
@@ -100,18 +102,18 @@ router.post('/new_User', function(req, res) {
                             res.render('signup.hbs', {
                                 login:"User registered. Activate your account through the email sent to you."
                             });
-                            console.log('! A user registered: Username:: ' + registeredUser);            
+                            console.log('! A user registered: Username:: ' + registeredUser);
                         }
                     });
-                } 
+                }
                 else {
                     res.render('signup.hbs', {
                         signup:"Password do not match, try again."
                     });
                 }
-            }             
+            }
         }
-    });         
+    });
 });
 
 // User sign in
@@ -119,8 +121,9 @@ router.post('/login', function(req, res) {
     sess=req.session;
     // Unique user validation
     if(!sess.user){
-        // Checking username from current database 
+        // Checking username from current database
         User.find({username:req.body.username},function(err,user){
+        	console.log( err, user );
             if(err){
                 res.status(500).send({error:"Could not get to Database"});
                 console.log("Could get to database");
@@ -134,28 +137,28 @@ router.post('/login', function(req, res) {
                             if(user[0].Password == req.body.password){
                                 //Successful sign in
                                 req.session.user = user[0];
-                                res.redirect('/');                        
-                            }  
+                                res.redirect('/');
+                            }
                             else{
                                 res.render('signup.hbs', {
                                     user:{username:"New User"},
                                     login:"Username or password wrong, try again."
                                 });
-                            }               
+                            }
                         }
                     }else{
                         res.render('signup.hbs', {
                             user:{username:"New User"},
                             login:"Please activate your ID by clicking on the link of email."
                         });
-                    }                                 
+                    }
                 }
                 else{
                     res.render('signup.hbs', {
                         user:{username:"New User"},
                         login:"Username or password wrong, try again."
                     });
-                } 
+                }
             }
         });
     }
@@ -163,8 +166,8 @@ router.post('/login', function(req, res) {
         res.render('signup.hbs', {
             user : sess.user,
             login : "You have to log out first"
-        }); 
-    }         
+        });
+    }
 });
 
 router.get('/logout', function(req, res, next) {
