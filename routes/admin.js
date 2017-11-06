@@ -254,25 +254,26 @@ router.get('/users', function(req, res, next) {
     if (!sess.admin){
         return res.render('adminlogin.hbs', {user : {username:"New admin"},login:"You need to log in first. !"});
     }
-
-    Registration.find({}).then(function(reg){
-        var promisedInfo = reg.map(function(item){
-            var promisedUser  = User.findById(item.user[0]);
-            var promisedEvent = Event.findById(item.event[0]);
-            return Promise.all([ promisedUser, promisedEvent]).then(function(res){
-                return {
-                    'user'  : res[0],
-                    'event' : res[1]
-                };
+    else {
+        Registration.find({}).then(function(reg){
+            var promisedInfo = reg.map(function(item){
+                var promisedUser  = User.findById(item.user[0]);
+                var promisedEvent = Event.findById(item.event[0]);
+                return Promise.all([ promisedUser, promisedEvent]).then(function(res){
+                    return {
+                        'user'  : res[0],
+                        'event' : res[1]
+                    };
+                });
             });
-        });
 
-        Promise.all(promisedInfo).then(function(items){
-            res.render('listusers.hbs', {items : items});
+            Promise.all(promisedInfo).then(function(items){
+                res.render('listusers.hbs', {items : items,user:sess.admin});
+            });
+        }).catch(function(err){
+            res.status(500).send({error:err});
         });
-    }).catch(function(err){
-        res.status(500).send({error:err});
-    });
+    }
 });
 
 router.get('/logout', function(req, res, next) {
