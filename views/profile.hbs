@@ -20,13 +20,6 @@
                                 <input class="decryptForEdit" type="text" value="{{user.Name}}" name="Name" id="name_input" readonly>
                             </div>
                             <div class="fin">
-                                <form action="/uploadImage" method="post" id="image upload"></form>
-                                Profile picture:
-                                <input class="decryptForEdit" type="image" value="/profileImage/{{user.usename}}/.jpg" name="ProfileImage" id="image_input" readonly>
-                                <input type="upload" value="Update" id="form_button" />
-                                </form>
-                            </div>
-                            <div class="fin">
                                 Phone:
                                 <input class="decryptForEdit" type="text" value="{{user.Phone}}" name="Phone" id="phone_input" readonly>
                             </div>
@@ -57,7 +50,9 @@
                                 <input class="decryptForEdit" type="text" value="{{user.Institute_or_Company}}" name="Institute_or_Company" id="Institute/Company_input" readonly>
                             </div>
                             <div class="submit updatebtn" style="display:none;">
-                                <input type="submit" value="Update" id="form_button" />
+                            </div>
+                            <div class="col-md-3 text-center submit " id="form-button">
+                                <input class="editUser btn btn-lg" type="submit" value="Update" id="form_button" />
                             </div>
                         </form><!-- // End form -->
                     </div><!-- // End #container -->

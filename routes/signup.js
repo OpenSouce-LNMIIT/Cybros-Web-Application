@@ -1,6 +1,8 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
 var router = express.Router();
+var nodemailer = require('nodemailer');
+var jwt = require('jsonwebtoken');
 var sess = {};
 var nodemailer = require('nodemailer');
 
@@ -14,8 +16,8 @@ var User = require("./../models/User");
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'YOUR-EMAIL-ID@gmail.com',
-      pass: 'YOUR-PASSWORD'
+      user: 'girichaitanya11@gmail.com',
+      pass: '9424108852'
     }
   });
 
@@ -56,12 +58,12 @@ router.post('/new_User', function(req, res) {
                         username: req.body.username
                       }, 'CybrosIsHere', { expiresIn: '1h' },function(err,token){
                         var mailOptions = {
-                            from: '"no-reply "YOUR-EMAIL-ID@gmail.com',
+                            from: '"no-reply "girichaitanya11@gmail.com',
                             to: req.body.email,
                             subject: 'Cybros-Web-App activate account.',
                             html:
                             '<img src="https://github.com/Cybros/Cybros-Web-Application/blob/master/favicon.png"/><p><b>Hello</b>'+req.body.username+',</p>' +
-                '<p>Click on the link to activate your account:<br/><a href="http://localhost:3000/confirmuser/'+token+'">ACTIVATE</a></p>'
+                '<p>Click on the link to activate your account:<br/><a href="http://cybroslnmiit.herokuapp.com/confirmuser/'+token+'">ACTIVATE</a></p>'
                           };
                           transporter.sendMail(mailOptions, function(error, info){
                             if (error) {
