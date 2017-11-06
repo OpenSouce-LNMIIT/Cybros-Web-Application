@@ -6,10 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var nodemailer = require('nodemailer');
-<<<<<<< HEAD
-var jwt = require('jsonwebtoken');
-=======
->>>>>>> ca4eae0c3d97069eef9a0c3c3153dc3aac8f3cde
 
 //hbs stuff start
 var hbs = require('hbs');
