@@ -20,6 +20,13 @@ $(document).ready(function(){
             closeNav();
         }
     });
+    $(".rest").click(function(){
+        if(tsclick == 1){
+            tsclick = 0;
+            closeNav();
+        }
+    });
+    
 //Show password feature
     $(".showhide").click(function(e){
         if($(".showhide").prop('checked') == true){
@@ -35,5 +42,10 @@ $(".editUser").click(function(e){
     $(".updatebtn").css('display', 'block');
     $(".decryptForEdit").prop('readonly',false);
 });
-
+$(".rest").click(function(){
+    if(tsclick == 1){
+        tsclick = 0;
+        closeNav();
+  }
+});
 });

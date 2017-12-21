@@ -1,37 +1,37 @@
 var express = require('express');
+var nodemailer = require('nodemailer');
 var router = express.Router();
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
-var app = express(); 
-var sess = {}
+var sess = {};
+var nodemailer = require('nodemailer');
 
-// User Schema imported 
+// User Schema imported
 var User = require("./../models/User");
 
 
-//Make this secret key more complex to have better encryption
-app.use(session({
-    secret: 'cybros',
-    resave: true,
-    saveUninitialized: false
-  }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+
+//Setting up node mailer
+
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'YOUR-EMAIL-ID@gmail.com',
+      pass: 'YOUR-PASSWORD'
+    }
+  });
 
 /* GET Signup page. */
 router.get('/', function(req, res) {
     sess=req.session;
+    //console.log(sess.user);
     if(sess.user) {
-      res.render('signup.hbs', {user : sess.user.username});
+      res.render('signup.hbs', {user : sess.user});
     }
     else {
-      res.render('signup.hbs', {user : "New user"});
+      res.render('signup.hbs', {user:{username:"New User"}});
     }
 });
 
-// New User Signup 
+// New User Signup
 router.post('/new_User', function(req, res) {
     // Unique user validation
     var userlist = [];
@@ -46,12 +46,32 @@ router.post('/new_User', function(req, res) {
                     console.log("Username already exist username:"+user[0].username);
                     res.render('signup.hbs', {
                         signup:"Username already exist, try again"
-                    });                      
-                }                                 
+                    });
+                }
             }
             else{
                 //Password validation
                 if(req.body.password == req.body.repassword){
+                    jwt.sign({
+                        username: req.body.username
+                      }, 'CybrosIsHere', { expiresIn: '1h' },function(err,token){
+                        var mailOptions = {
+                            from: '"no-reply "YOUR-EMAIL-ID@gmail.com',
+                            to: req.body.email,
+                            subject: 'Cybros-Web-App activate account.',
+                            html:
+                            '<img src="https://github.com/Cybros/Cybros-Web-Application/blob/master/favicon.png"/><p><b>Hello</b>'+req.body.username+',</p>' +
+                '<p>Click on the link to activate your account:<br/><a href="http://localhost:3000/confirmuser/'+token+'">ACTIVATE</a></p>'
+                          };
+                          transporter.sendMail(mailOptions, function(error, info){
+                            if (error) {
+                              console.log(error);
+                            } else {
+                              console.log('Email sent: ' + info.response);
+                              console.log(token);
+                            }
+                          });
+                      });
                     var user = new User();
                     user.username = req.body.username;
                     user.Email = req.body.email;
@@ -63,78 +83,99 @@ router.post('/new_User', function(req, res) {
                             console.log("Could not save register user");
                         }
                         else{
+                            var mailOptions = {
+                                from: '"NO REPLY 👻"girichaitanya11@gmail.com',
+                                to: req.body.email,
+                                subject: 'Cybros user login credentials',
+                                html: "<strong>Username</strong>:"+req.body.email+"<br><strong>Password</strong>:"+req.body.password+
+                                "<br>You have signed up for <strong>Cybros.</strong><br>Note:To complete your profile go to profile section of Cybros website."
+                              };
+                              transporter.sendMail(mailOptions, function(error, info){
+                                if (error) {
+                                  console.log(error);
+                                } else {
+                                  console.log('Email sent: ' + info.response);
+                                }
+                              });
                             res.render('signup.hbs', {
-                                login:"User registered. Login here to continue."
+                                login:"User registered. Activate your account through the email sent to you."
                             });
-                            console.log('! A user registered: Username:: ' + req.body.username + ', Password: ' + req.body.password+', Email: ' + req.body.email);            
+                            console.log('! A user registered: Username:: ' + registeredUser);
                         }
                     });
-                } 
+                }
                 else {
                     res.render('signup.hbs', {
                         signup:"Password do not match, try again."
                     });
                 }
-            }             
+            }
         }
-    });         
+    });
 });
 
 // User sign in
 router.post('/login', function(req, res) {
     sess=req.session;
     // Unique user validation
-    var userlist = [];
     if(!sess.user){
-        // Checking username from current database 
+        // Checking username from current database
         User.find({username:req.body.username},function(err,user){
+        	console.log( err, user );
             if(err){
                 res.status(500).send({error:"Could not get to Database"});
                 console.log("Could get to database");
             }
             else{
                 if (user.length!== 0) {
-                    if(user[0].username){
-                        console.log(req.body);
-                        console.log(user);
-                        if(user[0].Password == req.body.password){
-                            //Successful sign in
-                            req.session.user = user[0];
-                            res.redirect('/');                        
-                        }  
-                        else{
-                            res.render('signup.hbs', {
-                                user :"New user",
-                                login:"Username or password wrong, try again."
-                            });
-                        }               
-                    }                                 
+                    if(user[0].confirmed == true){
+                        if(user[0].username){
+                            console.log(req.body);
+                            console.log(user);
+                            if(user[0].Password == req.body.password){
+                                //Successful sign in
+                                req.session.user = user[0];
+                                res.redirect('/');
+                            }
+                            else{
+                                res.render('signup.hbs', {
+                                    user:{username:"New User"},
+                                    login:"Username or password wrong, try again."
+                                });
+                            }
+                        }
+                    }else{
+                        res.render('signup.hbs', {
+                            user:{username:"New User"},
+                            login:"Please activate your ID by clicking on the link of email."
+                        });
+                    }
                 }
                 else{
                     res.render('signup.hbs', {
-                        user :"New user",
+                        user:{username:"New User"},
                         login:"Username or password wrong, try again."
                     });
-                } 
+                }
             }
         });
     }
     else{
         res.render('signup.hbs', {
-            user : sess.user.username,
+            user : sess.user,
             login : "You have to log out first"
-        }); 
-    }         
+        });
+    }
 });
 
 router.get('/logout', function(req, res, next) {
     sess=req.session;
     if(sess.user) {
       req.session.destroy();
-      res.render('index.hbs', {user : "New user"});
+      res.redirect("/");
     }
     else {
-          res.render('signup.hbs', {user : "New user", login : "You have to sign in first. !"});
+          res.render('signup.hbs', {user:{username:"New User"}, login : "You have to sign in first. !"});
     }
   });
 

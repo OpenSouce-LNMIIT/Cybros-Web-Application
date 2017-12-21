@@ -5,27 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var nodemailer = require('nodemailer');
 
 //hbs stuff start
 var hbs = require('hbs');
-var fs = require('fs');
-
 hbs.registerPartials(__dirname + '/views/partials');
-
-/*var partialsDir = __dirname + '/views/partials';
-
-var filenames = fs.readdirSync(partialsDir);
-
-filenames.forEach(function (filename) {
-    var matches = /^([^.]+).hbs$/.exec(filename);
-    if (!matches) {
-        return;
-    }
-    var name = matches[1];
-    var template = fs.readFileSync(partialsDir + '/' + filename, 'utf8');
-    hbs.registerPartial(name, template);
-});*/
-//hbs stuff end
 
 //https only
 function requireHTTPS(req, res, next) {
@@ -48,16 +32,15 @@ var admin = require('./routes/admin');
 
 var app = express();
 
+//app.listen(8000);
+
 // view engine setup --using handelbars
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-//random secrets on every start of app
-var crypto = require('crypto');
-var secret = crypto.randomBytes(24).toString('hex');
 // using express-sessions to manage session
 app.use(session({
-  secret: secret,
+  secret: "CybrosIsHere",
   resave: true,
   saveUninitialized: false
 }));
@@ -92,5 +75,16 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+//RegisterHelper for checking equality
+//Use this to check equality..
+//instead of {{#if}} use {{#ifCond}}
+hbs.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
 
 module.exports = app;

@@ -1,57 +1,30 @@
 {{> header }}
-
-        <!--Parallax scrolling-->
+      <!--Parallax scrolling-->
         <div class="rest" style="">
-            <div id="banner1" class="banner1 quote text-center" style="display: block; background: transparent url(&quot;../images/parallax_1.jpg&quot;) no-repeat fixed center 0px / cover;height:650px;"><noscript><img class="img-responsive banner1" src="../images/parallax_1.jpg" alt="banner 1 of 2" title="banner 1 of 2"></noscript>
+            <div id="banner1" class="banner1 quote text-center" style="display: block; background: transparent url(&quot;../images/parallax_1.jpg&quot;) no-repeat fixed center 0px / cover;height:700px;"><noscript><img class="img-responsive banner1" src="../images/parallax_1.jpg" alt="banner 1 of 2" title="banner 1 of 2"></noscript>
                 <p class="quote" style="margin-right:40%">"First solve the problem then write the code."</p>
             </div>
-            <div id="banner2" class="banner2 quote text-center" style="display: block; background: transparent url(&quot;../images/parallax_2.jpg&quot;) no-repeat fixed center 0px / cover ;height:650px;"><noscript><img class="img-responsive banner2" src="../images/parallax_2.jpg" alt="banner 2 of 2" title="banner 2 of 2"></noscript>
+            <div id="banner2" class="banner2 quote text-center" style="display: block; background: transparent url(&quot;../images/parallax_2.jpg&quot;) no-repeat fixed center 0px / cover ;height:700px;"><noscript><img class="img-responsive banner2" src="../images/parallax_2.jpg" alt="banner 2 of 2" title="banner 2 of 2"></noscript>
                 <p class="quote" style="margin-right:40%">"Code = 21st Century's oxygen"</p>
             </div>
             <!--Parallax scroling ends-->
-            <div class="filler text-center"style="height:auto;">
-                    <h3 class="filler-heading">Featured feeds</h3>
-                    <div class="row" style="margin-left:20px;margin-right:20px;padding-bottom:5%">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img class="img-responsive" src="../images/competitive.png" alt="Competitive" width="100%">
-                                <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">Competitive classes</p>
-                            </div>
+            <div class="row repeat filler text-center"style="height:auto;">                        
+                {{#if event.length}}
+                <h3 class="filler-heading">Featured feeds</h3>
+                <div>{{rmessage}}</div>
+                {{#each event}}
+                    <div class="col-md-4" style="padding:15px;">
+                        <a href = "/event/{{this.Event_ID}}">
+                        <div class="card">
+                            <img class="img-responsive" src="../images/DefaultEvent.png" alt="Competitive" width="100%">
+                            <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">{{{this.Event_Name}}}</p>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img class="img-responsive" src="../images/development.jpg" alt="development" width="100%">
-                                <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">Development classes</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img class="img-responsive" src="../images/LNMHacks.jpg" alt="LNMhacks" width="100%">
-                                <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">LNM Hacks</p>
-                            </div>
-                        </div>
+                        </a>
                     </div>
-                    <div class="row" style="margin-left:20px;margin-right:20px;padding-bottom:5%">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img class="img-responsive" src="../images/papersLnmiit.jpg" alt="papers.lnm" width="100%">
-                                <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">Papers.Lnmiit</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img class="img-responsive" src="../images/ACMICPC.jpg" alt="ACMICPC" width="100%">
-                                <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">ACMICPC style contest</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <img class="img-responsive" src="../images/coding.svg" alt="coding" width="100%">
-                                <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">September long challange</p>
-                            </div>
-                        </div>
-                    </div>
+                {{/each}}
+                <div class="col"></div>
+                {{/if}} 
             </div>
         </div>
-
 {{> footer }}
+

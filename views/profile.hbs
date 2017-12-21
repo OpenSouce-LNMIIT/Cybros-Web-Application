@@ -14,11 +14,19 @@
                             <p class="pmessage"></p>
                         </div>
                         <form action="/update" method="post" id="contact_form">
-                            <div class="pleft">
+                            
+                            <div class="fin">
                                 Name: 
                                 <input class="decryptForEdit" type="text" value="{{user.Name}}" name="Name" id="name_input" readonly>
                             </div>
-                            <div class="pright">
+                            <div class="fin">
+                                <form action="/uploadImage" method="post" id="image upload"></form>
+                                Profile picture:
+                                <input class="decryptForEdit" type="image" value="/profileImage/{{user.usename}}/.jpg" name="ProfileImage" id="image_input" readonly>
+                                <input type="upload" value="Update" id="form_button" />
+                                </form>
+                            </div>
+                            <div class="fin">
                                 Phone:
                                 <input class="decryptForEdit" type="text" value="{{user.Phone}}" name="Phone" id="phone_input" readonly>
                             </div>
@@ -56,7 +64,7 @@
                 </div>
                 <div class="col-md-3 text-center submit " id="form-button">
                     <br><br>
-                        <button class="editUser" id="form_button">        
+                        <button class="editUser btn btn-lg" id="form_button">        
                             Add/Edit details <i class="fa fa-pencil" aria-hidden="true"></i>
                         </button>
                 </div>
