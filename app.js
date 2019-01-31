@@ -23,8 +23,11 @@ function requireHTTPS(req, res, next) {
 // Setting up mongoose
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-var db = mongoose.connect("mongodb://localhost/Cybros",{useMongoClient: true});
-
+var db = mongoose.connect("mongodb://127.0.0.1:27017/Cybros",{useMongoClient: true});
+mongoose.connection.on('error', console.error.bind(console, 'Connection error: '));
+mongoose.connection.once('open', function callback(){
+  console.log("DB Connected");
+});
 // routes to static and functional pages
 var index = require('./routes/index');
 var signup = require('./routes/signup');
