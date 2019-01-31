@@ -3,6 +3,8 @@ var nodemailer = require('nodemailer');
 var router = express.Router();
 var sess = {};
 var nodemailer = require('nodemailer');
+var jwt = require('jsonwebtoken');
+var passwordHash = require('password-hash');
 
 // User Schema imported
 var User = require("./../models/User");
@@ -12,10 +14,12 @@ var User = require("./../models/User");
 //Setting up node mailer
 
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com', // Gmail as mail client
+    port: 465,
+    secure: true,
     auth: {
-      user: 'YOUR-EMAIL-ID@gmail.com',
-      pass: 'YOUR-PASSWORD'
+      user: 'farziacc121121@gmail.com',
+      pass: 'farzi1234'
     }
   });
 
@@ -55,8 +59,9 @@ router.post('/new_User', function(req, res) {
                     jwt.sign({
                         username: req.body.username
                       }, 'CybrosIsHere', { expiresIn: '1h' },function(err,token){
+                        
                         var mailOptions = {
-                            from: '"no-reply "YOUR-EMAIL-ID@gmail.com',
+                            from: '"no-reply "farziacc121121@gmail.com',
                             to: req.body.email,
                             subject: 'Cybros-Web-App activate account.',
                             html:
@@ -75,7 +80,11 @@ router.post('/new_User', function(req, res) {
                     var user = new User();
                     user.username = req.body.username;
                     user.Email = req.body.email;
-                    user.Password = req.body.password;
+
+                    //hashing the password
+                    user.Password = passwordHash.generate(req.body.password);
+                    console.log(user.Password);
+                    
                     // Saving new user to database
                     user.save(function(err, registeredUser){
                         if(err){
@@ -84,7 +93,7 @@ router.post('/new_User', function(req, res) {
                         }
                         else{
                             var mailOptions = {
-                                from: '"NO REPLY 👻"girichaitanya11@gmail.com',
+                                from: '"NO REPLY 👻"farziacc121121@gmail.com',
                                 to: req.body.email,
                                 subject: 'Cybros user login credentials',
                                 html: "<strong>Username</strong>:"+req.body.email+"<br><strong>Password</strong>:"+req.body.password+
@@ -120,19 +129,20 @@ router.post('/login', function(req, res) {
     // Unique user validation
     if(!sess.user){
         // Checking username from current database
+        //console.log(User,  req.body.username);
         User.find({username:req.body.username},function(err,user){
-        	console.log( err, user );
+        	//console.log( err, user );
             if(err){
                 res.status(500).send({error:"Could not get to Database"});
                 console.log("Could get to database");
             }
             else{
+                console.log(user);
                 if (user.length!== 0) {
                     if(user[0].confirmed == true){
                         if(user[0].username){
-                            console.log(req.body);
-                            console.log(user);
-                            if(user[0].Password == req.body.password){
+                            //vrerifying the hashed password
+                            if(passwordHash.verify(req.body.password, user[0].Password)){
                                 //Successful sign in
                                 req.session.user = user[0];
                                 res.redirect('/');
@@ -140,7 +150,7 @@ router.post('/login', function(req, res) {
                             else{
                                 res.render('signup.hbs', {
                                     user:{username:"New User"},
-                                    login:"Username or password wrong, try again."
+                                    login:"Username or password wrong, try again.."
                                 });
                             }
                         }
@@ -154,7 +164,7 @@ router.post('/login', function(req, res) {
                 else{
                     res.render('signup.hbs', {
                         user:{username:"New User"},
-                        login:"Username or password wrong, try again."
+                        login:"Username or password wrong, try again.abcd"
                     });
                 }
             }
