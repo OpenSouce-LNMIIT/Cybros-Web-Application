@@ -6,19 +6,27 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "animate.css": "^3.7.0",
     "body-parser": "~1.17.1",
+    "bootstrap": "^4.2.1",
+    "bootstrap-social": "^5.1.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
     "express-session": "^1.15.6",
+    "font-awesome": "^4.7.0",
     "hbs": "~4.0.1",
+    "jquery": "^1.9.1",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.11.13",
     "morgan": "~1.8.1",
     "multer": "^1.3.0",
     "nodemailer": "^4.2.0",
     "nodemon": "^1.12.1",
+    "owl.carousel": "^2.3.4",
     "password-hash": "^1.2.2",
-    "serve-favicon": "~2.4.2"
+    "popper.js": "^1.14.6",
+    "serve-favicon": "~2.4.2",
+    "simple-lightbox": "^2.1.0"
   }
 }

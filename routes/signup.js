@@ -18,8 +18,8 @@ var transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-      user: 'YOUR-EMAIL-ID@gmail.com',
-      pass: 'PSWD'
+      user: 'farziacc121121@gmail.com',
+      pass: 'farzi1234'
     }
   });
 
@@ -61,7 +61,7 @@ router.post('/new_User', function(req, res) {
                       }, 'CybrosIsHere', { expiresIn: '1h' },function(err,token){
                         
                         var mailOptions = {
-                            from: '"no-reply "YOUR-EMAIL-ID@gmail.com',
+                            from: '"no-reply "farziacc121121@gmail.com',
                             to: req.body.email,
                             subject: 'Cybros-Web-App activate account.',
                             html:
@@ -93,7 +93,7 @@ router.post('/new_User', function(req, res) {
                         }
                         else{
                             var mailOptions = {
-                                from: '"NO REPLY 👻"EMAIL_ID@gmail.com',
+                                from: '"NO REPLY 👻"farziacc121121@gmail.com',
                                 to: req.body.email,
                                 subject: 'Cybros user login credentials',
                                 html: "<strong>Username</strong>:"+req.body.email+"<br><strong>Password</strong>:"+req.body.password+
