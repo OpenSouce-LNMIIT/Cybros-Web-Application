@@ -1,9 +1,8 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html >
 <head>
     <meta charset="UTF-8">
-    <title>Cybros|LNMIIT</title>
-    <meta charset="UTF-8">
+    <title>Cybros - The Computer Club|LNMIIT</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Chaitanya Giri">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
@@ -32,7 +31,7 @@
             </a>
         </div>
         <div id="mySidenav" class="sidenav">
-            <!--{{user}} will be used by template-->
+            <!-{{user}} will be used by template->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="/profile" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{{user.username}}}
@@ -58,4 +57,65 @@
             <a href="/signup">Sign up/Sign in</a>
         </div>
     </div>
-</nav>
+</nav>-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="img/favicon.png" type="image/png">
+        <title>Cybros - The Computer Club | LNMIIT</title>
+
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+        <link rel="stylesheet" href="node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="node_modules/animate.css/animate.css">
+        <link rel="stylesheet" href="node_modules/simple-lightbox/dist/simpleLightbox.css">
+
+        <link rel="stylesheet" href="./public/css/style.css">
+    </head>
+    <body>
+        <script src="node_modules/jquery/jquery.min.js"></script>
+        <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="public/js/index.js"></script>
+
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light fixed-top topNavbar">
+                <div class="container">
+                    <a class="navbar-brand logo_h" href="/"><img class="logo" src="images/logo.jpg" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/classes">Classes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/workshops">Workshops</a></li>
+                            <li class="nav-item"><a class="nav-link" href="elements.html">Competitions</a></li>
+                            <li class="nav-item"><a class="nav-link" href="https://github.com/OpenSouce-LNMIIT/CYBLOG">Blog</a></li>
+                            <li class="nav-item dropdown">
+                                {{#ifCond user.username 'New User'}}
+                                <li class="nav-item"><a class="nav-link" href="/signup">Sign up/Sign in</a></li>
+                                {{else}}
+                                <li class="nav-item submenu dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.username}}</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                                        <li class="nav-item"><a class="nav-link" href="/signup/logout">Logout</a></li>
+                                    </ul>
+                                </li>
+                                {{/ifCond}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
