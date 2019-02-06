@@ -9,7 +9,9 @@ var passwordHash = require('password-hash');
 // User Schema imported
 var User = require("./../models/User");
 
-
+//dotenv
+var dotenv = require("dotenv");
+dotenv.config();
 
 //Setting up node mailer
 
@@ -18,8 +20,8 @@ var transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-      user: 'YOUR-EMAIL-ID@gmail.com',
-      pass: 'PSWD'
+      user: process.env.YOUR_EMAIL_ID,
+      pass: process.env.PSWD
     }
   });
 
@@ -61,11 +63,11 @@ router.post('/new_User', function(req, res) {
                       }, 'CybrosIsHere', { expiresIn: '1h' },function(err,token){
                         
                         var mailOptions = {
-                            from: '"no-reply "EMAIL-ID@gmail.com',
+                            from: '"no-reply " process.env.YOUR_EMAIL_ID ',
                             to: req.body.email,
                             subject: 'Cybros-Web-App activate account.',
                             html:
-                            '<img src="https://github.com/Cybros/Cybros-Web-Application/blob/master/favicon.png"/><p><b>Hello</b>'+req.body.username+',</p>' +
+                            '<img src="https://github.com/Cybros/Cybros-Web-Application/blob/master/favicon.png"/><p><b>Hello</b> '+req.body.username+',</p>' +
                 '<p>Click on the link to activate your account:<br/><a href="http://localhost:3000/confirmuser/'+token+'">ACTIVATE</a></p>'
                           };
                           transporter.sendMail(mailOptions, function(error, info){
@@ -93,10 +95,10 @@ router.post('/new_User', function(req, res) {
                         }
                         else{
                             var mailOptions = {
-                                from: '"NO REPLY 👻"EMAIL-ID@gmail.com',
+                                from: '"NO REPLY 👻" process.env.YOUR_EMAIL_ID',
                                 to: req.body.email,
                                 subject: 'Cybros user login credentials',
-                                html: "<strong>Username</strong>:"+req.body.email+"<br><strong>Password</strong>:"+req.body.password+
+                                html: "<strong>Username</strong>: "+req.body.username+"<br><strong>Password</strong>:"+req.body.password+
                                 "<br>You have signed up for <strong>Cybros.</strong><br>Note:To complete your profile go to profile section of Cybros website."
                               };
                               transporter.sendMail(mailOptions, function(error, info){

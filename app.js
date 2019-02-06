@@ -6,6 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var nodemailer = require('nodemailer');
+var dotenv = require('dotenv');
+
+//Configuring the .env 
+dotenv.config();
 
 //hbs stuff start
 var hbs = require('hbs');
