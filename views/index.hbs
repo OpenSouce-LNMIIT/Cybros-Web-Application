@@ -13,14 +13,36 @@
                 <h3 class="filler-heading">Featured feeds</h3>
                 <div>{{rmessage}}</div>
                 {{#each event}}
-                    <div class="col-md-4" style="padding:15px;">
-                        <a href = "/event/{{this.Event_ID}}">
-                        <div class="card">
+                    <div class="col-lg-6">
+                    <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <div class="single_event">
+                  <div class="row align-items-center">
+                  <div class="col-lg-6 col-md-5">
+                  <div class="event_thumb">
+                  <img src="img/event1.jpg" alt="">
+                  </div>
+                  </div>
+                  <div class="col-lg-6 col-md-7">
+                  <div class="event_details">
+                  <p>19th February, 2019</p>
+                  <h4>
+                  <a href = "/event/{{this.Event_ID}}">
+                  <div class="card">
                             <img class="img-responsive" src="../images/DefaultEvent.png" alt="Competitive" width="100%">
                             <p style="font-family: 'Poiret One', cursive;font-size:25px;color:rgb(57, 108, 146);">{{{this.Event_Name}}}</p>
                         </div>
                         </a>
-                    </div>
+                  </h4>
+                  <p>Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore dolor
+                  sit amet consec tetur adipisicing elit sed.</p>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                 
                 {{/each}}
                 <div class="col"></div>
                 {{/if}} 
