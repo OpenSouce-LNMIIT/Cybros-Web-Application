@@ -1196,26 +1196,31 @@ a:hover,
     background:#4dbf1c
 }
 
-.course_details_left .course_list
+.course_list
 {
     margin-bottom:0
 }
 
 @media(max-width:575px)
 {
-    .course_details_left .course_list
+    .course_list
     {
         padding-left:0
     }
 }
 
-.course_details_left .course_list li
+.course_list li
 {
     list-style:none;
     margin-bottom:20px
 }
 
-.course_details_left .course_list li .primary-btn
+.course_list li p
+{
+    font-size: 150%;
+}
+
+.course_list li .primary-btn
 {
     background:#f9f9f9;
     color:#777;
@@ -1223,7 +1228,7 @@ a:hover,
     font-size:12px
 }
 
-.course_details_left .course_list li .primary-btn:hover
+.course_list li .primary-btn:hover
 {
     background:#00aee0;
     color:#fff;
@@ -1232,7 +1237,7 @@ a:hover,
 
 @media(max-width:575px)
 {
-    .course_details_left .course_list li .primary-btn
+    .course_list li .primary-btn
     {
         min-width:100px;
         font-size:10px;
@@ -1240,7 +1245,7 @@ a:hover,
     }
 }
 
-.course_details_left .course_list li:last-child
+.course_list li:last-child
 {
     margin-bottom:0
 }

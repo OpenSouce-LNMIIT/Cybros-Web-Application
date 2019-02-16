@@ -1,25 +1,44 @@
 {{> adminheader}}
-        <div style="padding-top:97px;">
-                <h3 class="text-center filler-heading">Administrator's dashboard</h3>
-                <div class="row profile text-center btn-group btn-group-justified" style="padding-top:10%;padding-bottom:30px; height:350px;">
+        
 
-                    <div class="col-md-3">
-                        <a class="text-center" href="/admin/users" id="form_button"><button class="btn btn-lg">View users <i class="fa fa-list" aria-hidden="true"></i></button></a>
+        <!--After Adding Current Template -->
+        <div class="container">
+            <section class="banner_area">
+                <div class="banner_inner d-flex align-items-center">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="banner_content text-center">
+                                    <h2>Administrator's Dashboard</h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="col-md-3">
-                        <a class="text-center" href="/admin/addevent" id="form_button"><button class="btn btn-lg">Add event <i class="fa fa-plus" aria-hidden="true"></i></button></a>
-                    </div>
-
-                    <div class="col-md-3">
-                        <a class="text-center" href="/admin/editevent"id="form_button"><button class="btn btn-lg">Update event <i class="fa fa-wrench" aria-hidden="true"></i></button></a>
-                    </div>
-
-                    <div class="col-md-3">
-                        <a class="text-center" href="/admin/deleteevent" id="form_button"><button class="btn btn-lg">Remove event <i class="fa fa-trash" aria-hidden="true"></i></button></a>
-                    </div>
-                    <div>{{eventMessage}}</div>
                 </div>
+            </section>
+            <!--<h4 class="title">Administrator's Dashboard</h4>-->
+            <br><br>
+            <div class="content">
+                <ul class="course_list">
+                    <li class="justify-content-between d-flex">
+                        <p>View Users</p>
+                        <a class="primary-btn text-uppercase" href="/admin/users">Click here</a>
+                    </li>
+                    <li class="justify-content-between d-flex">
+                        <p>Add Event</p>
+                        <a class="primary-btn text-uppercase" href="/admin/addevent">Click here</a>
+                    </li>
+                    <li class="justify-content-between d-flex">
+                        <p>Update Event</p>
+                        <a class="primary-btn text-uppercase" href="/admin/editevent">Click here</a>
+                    </li>
+                    <li class="justify-content-between d-flex">
+                        <p>Remove Event</p>
+                        <a class="primary-btn text-uppercase" href="/admin/deleteevent">Click here</a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
 {{> footer}}
