@@ -7,7 +7,7 @@
 Official web application of Cybros.
 Website is live now:
 https://cybroslnmiit.herokuapp.com/
-
+(Not updated since 2018)
 ## Getting Started
 
 ### Prerequisites
