@@ -1,27 +1,45 @@
-{{> header}}
-    <div class="row filler" style="height:auto;padding-top:87px;">
-        <div class="row container" style="margin-left:30px;">
-            <h3 class="filler-heading">Users</h3>
-            {{#if items.length}}
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Name</th>
-                        <th>Event</th>
-                    </tr>
-                </thead>
-            <tbody>
-            {{#each items}}
-            <tr>
-                <td>{{this.user.username}}</td>
-                <td>{{this.user.Name}}</td>
-                <td>{{this.event.Event_Name}}</td>
-            </tr>
-            {{/each}}
-            </tbody>
-            </table>
-            {{/if}}
+{{> adminheader}}
+    
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="banner_content text-center">
+                                <h2>Users</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="row filler" style="height:auto;padding-top:87px;">
+            <div class="row container" style="margin-left:30px;">
+                {{#if items.length}}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Name</th>
+                            <th>Event</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                {{#each items}}
+                <tr>
+                    <td>{{this.user.username}}</td>
+                    <td>{{this.user.Name}}</td>
+                    <td>{{this.event.Event_Name}}</td>
+                </tr>
+                {{/each}}
+                </tbody>
+                </table>
+                {{/if}}
+            </div>
         </div>
     </div>
 {{> footer}}

@@ -1,73 +1,83 @@
-{{> header }}
-        <div class="container-fluid" style="padding-top:100px;">
-            <div class="profile row">
-                <h3 class="filler-heading text-center">My Profile</h3>
-                <div class="col-md-3 text-center">
-                    <br><br>
-                    <i class="fa fa-user fa-5x" aria-hidden="true"></i>
-                    <p class="pvalue">{{user.username}}</p>
-                </div>
-                <div class="col-md-6">
-                    <div id="container">
-                        <div class="text-center">
-                            {{pmessage}}
-                            <p class="pmessage"></p>
+{{> header}}
+
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="banner_content text-center">
+                                <h2>Profile</h2>
+                            </div>
                         </div>
-                        <form action="/update" method="post" id="contact_form">
-                            
-                            <div class="fin">
-                                Name: 
-                                <input class="decryptForEdit" type="text" value="{{user.Name}}" name="Name" id="name_input" readonly>
-                            </div>
-                            <div class="fin">
-                                <form action="/uploadImage" method="post" id="image upload"></form>
-                                Profile picture:
-                                <input class="decryptForEdit" type="image" value="/profileImage/{{user.usename}}/.jpg" name="ProfileImage" id="image_input" readonly>
-                                <input type="upload" value="Update" id="form_button" />
-                                </form>
-                            </div>
-                            <div class="fin">
-                                Phone:
-                                <input class="decryptForEdit" type="text" value="{{user.Phone}}" name="Phone" id="phone_input" readonly>
-                            </div>
-                            <div class="fin">
-                                Email:
-                                <input class="decryptForEdit" type="email" value="{{user.Email}}" name="Email" id="Email_input" readonly>
-                            </div>
-                            <div class="fin">
-                                Password:
-                                <input class="decryptForEdit" type="password" value="{{user.Password}}" name="Password" id="password_input" readonly>
-                                <input type="checkbox" class="showhide"> Show/Hide </input>
-                                <br><br>
-                            </div>
-                            <div class="pleft">
-                                Age:
-                                <input class="decryptForEdit" type="text" value="{{user.Age}}" name="Age" id="Age_input" readonly>
-                            </div>
-                            <div class="pright">
-                                Gender:
-                                <input class="decryptForEdit" type="text" value="{{user.Gender}}" name="Gender" id="Gender_input" readonly>
-                            </div>
-                            <div class="fin">
-                                Address:    
-                                <input class="decryptForEdit" type="text" value="{{user.Address}}" name="Address" id="Address_input" readonly>
-                            </div>
-                            <div class="fin">
-                                Institute/Company:    
-                                <input class="decryptForEdit" type="text" value="{{user.Institute_or_Company}}" name="Institute_or_Company" id="Institute/Company_input" readonly>
-                            </div>
-                            <div class="submit updatebtn" style="display:none;">
-                                <input type="submit" value="Update" id="form_button" />
-                            </div>
-                        </form><!-- // End form -->
-                    </div><!-- // End #container -->
-                </div>
-                <div class="col-md-3 text-center submit " id="form-button">
-                    <br><br>
-                        <button class="editUser btn btn-lg" id="form_button">        
-                            Add/Edit details <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <div class="container">
+        <div class="col col-sm">
+        <!--Extra space-->
+        </div>
+        <div class="col-lg-9" style="padding: 4%;">
+            <form class="row contact_form" action="/update" method="post" id="contactForm">
+                <div class="col-md-3 col-lg-5">
+                <!--Extra Space-->
+                </div>
+                <div class="text-center">{{ pmessage }}</div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        Name: 
+                        <input type="text" class="form-control" id="name_input" name="Name" value="{{user.Name}}">
+                    </div>
+                    <div class="form-group">
+                        <form action="/uploadImage" method="post" id="image upload"></form>
+                            Profile picture:
+                            <input class="form-control" type="image" value="/profileImage/{{user.usename}}/.jpg" name="ProfileImage" id="image_input">
+                            <div class="col-md-12 text-right" style="padding-bottom: 1%;">
+                                <button type="upload" value="Update" class="btn primary-btn">Upload</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form-group">
+                        Phone:
+                        <input type="text" class="form-control" id="phone_input" name="Phone" value="{{user.Phone}}">
+                    </div>
+                    <div class="form-group">
+                        Email:
+                        <input type="email" class="form-control" id="Email_input" name="Email" value="{{user.Email}}">
+                    </div>
+                    <div class="form-group">
+                        Password:
+                        <input type="password" class="form-control" id="password_input" name="Password" value="{{user.Password}}" readonly>
+                        <input type="checkbox" class="showhide"> Show/Hide </input>
+                    </div>
+                    <div class="form-group">
+                        Age:
+                        <input type="text" class="form-control" id="Age_input" name="Fee" value="{{user.Age}}">
+                    </div>
+                    <div class="form-group">
+                        Gender:
+                        <input type="text" class="form-control" id="Gender_input" name="Gender" value="{{user.Gender}}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="Additional_input" name="Additional" value="{{event.Additional_Links}}" placeholder="Additional Links">
+                    </div>
+                    <div class="form-group">
+                        Address:
+                        <input type="text" class="form-control" id="Address_input" name="Address" value="{{user.Address}}">
+                    </div>
+                    <div class="form-group">
+                        Institute/Company:
+                        <input type="text" class="form-control" id="Institute/Company_input" name="Institute_or_Company" value="{{user.Institute_or_Company}}">
+                    </div>
+                    <p>{{login}}</p>
+                    <div class="col-md-12 text-right">
+                        <button type="submit" value="edit" class="btn primary-btn">Add/Edit Details</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 {{> footer}}

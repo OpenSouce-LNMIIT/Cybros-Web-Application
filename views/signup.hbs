@@ -1,28 +1,74 @@
 {{> header}}
-        <div style="padding-top:97px;">
-                <h3 class="text-center filler-heading">Get connected with us.</h3>
-                <div class="login-box row">
-                    <form class="left col-md-6" action="/signup/new_User" method="post">
-                    <!-- Sign up Form -->
-                        <h1>Sign up</h1>
-                        <input type="text" name="username" placeholder="Username" required >
-                        <input type="email" name="email" placeholder="E-mail" required>
-                        <input type="password" name="password" placeholder="Password" required >
-                        <input type="password" name="repassword" placeholder="Retype password" required >
-                        <p>{{signup}}</p>
-                        <input type="submit" name="signup_submit" value="Sign up">
-                    </form>
-                    <div class="or">OR</div>
-                    <form class="right col-md-6" action="/signup/login" method="post">
-                    <!-- Sign in form  -->    
-                        <h1>Sign in</h1>
-                        <input type="text" name="username" placeholder="Username" required/>
-                        <input type="password" name="password" placeholder="Password" required/>
-                        <p>{{login}}</p>
-                        <input type="submit" name="signup_submit" value="Sign in"/>
-                    </form>
-                    
+        <section class="banner_area">
+            <div class="banner_inner d-flex align-items-center">
+                <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="banner_content text-center">
+                                    <h2>Connect with Us</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="col col-sm">
+            <!--Extra space-->
+            </div>
+            <div class="col-lg-9" style="padding: 4%;">
+                <form class="row contact_form" action="/signup/login" method="post" id="contactForm">
+                    <div class="col-md-5">
+                    <!--Extra Space-->
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="text-center" style="padding: 1%;">Sign In</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                        </div>
+                        <p>{{login}}</p>
+                        <div class="col-md-12 text-right">
+                            <button type="submit" value="Sign in"  name="signup_submit" class="btn primary-btn">Sign in</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col col-sm">
+                <p class="text-center">OR</p>
+            </div>
+            <div class="col-lg-9" style="padding: 4%;">
+                <form class="row contact_form" action="/signup/new_User" method="post">
+                    <div class="col-md-5">
+                    <!--Extra Space-->
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="text-center" style="padding: 1%;">Sign Up</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required >
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="repassword" name="repassword" placeholder="Retype password" required >
+                        </div>
+                        <p>{{signup}}</p>
+                        <div class="col-md-12 text-right">
+                            <button type="submit" value="Sign Up" name="signup_submit" class="btn primary-btn">Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>            
         </div>
 
 {{> footer}}

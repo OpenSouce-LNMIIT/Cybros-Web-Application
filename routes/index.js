@@ -47,7 +47,7 @@ router.get('/', function(req, res, next) {
 });
 
 // GET event page
-router.get('/event/:id', function(req, res, next) {
+router.get('/event:id', function(req, res, next) {
   sess=req.session;
   console.log(req.params.id);
   Event.find({Event_ID : req.params.id},function(err,event){
@@ -219,6 +219,7 @@ router.post('/update', function(req, res, next) {
         res.render('profile.hbs', {user : sess.user, pmessage : "Details updated. !"});
       }
       else{
+        //console.log(error);
         res.status(500).send({error:"Error, can't access Database!"});
       }
     });

@@ -1,68 +1,85 @@
 {{> adminheader}}
 
-        <div class="profile" style="padding-top:97px;">
-                <h3 class="text-center filler-heading">Editing an event</h3>
-                <form action="/admin/editevent/search" method="post" id="eventeditsearch_form">
-                    <div class="fin">
-                        Search Event ID you want to edit:
-                        <input  type="text" placeholder="" name="srcheventID" id="name_input" required>
-                        <input type="submit" class="btn btn-lg" value="Search" id="form_button" />
-                    </div>
-                </form>
-                <div id="container">
-                        <div class="text-center">
-                            {{emessage}}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="banner_content text-center">
+                                <h2>Update Event</h2>
+                            </div>
                         </div>
-                        <form action="/admin/editevent_submit" method="post" id="event_form">
-                            <div class="fin">
-                                Name:
-                                <input  type="text" placeholder="" value='{{event.Event_Name}}' name="Name" id="name_input" >
-                            </div>
-                            <div class="fin">
-                                Event ID(Not allowed to change):
-                                <input type="text" placeholder="" value='{{event.Event_ID}}' name="ID" id="ID_input" readonly>
-                            </div>
-                            <div class="subject">
-                                <label for="subject"></label>
-                                <select placeholder="" name="eventType" value='{{event.Event_Type}}' id="subject_input" >
-                                    <option disabled hidden selected>Event type</option>
-                                    <option>Class</option>
-                                    <option>Workshop</option>
-                                    <option>Competition</option>
-                                    <option>Other</option>
-                                </select>
-                                <br><br>
-                            </div>
-                            <div class="fin">
-                                Event Description:
-                                <textarea name="Description" value="{{event.Event_Description}}" id="description_input" cols="30" rows="5" >{{event.Event_Description}}</textarea>                           </div>
-                            <div class="pleft">   
-                                Venue:
-                                <input  type="text" value="{{event.Venue}}" name="Venue" id="venue_input" >
-                            </div>
-                            <div class="pright"> 
-                                Date:                         
-                                <input type="text" value="{{event.Date}}" name="Date" id="date_input" >
-                            </div>
-                            <div class="pleft">
-                                Time:   
-                                <input type="text" value="{{event.Time}}"  name="Time" id="time_input" >
-                            </div>
-                            <div class="pright">   
-                                Fee:                        
-                                <input type="text" value="{{event.Fee}}" name="Fee" id="fee_input" >
-                            </div>
-                            <div class="fin"> 
-                                Additional links:   
-                                <input type="text"  value="{{event.Additional_Links}}" name="Additional" id="Additional_input" >
-                            </div>
-                            {{#if event}}
-                            <div class="editaccess" style="">
-                                <input type="submit" class="btn btn-lg" value="Update event" id="form_button" />
-                            </div>
-                            {{/if}}
-                        </form><!-- // End form -->
-                    </div><!-- // End #container -->
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <div class="container">
+        <div class="col col-sm">
+        <!--Extra space-->
+        </div>
+        <div class="col-lg-9" style="padding: 4%;">
+            <div class="text-center">{{ emessage }}</div>
+            <form class="row contact_form" action="/admin/editevent_search" method="post" id="eventeditsearch_form" style="padding-bottom: 4%;">
+                <div class="col-md-3 col-lg-5">
+                <!--Extra Space-->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input  type="text" class="form-control" placeholder="Search Event using Event ID" name="srcheventID" id="name_input" required>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button type="submit" id="form_button" value="Search"  name="search_submit" class="btn primary-btn">Search</button>
+                    </div>
+                </div>
+            </form>
+            <form class="row contact_form" action="/admin/editevent_submit" method="post" id="contactForm">
+                <div class="col-md-3 col-lg-5">
+                <!--Extra Space-->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name_input" name="Name" value="{{event.Event_Name}}" placeholder="Event Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="ID_input" name="ID" value="{{event.Event_ID}}" placeholder="Event ID (Unique)" required>
+                    </div>
+                    <div class="form-group">
+                        <select placeholder="Event type" name="eventType" value="{{event.Event_Type}}" class="form-control" id="subject_input" required>
+                            <option disabled hidden selected>Event type</option>
+                            <option>Class</option>
+                            <option>Workshop</option>
+                            <option>Competition</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="Description" class="form-control" placeholder="Event Description" value="{{event.Event_Description}}" id="description_input" cols="30" rows="5" required>{{event.Event_Description}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="venue_input" name="Venue" value="{{event.Venue}}" placeholder="Venue" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="date_input" name="Date" value="{{event.Date}}" placeholder="Date" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="time_input" name="Time" value="{{event.Time}}" placeholder="Time" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="fee_input" name="Fee" value="{{event.Fee}}" placeholder="Fee" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="Additional_input" name="Additional" value="{{event.Additional_Links}}" placeholder="Additional Links" required>
+                    </div>
+                    <p>{{login}}</p>
+                    <div class="col-md-12 text-right">
+                        <button type="submit" value="Update"  name="signup_submit" class="btn primary-btn">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 {{> footer}}
