@@ -1,119 +1,71 @@
-<!DOCTYPE html>
-<html >
-<head>
-    <meta charset="UTF-8">
-    <title>Cybros|LNMIIT</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Chaitanya Giri">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Gloria+Hallelujah|Rubik" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"/>
-    <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
-    <link rel="stylesheet" href="/public/css/style.css">
-</head>
-<body>
+{{> header}}
 
-<nav id="main" class="main navbar navbar-fixed-top wide topNavbar">
-    <div class="container-fluid">
-        <div class="navbar-header">
-
-            <div class="navbar-toggle toggle-switch pull-right" data-target="#mySidenav">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-            <div class="navbar-brand hfont" href="#">
-                <img class="img-responsive" style="display: block;
-                        margin-left: auto;
-                        margin-right: auto;" src="/favicon.png" alt="logo" width="100" height="60">
-            </div>
-        </div>
-        <div id="mySidenav" class="sidenav">
-            <!--{{user}} will be used by template-->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/profile" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{user.username}}
-                    <i class="fa fa-sort-desc" aria-hidden="true"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    {{#ifCond user.username 'New User'}}
-                    <a class="dropdown-item" style="font-size: 18px;" href="/signup"><i class="fa fa-sign-out" aria-hidden="true"></i> Login
-                    </a>
-                    {{else}}
-                    <a class="dropdown-item" style="font-size: 18px;" href="/profile"><i class="fa fa-sign-out" aria-hidden="true"></i> Profile
-                    </a>
-                    <a class="dropdown-item" style="font-size: 18px;" href="/signup/logout"><i class="fa fa-user" aria-hidden="true"></i> Log out
-                    </a>
-                    {{/ifCond}}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="banner_content text-center">
+                                <h2>{{event.Event_Name}}</h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </li>
-            <a href="/">Home</a>
-            <a href="../about">About</a>
-            <a href="../classes">Classes</a>
-            <a href="../workshops">Workshops</a>
-            <a href="../competition">Competitions</a>
-            <a href="../signup">Sign up/Sign in</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </section>
 
-<div class="profile" style="padding-top:97px;">
-    <h3 class="text-center filler-heading">{{event.Event_Name}}</h3>
-    
-    <div id="container">
-    <form action="/register" method="post" id="event_form">
-    <div class="fin">
-        Name:
-        <input  type="text" placeholder="" value='{{event.Event_Name}}' name="Name" id="name_input" readonly>
-    </div>
-    <div class="fin" style="display:none;">
-        ObjID:
-        <input  type="text" placeholder="" value='{{event._id}}' name="objid" id="name_input" readonly>
-    </div>
-    <div class="fin">
-        Event ID(Not allowed to change):
-        <input type="text" placeholder="" value='{{event.Event_ID}}' name="ID" id="ID_input" readonly>
-    </div>
-    <div class="fin">
-            Event type:
-            <input type="text" placeholder="" value='{{event.Event_Type}}' name="ID" id="ID_input" readonly/>
+    <div class="container">
+        <div class="col col-sm">
+        <!--Extra space-->
         </div>
-    <div class="fin">
-        Event Description:
-        <textarea name="Description" value="{{event.Event_Description}}" id="description_input" cols="30" rows="5" readonly>{{event.Event_Description}}</textarea>
-    </div>
-    <div class="pleft">   
-        Venue:
-        <input  type="text" value="{{event.Venue}}" name="Venue" id="venue_input" readonly>
-    </div>
-    <div class="pright"> 
-        Date:                         
-        <input type="text" value="{{event.Date}}" name="Date" id="date_input" readonly>
-    </div>
-    <div class="pleft">
-        Time:   
-        <input type="text" value="{{event.Time}}"  name="Time" id="time_input" readonly>
-    </div>
-    <div class="pright">   
-        Fee:                        
-        <input type="text" value="{{event.Fee}}" name="Fee" id="fee_input"readonly >
-    </div>
-    <div class="fin"> 
-        Additional links:   
-        <input type="text"  value="{{event.Additional_Links}}" name="Additional" id="Additional_input" readonly>
-    </div>
-    {{#if event}}
-        <div class="col-md-3 text-center submit " id="form-button">
-                        <button class="editUser btn btn-lg" id="form_button">        
-                            Register for this event
-                        </button>
+        <div class="col-lg-9" style="padding: 4%;">
+            <form class="row contact_form" action="/register" method="post" id="contactForm">
+                <div class="col-md-3 col-lg-5">
+                <!--Extra Space-->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name_input" name="Name" value="{{event.Event_Name}}" placeholder="Event Name" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="ID_input" name="ID" value="{{event.Event_ID}}" placeholder="Event ID (Unique)" readonly>
+                    </div>
+                    <div class="form-group">
+                        <select placeholder="Event type" name="eventType" value="{{event.Event_Type}}" class="form-control" id="subject_input" readonly>
+                            <option disabled hidden selected>Event type</option>
+                            <option>Class</option>
+                            <option>Workshop</option>
+                            <option>Competition</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="Description" class="form-control" placeholder="Event Description" value="{{event.Event_Description}}" id="description_input" cols="30" rows="5" readonly>{{event.Event_Description}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="venue_input" name="Venue" value="{{event.Venue}}" placeholder="Venue" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="date_input" name="Date" value="{{event.Date}}" placeholder="Date" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="time_input" name="Time" value="{{event.Time}}" placeholder="Time" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="fee_input" name="Fee" value="{{event.Fee}}" placeholder="Fee" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="Additional_input" name="Additional" value="{{event.Additional_Links}}" placeholder="Additional Links" readonly>
+                    </div>
+                    <p>{{login}}</p>
+                    <div class="col-md-12 text-right">
+                        <button type="submit" value="register"  name="signup_submit" class="btn primary-btn">Register</button>
+                    </div>
+                </div>
+            </form>
         </div>
-    {{/if}}
-    </form><!-- // End form -->
-    </div><!-- // End #container -->
-</div>
+    </div>
 
 {{> footer}}

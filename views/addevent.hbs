@@ -1,53 +1,72 @@
 {{> adminheader}}
 
-        <div class="profile" style="padding-top:97px;">
-                <h3 class="text-center filler-heading">Adding an event</h3>
-                <div id="container">
-                        <div class="text-center">
-                            {{emessage}}
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="banner_content text-center">
+                                <h2>Add Event</h2>
+                            </div>
                         </div>
-                        <form action="/admin/addevent_submit" method="post" id="event_form">
-                            <div class="fin">
-                                
-                                <input  type="text" placeholder="Event name" name="Name" id="name_input" required>
-                            </div>
-                            <div class="fin">
-                                
-                                <input type="text" placeholder="Event Id (Unique)" name="ID" id="ID_input" required>
-                            </div>
-                            <div class="subject">
-                                <label for="subject"></label>
-                                <select placeholder="Event type" name="eventType" id="subject_input" required>
-                                    <option disabled hidden selected>Event type</option>
-                                    <option>Class</option>
-                                    <option>Workshop</option>
-                                    <option>Competition</option>
-                                    <option>Other</option>
-                                </select>
-                                <br><br>
-                            </div>
-                            <div class="fin">
-                                <textarea name="Description" placeholder="Event Description" id="description_input" cols="30" rows="5" required></textarea>                            </div>
-                            <div class="pleft">   
-                                <input  type="text" placeholder="Venue" name="Venue" id="venue_input" required>
-                            </div>
-                            <div class="pright">                          
-                                <input type="text" placeholder="Date" name="Date" id="date_input" required>
-                            </div>
-                            <div class="pleft">   
-                                <input type="text" placeholder="Time" name="Time" id="time_input" required>
-                            </div>
-                            <div class="pright">                           
-                                <input type="text" placeholder="Fee" name="Fee" id="fee_input" required>
-                            </div>
-                            <div class="fin">    
-                                <input type="text" placeholder="Additional links" name="Additional" id="Additional_input" >
-                            </div>
-                            <div style="">
-                                <input type="submit" class="btn btn-lg" value="Add event" id="form_button" />
-                            </div>
-                        </form><!-- // End form -->
-                    </div><!-- // End #container -->
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <div class="container">
+        <div class="col col-sm">
+        <!--Extra space-->
+        </div>
+        <div class="col-lg-9" style="padding: 4%;">
+            <form class="row contact_form" action="/admin/addevent_submit" method="post" id="contactForm">
+                <div class="col-md-3 col-lg-5">
+                <!--Extra Space-->
+                </div>
+                <div class="col-md-6">
+                    {{emessage}}
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name_input" name="Name" placeholder="Event Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="ID_input" name="ID" placeholder="Event ID (Unique)" required>
+                    </div>
+                    <div class="form-group">
+                        <select placeholder="Event type" name="eventType" class="form-control" id="subject_input" required>
+                            <option disabled hidden selected>Event type</option>
+                            <option>Class</option>
+                            <option>Workshop</option>
+                            <option>Competition</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="Description" class="form-control" placeholder="Event Description" id="description_input" cols="30" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="venue_input" name="Venue" placeholder="Venue" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="date_input" name="Date" placeholder="Date" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="time_input" name="Time" placeholder="Time" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="fee_input" name="Fee" placeholder="Fee" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="Additional_input" name="Additional" placeholder="Additional Links" required>
+                    </div>
+                    <p>{{login}}</p>
+                    <div class="col-md-12 text-right">
+                        <button type="submit" value="Add Event"  name="addevent_submit" class="btn primary-btn">Add Event</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 {{> footer}}

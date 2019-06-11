@@ -1,15 +1,38 @@
 {{> adminheader}}
-        <div class="profile" style="padding-top:97px;">
-                <h3 class="text-center filler-heading">Editing an event</h3>
-                <form action="/admin/deleteevent/delete" method="post" id="eventeditsearch_form">
-                    <div class="fin">
-                        Event ID of event you want to delete:
-                        <input  type="text" placeholder="" name="srcheventID" id="name_input" required>
-                        {{emessage}}
-                        <input type="submit" class="btn btn-lg" value="Delete" id="form_button" />
-                    </div>
-                    
-                </form>
-        </div>
 
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="banner_content text-center">
+                                <h2>Remove Event</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="col-lg-9" style="padding: 4%;">
+            <div class="text-center">{{ emessage }}</div>
+            <form class="row contact_form" action="/admin/deleteevent/delete" method="post" id="eventeditsearch_form" style="padding-bottom: 4%;">
+                <div class="col-md-3 col-lg-5">
+                <!--Extra Space-->
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input  type="text" class="form-control" placeholder="Search Event using Event ID to delete" name="srcheventID" id="name_input" required>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button type="submit" id="form_button" value="Delete"  name="search_submit" class="btn primary-btn">Delete</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
 {{> footer}}

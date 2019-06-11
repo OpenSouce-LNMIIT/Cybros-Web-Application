@@ -143,7 +143,7 @@ router.get('/editevent', function(req, res) {
       }
 });
 var holdID;
-router.post('/editevent/search', function(req, res) {
+router.post('/editevent_search', function(req, res) {
     sess = req.session;
     if(sess.admin) {
         Event.find({Event_ID:req.body.srcheventID},function(err,event){

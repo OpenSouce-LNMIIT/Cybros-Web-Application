@@ -1,17 +1,45 @@
 {{> adminheader}}
-        <div style="padding-top:110px;">
-                <h3 class="text-center filler-heading">Administrator's portal</h3>
-                <div class="login-box text-center row">
-                    <form class="text-center"  action="/admin/login" method="post">
-                    <!-- Sign in form  -->    
-                        <h1 style="padding-top:60px;">Log in</h1>
-                        <input style="margin:auto;" type="text" name="username" placeholder="Username" required/>
-                        <input style="margin:auto;" type="password" name="password" placeholder="Password" required/>
-                        <p>{{login}}</p>
-                        <input  type="submit" name="signup_submit" value="Sign in"/>
-                    </form>
-                    
+
+        <section class="banner_area">
+            <div class="banner_inner d-flex align-items-center">
+                <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6">
+                                <div class="banner_content text-center">
+                                    <h2>Administrator's Portal</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="col col-sm">
+            <!--Extra space-->
+            </div>
+            <div class="col-lg-9" style="padding: 4%;">
+                <form class="row contact_form" action="/admin/login" method="post" id="contactForm">
+                    <div class="col-md-3 col-lg-5">
+                    <!--Extra Space-->
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="text-center" style="padding: 1%;">Log in</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                        </div>
+                        <p>{{login}}</p>
+                        <div class="col-md-12 text-right">
+                            <button type="submit" value="Sign in"  name="signup_submit" class="btn primary-btn">Log in</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
         
 
